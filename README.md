@@ -1,1 +1,1 @@
-# FullStack
+# PayMaZone
