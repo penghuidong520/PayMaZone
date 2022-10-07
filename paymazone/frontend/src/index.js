@@ -9,8 +9,8 @@ import csrfFetch, {restoreCSRF} from './store/csrf';
 import * as sessionActions from './store/session';
 
 
-document.getElementById('root')
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const rootElement = document.getElementById('root')
+const root = ReactDOM.createRoot(rootElement);
 
 const store = configureStore();
 
@@ -18,24 +18,24 @@ const store = configureStore();
 window.store = store;
 if (process.env.NODE_ENV !== "production") {
 	window.csrfFetch = csrfFetch;
-	// window.sessionActions = sessionActions;
+	window.sessionActions = sessionActions;
 }
 //
 
-function Root() {
+const Root = () => (
 	<Provider store={store}>
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>
 	</Provider>
-}
+)
 
 const renderApplication = () => {
 	root.render(
 		<React.StrictMode>
 			<Root />
-		</React.StrictMode>,
-		);
+		</React.StrictMode>
+	);
 }
 	
 if (sessionStorage.getItem("X-CSRF-Token") === null) {
