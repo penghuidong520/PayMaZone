@@ -1,12 +1,41 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-document.getElementById('root')
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import configureStore from './store';
+import * as sessionActions from './store/session'
 
+
+document.getElementById('root')
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+
+const store = configureStore();
+
+function Root() {
+	<Provider store={store}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</Provider>
+}
+
+const renderApplication = () => {
+	root.render(
+		<React.StrictMode>
+			<Root />
+		</React.StrictMode>,
+		);
+	}
+	
+	
+	
+	if (
+		sessionStorage.getItem("currentUser") === null ||
+		sessionStorage.getItem("X-CSRF-Token") === null 
+		) {
+			store.dispatch(sessionActions.restoreSession()).then(renderApplication);
+		} else {
+			renderApplication();
+		}
