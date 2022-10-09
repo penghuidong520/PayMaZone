@@ -10,7 +10,6 @@ const App = () => {
 				<Route path="/login">
 					<LoginFormPage />
 				</Route>
-
 			</Switch>
 		</>
 	);
