@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
+import './LoginForm.css'
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const LoginForm = () => {
                     {errors.map(error=> <li key={error}> {error} </li>)}
                 </ul>
 
-                <label>Email: 
+                <label>Email or Username
                     <input type="text" value={credential} onChange={(e=>{setCredential(e.target.value)})} />
                 </label>
                 <br/>
