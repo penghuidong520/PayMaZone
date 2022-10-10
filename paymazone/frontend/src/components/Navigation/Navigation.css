@@ -12,16 +12,21 @@
     text-align: center;
 }
 
-#logo-img {
+#logo-img-home {
     width: 7em;
     height: 2.5em;
 }
 
-.search {
+.search-bar {
     background-color: coral;
-    width: 70vw;
+    width: 70vw;    
     display: flex;
 }
+
+#search-input {
+    flex: 1;
+}
+
 
 .user-session {
     width: 10vw;

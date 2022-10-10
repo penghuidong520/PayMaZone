@@ -52,9 +52,13 @@
     cursor: pointer;
 }
 
+.session-logo {
+    text-align: center;
+}
+
 #logo-img {
-    width: 20vh;
-    height: 20vh;
+    width: 15vw;
+    margin-bottom: 1em;
 }
 
 .session-breaker {

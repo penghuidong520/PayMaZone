@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect, Link } from 'react-router-dom';
-import logo from '../../images/logo_black.png';
+import logo from '../../images/logo_black_cropped.png';
 
 
 
@@ -43,7 +43,7 @@ const LoginForm = () => {
 
     return (
         <div className="session-container" >
-            <Link to="/" >
+            <Link className="session-logo" to="/" >
                 <img id='logo-img' src={logo} alt="logo" />
             </Link>
             <div className="session-form" >
