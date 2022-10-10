@@ -1,0 +1,14 @@
+.session-container {
+    margin: auto;
+    height: 50vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+h1 {
+    text-align: center;
+}

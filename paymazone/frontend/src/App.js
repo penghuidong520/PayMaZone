@@ -1,8 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import LoginFormPage from "./components/LoginFormPage"
+import { LoginPage, SignupPage } from "./components/SessionFormPage"
 import Navigation from "./components/Navigation"
-import SignupForm from './components/SignupFormPage';
 
 const App = () => {
 	return (
@@ -11,11 +10,11 @@ const App = () => {
 			<Navigation />
 			<Switch>
 				<Route path="/login">
-					<LoginFormPage />
+					<LoginPage />
 				</Route>
 
 				<Route path="/signup">
-					<SignupForm />
+					<SignupPage />
 				</Route>
 
 			</Switch>

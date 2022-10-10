@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Redirect } from 'react-router-dom';
-import './LoginForm.css'
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -34,23 +33,20 @@ const LoginForm = () => {
     
 
     return (
-        <div>
-            <h1>Log In</h1>
-            <form onSubmit={(handleSubmit)}>
-                <ul>
-                    {errors.map(error=> <li key={error}> {error} </li>)}
-                </ul>
-
-                <label>Email or Username
+        <div className="session-container" >
+            <div className="session-form" >
+                <h1>Log In</h1>
+                <form onSubmit={(handleSubmit)}>
+                    <ul>
+                        {errors.map(error=> <li key={error}> {error} </li>)}
+                    </ul>
+                    <label>Email:</label>
                     <input type="text" value={credential} onChange={(e=>{setCredential(e.target.value)})} />
-                </label>
-                <br/>
-                <label>Password: 
+                    <label>Password:</label>
                     <input type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
-                </label>
-                <br/>
-                <input type="submit" value="Sign In" />
-            </form>
+                    <input className="session-login-button" type="submit" value="Sign In" />
+                </form>
+            </div>
         </div>
     )
 
