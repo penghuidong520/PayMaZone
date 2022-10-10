@@ -1,14 +1,76 @@
 .session-container {
     margin: auto;
+    margin-top: 2%;
     height: 50vh;
-    border: 1px solid black;
-    border-radius: 5px;
+    /* border: 1px solid black; */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
+.session-form {
+    width: 20%;
+    border: 1px solid #eeeeee;
+    padding: 1%;
+    border-radius: 5px;
+}
 
+.session-form h2 {
+    font-size: 2em;
+    font-weight: 400;
+}
 
-h1 {
-    text-align: center;
+.session-form label {
+    display: flex;
+    margin-top: 5%;
+    font-weight: 600;
+}
+
+.session-form input {
+    width: 100%;
+    margin-top: 5%;
+    border: none;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    padding: 5px 0px 5px 0px;
+    outline: none;
+}
+
+.session-login-button {
+    width: 100%;
+    margin-top: 5%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 0px 5px 0px;
+    outline: none;
+
+    margin-left: 0.5%;
+    border-color: #a88734 #9c7e31 #846a29;
+    background-color: #f0c14b;
+    color: #111;
+    cursor: pointer;
+}
+
+#logo-img {
+    width: 20vh;
+    height: 20vh;
+}
+
+.session-breaker {
+    margin-top: 1em;
+    display: flex;
+}
+
+.sign-in-link {
+    margin-left: 5px;
+}
+
+.session-create-button {
+    margin-top: 5px;
+    width: 20%;
+    font-size: 1em;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import logo from '../../images/logo_black.png';
 
 
 const SignupForm = () => {
@@ -15,6 +16,11 @@ const SignupForm = () => {
     
     if (sessionUser) return <Redirect to="/" />;
     
+    const handleDemoLogin = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}))
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password === rePassword) {
@@ -36,30 +42,32 @@ const SignupForm = () => {
     }
     
     return (
-        <div className="signup-form" >
-            <form onSubmit={(handleSubmit)} >
-                <ul>
-                    {errors.map(error => <li key={error}>{error}</li>)}
-                </ul>
-                <label>Username:
-                    <input type="text" value={username} onChange={(e)=> setUsername(e.target.value)} />
-                </label>
-                <br/>
-                <label>Email:
-                    <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} />
-                </label>
-                <br/>
-                <label>Password: 
-                    <input type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
-                </label>
-                <br/>
-                <label>Re-Enter Password:
-                    <input type="password" value={rePassword} onChange={(e)=> setRePassword(e.target.value)} />
-                </label>
-                <br/>
-                <input type="submit" value="Create Account" />
-            
-            </form>
+        <div className="session-container" >
+            <Link to="/" >
+                <img id='logo-img' src={logo} alt="logo" />
+            </Link>
+            <div className="session-form">
+                <h2>Sign Up</h2>
+                <form onSubmit={(handleSubmit)} >
+                    <ul>
+                        {errors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
+                    <label>Username:</label>
+                        <input type="text" value={username} onChange={(e)=> setUsername(e.target.value)} />
+                    <label>Email:</label>
+                        <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} />
+                    <label>Password: </label>
+                        <input type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
+                    <label>Re-Enter Password:</label>
+                        <input type="password" value={rePassword} onChange={(e)=> setRePassword(e.target.value)} />
+                    <input className="session-login-button" type="submit" value="Create Account" />
+                    <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
+                </form>
+                <div className="session-breaker" >
+                    <h5>Already have an account? ›</h5>
+                    <Link className="sign-in-link" to="/login">Sign in</Link>
+                </div>
+            </div>
         </div>
         )
         

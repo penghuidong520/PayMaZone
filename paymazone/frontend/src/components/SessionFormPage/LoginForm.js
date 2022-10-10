@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+import logo from '../../images/logo_black.png';
+
+
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -11,6 +14,12 @@ const LoginForm = () => {
     const [errors, setErrors] = useState([]);
     
     if (sessionUser) return <Redirect to='/'/>
+
+
+    const handleDemoLogin = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,19 +43,28 @@ const LoginForm = () => {
 
     return (
         <div className="session-container" >
+            <Link to="/" >
+                <img id='logo-img' src={logo} alt="logo" />
+            </Link>
             <div className="session-form" >
-                <h1>Log In</h1>
+                <h2>Sign in</h2>
                 <form onSubmit={(handleSubmit)}>
                     <ul>
                         {errors.map(error=> <li key={error}> {error} </li>)}
                     </ul>
-                    <label>Email:</label>
-                    <input type="text" value={credential} onChange={(e=>{setCredential(e.target.value)})} />
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
+                    <label htmlFor="email">Email:</label>
+                    <input name="email" type="text" value={credential} onChange={(e=>{setCredential(e.target.value)})} />
+                    <label htmlFor="pwd" >Password:</label>
+                    <input name="pwd" type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
                     <input className="session-login-button" type="submit" value="Sign In" />
+                    <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
+
                 </form>
             </div>
+            <div className="session-breaker" >
+                <h5>New to PayMaZone?</h5>
+            </div>
+            <button className="session-create-button" >Create Account</button>
         </div>
     )
 

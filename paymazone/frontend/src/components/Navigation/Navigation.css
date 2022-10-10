@@ -7,19 +7,25 @@
 
 
 .logo {
-    background-color: bisque;
+    background-color: transparent;
     width: 10vw;
-    height: 5vh;
+    text-align: center;
+}
+
+#logo-img {
+    width: 7em;
+    height: 2.5em;
 }
 
 .search {
     background-color: coral;
     width: 70vw;
+    display: flex;
 }
 
 .user-session {
     width: 10vw;
-    background-color: aquamarine;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,6 +43,18 @@
 
 .logins {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1px 10px 2px 10px;
 }
+
+.nav-logout {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* search-bar
+    display: flex;
+    flex: 1;
+*/
