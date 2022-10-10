@@ -1,0 +1,43 @@
+.nav {
+    background-color: #131921;
+    height: 5vh;
+    width: 100vw;
+    display: flex;
+    /* align-items: center; */
+}
+
+
+.logo {
+    background-color: bisque;
+    width: 10vw;
+    height: 5vh;
+}
+
+.search {
+    background-color: coral;
+    width: 70vw;
+}
+
+.user-session {
+    width: 10vw;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#welcome {
+    color: white;
+    text-align: center;
+}
+
+.create-session {
+    color: white;
+}
+
+.logins {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 10px 2px 10px;
+}

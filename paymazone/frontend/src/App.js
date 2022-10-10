@@ -6,8 +6,8 @@ import SignupForm from './components/SignupFormPage';
 
 const App = () => {
 	return (
-		<>
-			<h1>Hello from App</h1>
+		<div className="app-container">
+			{/* <h1>Hello from App</h1> */}
 			<Navigation />
 			<Switch>
 				<Route path="/login">
@@ -19,7 +19,7 @@ const App = () => {
 				</Route>
 
 			</Switch>
-		</>
+		</div>
 	);
 }
 	
