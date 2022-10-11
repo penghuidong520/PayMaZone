@@ -57,7 +57,7 @@ const SignupForm = () => {
                     <label>Email:</label>
                         <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} />
                     <label>Password: </label>
-                        <input type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
+                        <input id="pwd-min" type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
                     <label>Re-Enter Password:</label>
                         <input type="password" value={rePassword} onChange={(e)=> setRePassword(e.target.value)} />
                     <input className="session-login-button" type="submit" value="Create Account" />
