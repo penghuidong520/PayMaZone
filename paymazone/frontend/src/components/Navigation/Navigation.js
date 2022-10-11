@@ -22,9 +22,21 @@ const Navigation = () => {
 
             <div className="search-bar" >
                 <form className="search-bar-form">
+                    <div id="search-dropdown" >
+                        <span id="search-dropdown-span" >
+                            All
+                        </span>
+                        <div id="search-dropdown-content" >
+                            <ul>
+                                <li>PlaceHolding</li>
+                                <li>PlaceHolding</li>
+                                <li>PlaceHolding</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <input id="search-input" className="search-bar-component" type="text" name="search" />
+                    <input id="search-submit" type="submit" value="" />
 
-                    <input id="search-input" className="search-bar-comp" type="text" placeholder="Search.." name="search" />
-                    <button id="search-button" className="search-bar-comp" type="submit"><i id="temp"></i></button>
                 </form>
             </div>
 
@@ -35,7 +47,6 @@ const Navigation = () => {
                         { !sessionUser && <NavLink className="create-session" to="/signup" >Sign Up</NavLink>}
                         { !sessionUser && <NavLink className="create-session" to="/login">Log In</NavLink> }
                         {sessionUser && <button className="nav-logout" type="url" onClick={(logoutClick)}>Log Out</button>}
-
                     </div>
                 </div>
             </div>

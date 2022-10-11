@@ -49,6 +49,7 @@ const LoginForm = () => {
             <div className="session-form" >
                 <h2>Sign in</h2>
                 <form onSubmit={(handleSubmit)}>
+                    {console.log(errors)}
                     <ul>
                         {errors.map(error=> <li key={error}> {error} </li>)}
                     </ul>
