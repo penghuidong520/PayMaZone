@@ -37,6 +37,16 @@
     outline: none;
 }
 
+.session-form input:focus {
+
+    box-shadow: 0 0 5px #e57705;
+    /* box-shadow: 0 0 5px rgba(81, 203, 238, 1); */
+
+
+    /* border: 1px solid rgba(81, 203, 238, 1); */
+    /* background: black; */
+}
+
 .session-login-button {
     width: 100%;
     margin-top: 5%;
@@ -47,9 +57,14 @@
 
     margin-left: 0.5%;
     border-color: #a88734 #9c7e31 #846a29;
-    background-color: #f0c14b;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    background-image: linear-gradient(#f6d891, #f2ca66);
     color: #111;
     cursor: pointer;
+}
+
+.session-login-button:hover {
+    background: rgb(247, 199, 77);
 }
 
 .session-logo {
@@ -66,21 +81,54 @@
     display: flex;
 }
 
+.session-breaker h5 {
+    font-size: 13px;
+}
+
 .sign-in-link {
     margin-left: 5px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.sign-in-link:hover {
+    color: darkgoldenrod;
 }
 
 .session-new-account {
-    background-color: aqua;
-    border-top: 1px solid black;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
+    width: 20%;
+    /* background-color: aqua; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e7e7e7;
+}
+
+.session-new-account h5 {
+    margin-top:-2.5%;
+    color: #767676;
+    font-size: 12px;
+    padding: 0px 5%;
+    background: white;
 }
 
 .session-create-button {
-    margin-top: 5px;
     width: 20%;
-    font-size: 1em;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border: 1px solid gray;
     border-radius: 5px;
     cursor: pointer;
+
+    border:none;
+    border-color: #a88734 #9c7e31 #846a29;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    background-image: linear-gradient(#f6d891, #f2ca66);
+}
+
+.session-create-button:hover {
+    background: rgb(247, 199, 77);
 }
 

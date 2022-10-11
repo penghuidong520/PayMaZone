@@ -21,8 +21,11 @@ const Navigation = () => {
             </div>
 
             <div className="search-bar" >
+                <form className="search-bar-form">
+
                     <input id="search-input" className="search-bar-comp" type="text" placeholder="Search.." name="search" />
                     <button id="search-button" className="search-bar-comp" type="submit"><i id="temp"></i></button>
+                </form>
             </div>
 
             <div className="user-nav" >
