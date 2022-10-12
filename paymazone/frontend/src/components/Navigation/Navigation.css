@@ -131,21 +131,23 @@
     font-size: 11px;
 }
 
+.logins {
+    display: flex;
+    align-content: space-between;
+}
+
 .create-session {
     color: white;
     text-decoration: none;
     font-weight: 550;
     font-size: 13px;
+    margin: 0 4px 0 4px;
 }
 
 .create-session:hover {
     color: gold;
 }
 
-.logins {
-    display: flex;
-    justify-content: space-around;
-}
 
 .nav-logout {
     background-color: transparent;
@@ -160,6 +162,7 @@
     width: 30%;
     min-width: 60px;
     margin: 2px;
+    /* Align to left for returns  &orders text */
 }
 
 .nav-user-orders:hover {

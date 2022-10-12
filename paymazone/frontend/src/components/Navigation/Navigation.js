@@ -46,8 +46,8 @@ const Navigation = () => {
                 <div className="user-session nav-container" >
                     <span id="welcome" >Hello {userName}</span>
                     <div className="logins" >
-                        { !sessionUser && <NavLink className="create-session" to="/signup" >Sign Up</NavLink>}
-                        { !sessionUser && <NavLink className="create-session" to="/login">Log In</NavLink> }
+                        { !sessionUser && <NavLink className="create-session" to="/signup" >SignUp</NavLink>}
+                        { !sessionUser && <NavLink className="create-session" to="/login">LogIn</NavLink> }
                         {sessionUser && <button className="nav-logout" type="url" onClick={(logoutClick)}>Log Out</button>}
                     </div>
                 </div>
