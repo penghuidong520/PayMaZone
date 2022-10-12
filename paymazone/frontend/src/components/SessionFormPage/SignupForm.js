@@ -32,7 +32,7 @@ const SignupForm = () => {
     
     const handleDemoLogin = (e) => {
         e.preventDefault();
-        dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}))
+        dispatch(sessionActions.login({credential: 'demo@aa.io', password: 'password'}))
     }
 
     const handleInput = (e) => {

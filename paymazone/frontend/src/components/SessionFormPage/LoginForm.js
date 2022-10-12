@@ -24,7 +24,7 @@ const LoginForm = () => {
 
     const handleDemoLogin = (e) => {
         e.preventDefault();
-        return dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}));
+        return dispatch(sessionActions.login({credential: 'demo@aa.io', password: 'password'}));
     }
     
     const handleInput = (e) => {
