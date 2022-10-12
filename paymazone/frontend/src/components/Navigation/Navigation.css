@@ -1,7 +1,7 @@
 .nav {
     background-color: #131921;
     height: 60px;
-    width: 100vw;
+    /* width: 100%; */
     display: flex;
     align-items: center;
 }
@@ -10,6 +10,7 @@
 .logo {
     background-color: transparent;
     width: 10vw;
+    min-width: 100px;
     text-align: center;
     position: static;
 }
@@ -22,6 +23,7 @@
 .search-bar {
     background-color: transparent;
     width: 70vw;    
+    min-width: 300px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -43,18 +45,18 @@
     position: relative;
     border-right: 1px solid #cdcdcd;
     border-radius: 5px 0px 0px 5px;
-    width: 5%;
+    width: 50px;
     background-color: #f3f3f3;
-    height:100%;
+    height: 40px;
     cursor: pointer;
 }
 
-#search-dropdown:hover, #search-dropdown:focus{
+#search-dropdown:hover{
     background-color: #dadada;
 }
 
 #search-dropdown-span {
-    font-family: inherit;
+    /* font-family: inherit; */
     font-size: 12px;
 }
 
@@ -63,17 +65,18 @@
 }
 
 #search-input {
+    min-width: 200px;
     width: 80%;
-    height: 100%;
+    height: 40px;
     border: none;
 }
 
 #search-submit {
     margin-right: 5px;
-    height: 100%;
+    height: 40px;
     color: rgb(49, 49, 49);
     background-color: #febd69;
-    width: 5%;
+    width: 50px;
     border-radius: 0 5px 5px 0;
     border: none;  
     cursor: pointer;
@@ -87,6 +90,7 @@
 
 .user-nav {
     width: 20vw;
+    min-width: 200px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -94,29 +98,37 @@
 
 .user-session {
     width: 40%;
-    height: 80%;
+    min-width: 100px;
+    height: 50px;
     font-size: 14px;
     background-color: transparent;
+    border: 1px solid transparent;
+    
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
-    /* align-content: center; */
+    align-items: center;
+
     
 }
 
 .user-session:hover {
     border: 1px solid white;
+    border-radius: 3px;
+
 }
 
 #welcome {
     color: white;
     text-align: center;
+    font-size: 11px;
 }
 
 .create-session {
     color: white;
     text-decoration: none;
+    font-weight: 550;
+    font-size: 13px;
 }
 
 .create-session:hover {
@@ -135,7 +147,31 @@
     cursor: pointer;
 }
 
-/* search-bar
+.nav-user-orders {
+    color: white;
     display: flex;
-    flex: 1;
-*/
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    width: 30%;
+    min-width: 60px;
+    height: 50px;
+    margin: 2px;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.nav-user-orders:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+#nav-returns {
+    font-size: 11px;
+}
+
+#nav-orders {
+    font-size: 14px;
+    font-weight: 550;
+}

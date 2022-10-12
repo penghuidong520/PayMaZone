@@ -26,16 +26,18 @@ const Navigation = () => {
                         <span id="search-dropdown-span" >
                             All
                         </span>
-                        <div id="search-dropdown-content" >
+                        {/* <div id="search-dropdown-content" >
                             <ul>
                                 <li>PlaceHolding</li>
                                 <li>PlaceHolding</li>
                                 <li>PlaceHolding</li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                     <input id="search-input" className="search-bar-component" type="text" name="search" />
-                    <input id="search-submit" type="submit" value="" />
+                    <button id="search-submit" type="submit" value=""> 
+                    {/* <i className="fa-solid fa-magnifying-glass"></i> */}
+                    </button>
 
                 </form>
             </div>
@@ -48,6 +50,15 @@ const Navigation = () => {
                         { !sessionUser && <NavLink className="create-session" to="/login">Log In</NavLink> }
                         {sessionUser && <button className="nav-logout" type="url" onClick={(logoutClick)}>Log Out</button>}
                     </div>
+                </div>
+
+                <Link className="nav-user-orders" to="#">
+                        <span id="nav-returns" >Returns</span>
+                        <span id="nav-orders" > {'&'} Orders </span>
+                </Link>
+
+                <div className="nav-user-cart">
+
                 </div>
             </div>
         </div>
