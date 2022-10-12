@@ -8,6 +8,7 @@ const App = () => {
 		<div className="app-container">
 			{/* <h1>Hello from App</h1> */}
 			<Navigation />
+			
 			<Switch>
 				<Route path="/login">
 					<LoginPage />

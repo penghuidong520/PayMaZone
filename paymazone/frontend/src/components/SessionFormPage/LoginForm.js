@@ -92,7 +92,7 @@ const LoginForm = () => {
             <div className="session-new-account" >
                 <h5>New to PayMaZone?</h5>
             </div>
-            <button className="session-create-button" >Create Account</button>
+            <button className="session-create-button" ><Link className="session-create-link" to="/signup" >Create Account</Link></button>
         </div>
     )
 
