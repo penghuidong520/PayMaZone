@@ -6,8 +6,23 @@
     align-items: center;
 }
 
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid transparent;
+    height: 50px;
+}
+
+.nav-container:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
 
 .logo {
+    margin-left: 10px;
     background-color: transparent;
     width: 10vw;
     min-width: 100px;
@@ -99,16 +114,8 @@
 .user-session {
     width: 40%;
     min-width: 100px;
-    height: 50px;
     font-size: 14px;
     background-color: transparent;
-    border: 1px solid transparent;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     
 }
 
@@ -149,17 +156,10 @@
 
 .nav-user-orders {
     color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
+    text-decoration: none;
     width: 30%;
     min-width: 60px;
-    height: 50px;
     margin: 2px;
-    border: 1px solid transparent;
-    text-decoration: none;
 }
 
 .nav-user-orders:hover {

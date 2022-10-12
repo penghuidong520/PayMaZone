@@ -14,7 +14,7 @@ const Navigation = () => {
 
     return (
         <div className="nav">
-            <div className="logo" >
+            <div className="logo nav-container" >
                 <Link id="logo-link" to='/' >
                     <img id='logo-img-home' src={logo} alt="logo" />
                 </Link>
@@ -43,7 +43,7 @@ const Navigation = () => {
             </div>
 
             <div className="user-nav" >
-                <div className="user-session" >
+                <div className="user-session nav-container" >
                     <span id="welcome" >Hello {userName}</span>
                     <div className="logins" >
                         { !sessionUser && <NavLink className="create-session" to="/signup" >Sign Up</NavLink>}
@@ -52,7 +52,7 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <Link className="nav-user-orders" to="#">
+                <Link className="nav-user-orders nav-container" to="#">
                         <span id="nav-returns" >Returns</span>
                         <span id="nav-orders" > {'&'} Orders </span>
                 </Link>
