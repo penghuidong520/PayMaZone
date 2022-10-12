@@ -5,24 +5,41 @@ import { Redirect, Link } from 'react-router-dom';
 import logo from '../../images/logo_black_cropped.png';
 
 
-
 const LoginForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
-    
+    const [credHasError, setCredHasError] = useState(false);
+    const [pwdHasError, setPwdHasError] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const inputClass = 'session-input';
+    const invalidInput = 'session-input session-errors';
     if (sessionUser) return <Redirect to='/'/>
-
 
     const handleDemoLogin = (e) => {
         e.preventDefault();
-        dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}))
+        return dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}));
+    }
+    
+    const handleInput = (e) => {
+        if (e.target.name === 'email') {
+            setCredential(e.target.value);
+            setCredHasError(false);
+        }
+        if (e.target.name === 'pwd') {
+            setPassword(e.target.value);
+            setPwdHasError(false);
+        }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setShowError(false);
+        if (credential.length < 1) setCredHasError(true);
+        if (password.length < 1) setPwdHasError(true);
+        
         setErrors([]);
         return dispatch(sessionActions.login({credential, password}))
         .catch(async (res) => {
@@ -33,30 +50,40 @@ const LoginForm = () => {
             } catch {
                 data = await res.text(); // Will hit this case if, e.g., server is down
             }
+            // console.log(data);
             if (data?.errors) setErrors(data.errors);
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
+            if (!credHasError && !pwdHasError && errors.length > 0) {
+                setShowError(true);
+            }
         });
     }
-
-    
 
     return (
         <div className="session-container" >
             <Link className="session-logo" to="/" >
                 <img id='logo-img' src={logo} alt="logo" />
             </Link>
+            {showError && <div className="session-form-error" >
+                <ul>
+                    <h4 className="session-alert" >There was a problem</h4>
+                    {errors.map(error=> <li className="session-alert-error" key={error}> {error} </li>)}
+                </ul>
+            </div>}
             <div className="session-form" >
                 <h2>Sign in</h2>
                 <form onSubmit={(handleSubmit)}>
-                    {console.log(errors)}
-                    <ul>
-                        {errors.map(error=> <li key={error}> {error} </li>)}
-                    </ul>
                     <label htmlFor="email">Email:</label>
-                    <input name="email" type="text" value={credential} onChange={(e=>{setCredential(e.target.value)})} />
+                    {!credHasError && <input name="email" className={inputClass} type="text" value={credential} onChange={handleInput} />}
+                    {credHasError && <input name="email" className={invalidInput} type="text" value={credential} onChange={handleInput} />}
+                    {credHasError && <span className="session-input-error" >Enter your email or username</span>}
+
                     <label htmlFor="pwd" >Password:</label>
-                    <input name="pwd" type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
+                    {!pwdHasError && <input name="pwd" className={inputClass} type="password" value={password} onChange={handleInput} />}
+                    {pwdHasError && <input name="pwd" className={invalidInput} type="password" value={password} onChange={handleInput} />}
+                    {pwdHasError && <span className="session-input-error" >Enter your password</span>}
+
                     <input className="session-login-button" type="submit" value="Sign In" />
                     <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
 

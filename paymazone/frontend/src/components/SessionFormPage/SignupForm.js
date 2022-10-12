@@ -9,10 +9,18 @@ const SignupForm = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
     const [username, setUsername] = useState('');
+    const [usernameError, setUserNameError] = useState(false);
     const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState(false);
     const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState(false);
     const [rePassword, setRePassword] = useState('');
+    const [rePasswordError, setRePasswordError] = useState(false)
     const [errors, setErrors] = useState([])
+    const inputClass = 'session-input';
+    const invalidInput = 'session-input session-errors';
+    const [rePasswordMessage, setRePasswordMessage] = useState('Type your password again');
+    const [showError, setShowError] = useState(false);
     
     if (sessionUser) return <Redirect to="/" />;
     
@@ -21,8 +29,40 @@ const SignupForm = () => {
         dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}))
     }
 
+    const handleInput = (e) => {
+        if (e.target.name === 'username') {
+            setUsername(e.target.value);
+            setUserNameError(false);
+        }
+        if (e.target.name === 'email') {
+            setEmail(e.target.value);
+            setEmailError(false);
+        }
+        if (e.target.name === 'password') {
+            setPassword(e.target.value);
+            setPasswordError(false);
+        }
+        if (e.target.name === 'rePassword') {
+            setRePassword(e.target.value);
+            setRePasswordError(false);
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        setShowError(false)
+        if (username.length < 1) setUserNameError(true);
+        if (email.length < 1) setEmailError(true);
+        if (password.length < 6) setPasswordError(true);
+        if (rePassword.length < 1) setRePasswordError(true);
+        if (rePassword !== password) {
+            setPasswordError(true);
+            setRePasswordError(true);
+            setRePasswordMessage('Passwords must match');
+        } else {
+            setRePasswordMessage('Type your password again')
+        }
+
         if (password === rePassword) {
             return dispatch(sessionActions.signup({ email, username, password }))
             .catch(async (res) => {
@@ -36,9 +76,12 @@ const SignupForm = () => {
                 if (data?.errors) setErrors(data.errors);
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
+                if (!usernameError && !passwordError && !emailError && !rePasswordError && errors.length > 0) {
+                    setShowError(true);
+                }      
             });
         }
-        return setErrors(['Password and Re-Enter Password must be the same']);        
+        // return setErrors(['Password and Re-Enter Password must be the same']);  
     }
     
     return (
@@ -46,20 +89,34 @@ const SignupForm = () => {
             <Link to="/" >
                 <img id='logo-img' src={logo} alt="logo" />
             </Link>
+
+            {showError && <div className="session-form-error" >
+                <ul>
+                    <h4 className="session-alert" >There was a problem</h4>
+                    {errors.map(error=> <li className="session-alert-error" key={error}> {error} </li>)}
+                </ul>
+            </div>}
+
             <div className="session-form">
                 <h2>Sign Up</h2>
                 <form onSubmit={(handleSubmit)} >
-                    <ul>
-                        {errors.map(error => <li key={error}>{error}</li>)}
-                    </ul>
                     <label>Username:</label>
-                        <input type="text" value={username} onChange={(e)=> setUsername(e.target.value)} />
+                        {!usernameError && <input name="username" className={inputClass} type="text" value={username} onChange={handleInput} />}
+                        {usernameError && <input name="username" className={invalidInput} type="text" value={username} onChange={handleInput} />}
+                        {usernameError && <span className="session-input-error">Enter your username</span>}
                     <label>Email:</label>
-                        <input type="text" value={email} onChange={(e)=> setEmail(e.target.value)} />
+                        {!emailError && <input name="email" className={inputClass} type="text" value={email} onChange={handleInput} />}
+                        {emailError && <input name="email" className={invalidInput} type="text" value={email} onChange={handleInput} />}
+                        {emailError && <span className="session-input-error">Enter your email</span>}
                     <label>Password: </label>
-                        <input id="pwd-min" type="password" value={password} onChange={(e=>{setPassword(e.target.value)})} />
+                        {!passwordError && <input name="password" id="pwd-min" className={inputClass} type="password" value={password} onChange={handleInput} placeholder="At least 6 characters" />}
+                        {passwordError && <input name="password" id="pwd-min" className={invalidInput} type="password" value={password} onChange={handleInput} />}
+                        {passwordError && <span className="session-input-error">Enter your password</span>}
                     <label>Re-Enter Password:</label>
-                        <input type="password" value={rePassword} onChange={(e)=> setRePassword(e.target.value)} />
+                        {!rePasswordError && <input name="rePassword" className={inputClass} type="password" value={rePassword} onChange={handleInput} />}
+                        {rePasswordError && <input name="rePassword" className={invalidInput} type="password" value={rePassword} onChange={handleInput} />}
+                        {rePasswordError && <span className="session-input-error">{rePasswordMessage}</span>}
+
                     <input className="session-login-button" type="submit" value="Create Account" />
                     <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
                 </form>

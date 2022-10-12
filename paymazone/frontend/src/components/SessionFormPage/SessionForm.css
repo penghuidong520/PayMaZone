@@ -9,8 +9,36 @@
     align-items: center;
 }
 
+.session-form-error {
+    width: 350px;
+    border: 1px solid #d00;
+    border-radius: 5px;
+    box-shadow: 0 0 0 3px rgba(221, 0, 0, 0.338) inset;
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.session-alert {
+    color: #c40000;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    display: block;
+    font-size: 1em;
+    margin-top: 1.33em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 530;
+}
+
+.session-alert-error {
+    font-family: "Amazon Ember",Arial,sans-serif;
+
+    margin-bottom: 1.33em;
+    font-size: 13px;
+}
+
 .session-form {
-    width: 20%;
+    width: 350px;
     border: 1px solid #eeeeee;
     padding: 1%;
     border-radius: 5px;
@@ -27,24 +55,31 @@
     font-weight: 600;
 }
 
-.session-form input {
+.session-input {
     width: 100%;
-    margin-top: 5%;
-    border: none;
+    /* margin-top: 5%; */
     border: 1px solid #d2d2d2;
     border-radius: 5px;
     padding: 5px 0px 5px 0px;
     outline: none;
 }
 
-.session-form input:focus {
-
+.session-input:focus {
     box-shadow: 0 0 5px #e57705;
-    /* box-shadow: 0 0 5px rgba(81, 203, 238, 1); */
+}
 
+.session-errors {
+    background-color: white;
+    border: 1px solid #d00;
+    box-shadow: 0 0 0 3px rgba(221, 0, 0, 0.338) inset;
+}
 
-    /* border: 1px solid rgba(81, 203, 238, 1); */
-    /* background: black; */
+.session-input-error {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 12px;
+    line-height: 15px;
+    color: #cf3832;
 }
 
 .session-login-button {
@@ -72,8 +107,9 @@
 }
 
 #logo-img {
-    width: 15vw;
-    margin-bottom: 1em;
+    width: 140px;
+    height: 50px;
+    margin-bottom: 5px;
 }
 
 .session-breaker {
@@ -98,7 +134,7 @@
 .session-new-account {
     margin-top: 1.5%;
     margin-bottom: 1%;
-    width: 20%;
+    width: 25%;
     /* background-color: aqua; */
     text-align: center;
     display: flex;
@@ -115,15 +151,13 @@
 }
 
 .session-create-button {
-    width: 20%;
+    width: 25%;
     padding-top: 5px;
     padding-bottom: 5px;
     border: 1px solid gray;
     border-radius: 5px;
     cursor: pointer;
 
-    border:none;
-    /* border-color: #a88734 #9c7e31 #846a29; */
     border: 1px solid #ddd;
     background-image: linear-gradient(#f7f8fa, #e7e9ec);
     background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
