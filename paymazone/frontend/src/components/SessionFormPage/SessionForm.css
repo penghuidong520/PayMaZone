@@ -9,7 +9,6 @@
 
 .session-form-error {
     width: 350px;
-    height: 300px;
     border: 1px solid #d00;
     border-radius: 5px;
     box-shadow: 0 0 0 3px rgba(221, 0, 0, 0.338) inset;
@@ -19,7 +18,6 @@
 
 .session-alert {
     color: #c40000;
-    /* font-family: "Amazon Ember",Arial,sans-serif; */
     display: block;
     font-size: 1em;
     margin-top: 1.33em;
@@ -30,8 +28,6 @@
 }
 
 .session-alert-error {
-    /* font-family: "Amazon Ember",Arial,sans-serif; */
-
     margin-bottom: 1.33em;
     font-size: 12px;
 }

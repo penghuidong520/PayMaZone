@@ -4,6 +4,7 @@ const SessionFooter = () => {
 
     return (
         <div className="session-footer-container">
+            <div className="session-footer-divider" />
             <div className="footer-links-box">
                 <Link className="footer-links" to="#">Condition of my Github</Link>
                 <span className="footer-links-separator"/>
