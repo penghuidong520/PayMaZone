@@ -18,6 +18,10 @@ const LoginForm = () => {
     const invalidInput = 'session-input session-errors';
     if (sessionUser) return <Redirect to='/'/>
 
+    // Links for notice
+    const noteLinkGit = <Link className="footer-links" to="#" >Github</Link>
+    const noteLinkLinkedIn = <Link className="footer-links" to="#">Personal LinkedIn</Link>
+
     const handleDemoLogin = (e) => {
         e.preventDefault();
         return dispatch(sessionActions.login({credential: 'payton@aa.io', password: 'password1'}));
@@ -75,18 +79,21 @@ const LoginForm = () => {
                 <h2>Sign in</h2>
                 <form onSubmit={(handleSubmit)}>
                     <label htmlFor="email">Email:</label>
-                    {!credHasError && <input name="email" className={inputClass} type="text" value={credential} onChange={handleInput} />}
-                    {credHasError && <input name="email" className={invalidInput} type="text" value={credential} onChange={handleInput} />}
+                    {!credHasError && <input name="email" className={inputClass} type="text" value={credential} onChange={handleInput} autoFocus />}
+                    {credHasError && <input name="email" className={invalidInput} type="text" value={credential} onChange={handleInput} autoFocus />}
                     {credHasError && <span className="session-input-error" >Enter your email or username</span>}
 
                     <label htmlFor="pwd" >Password:</label>
                     {!pwdHasError && <input name="pwd" className={inputClass} type="password" value={password} onChange={handleInput} />}
-                    {pwdHasError && <input name="pwd" className={invalidInput} type="password" value={password} onChange={handleInput} />}
+                    {pwdHasError && <input name="pwd" className={invalidInput} type="password" value={password} onChange={handleInput} autoFocus />}
                     {pwdHasError && <span className="session-input-error" >Enter your password</span>}
 
                     <input className="session-login-button" type="submit" value="Sign In" />
                     <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
 
+                    <p className='session-form-note' >
+                        By continuing, you should agree to Paymazone's {noteLinkGit} and {noteLinkLinkedIn}
+                    </p>
                 </form>
             </div>
             <div className="session-new-account" >

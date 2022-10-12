@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import { LoginPage, SignupPage } from "./components/SessionFormPage"
+import { LoginPage, SessionPageFooter, SignupPage } from "./components/SessionFormPage"
 import Navigation from "./components/Navigation"
 
 const App = () => {
@@ -12,10 +12,12 @@ const App = () => {
 			<Switch>
 				<Route path="/login">
 					<LoginPage />
+					<SessionPageFooter />
 				</Route>
 
 				<Route path="/signup">
 					<SignupPage />
+					<SessionPageFooter />
 				</Route>
 
 			</Switch>

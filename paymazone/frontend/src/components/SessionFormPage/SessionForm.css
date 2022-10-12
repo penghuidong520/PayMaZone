@@ -1,16 +1,15 @@
 .session-container {
     margin: auto;
     margin-top: 2%;
-    height: 50vh;
-    /* border: 1px solid black; */
+    /* height: 55vh; */
     display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
 }
 
 .session-form-error {
     width: 350px;
+    height: 300px;
     border: 1px solid #d00;
     border-radius: 5px;
     box-shadow: 0 0 0 3px rgba(221, 0, 0, 0.338) inset;
@@ -34,33 +33,34 @@
     /* font-family: "Amazon Ember",Arial,sans-serif; */
 
     margin-bottom: 1.33em;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .session-form {
-    width: 350px;
+    width: 300px;
     border: 1px solid #eeeeee;
-    padding: 1%;
+    padding: 20px 25px 20px 25px;
     border-radius: 5px;
 }
 
 .session-form h2 {
-    font-size: 2em;
+    font-size: 25px;
     font-weight: 400;
 }
 
 .session-form label {
+    font-size: 13px;
     display: flex;
     margin-top: 5%;
     font-weight: 600;
 }
 
 .session-input {
-    width: 100%;
+    width: 295px;
     margin-top: 5px;
     border: 1px solid #d2d2d2;
     border-radius: 5px;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0px 5px 5px;
     outline: none;
 }
 
@@ -85,7 +85,7 @@
 .session-login-button {
     width: 100%;
     margin-top: 5%;
-    border: none;
+    border: 1px solid #e7e7e7;
     border-radius: 5px;
     padding: 5px 0px 5px 0px;
     outline: none;
@@ -132,9 +132,9 @@
 }
 
 .session-new-account {
-    margin-top: 1.5%;
-    margin-bottom: 1%;
-    width: 25%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 300px;
     /* background-color: aqua; */
     text-align: center;
     display: flex;
@@ -151,10 +151,10 @@
 }
 
 .session-create-button {
-    width: 25%;
+    width: 300px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border: 1px solid gray;
+    border: 1px solid e7e7e7;
     border-radius: 5px;
     cursor: pointer;
 
@@ -170,4 +170,10 @@
 .session-create-link {
     text-decoration: none;
     color: inherit;
+}
+
+.session-form-note {
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 16px;
 }

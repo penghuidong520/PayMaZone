@@ -22,6 +22,12 @@ const SignupForm = () => {
     const [rePasswordMessage, setRePasswordMessage] = useState('Type your password again');
     const [showError, setShowError] = useState(false);
     
+    // Links for notice
+    const noteLinkGit = <Link className="footer-links" to="#" >Github</Link>
+    const noteLinkLinkedIn = <Link className="footer-links" to="#">Personal LinkedIn</Link>
+
+
+
     if (sessionUser) return <Redirect to="/" />;
     
     const handleDemoLogin = (e) => {
@@ -101,24 +107,29 @@ const SignupForm = () => {
                 <h2>Sign Up</h2>
                 <form onSubmit={(handleSubmit)} >
                     <label>Username:</label>
-                        {!usernameError && <input name="username" className={inputClass} type="text" value={username} onChange={handleInput} />}
-                        {usernameError && <input name="username" className={invalidInput} type="text" value={username} onChange={handleInput} />}
+                        {!usernameError && <input name="username" className={inputClass} type="text" value={username} onChange={handleInput} autoFocus />}
+                        {usernameError && <input name="username" className={invalidInput} type="text" value={username} onChange={handleInput} autoFocus />}
                         {usernameError && <span className="session-input-error">Enter your username</span>}
                     <label>Email:</label>
                         {!emailError && <input name="email" className={inputClass} type="text" value={email} onChange={handleInput} />}
-                        {emailError && <input name="email" className={invalidInput} type="text" value={email} onChange={handleInput} />}
+                        {emailError && <input name="email" className={invalidInput} type="text" value={email} onChange={handleInput} autoFocus />}
                         {emailError && <span className="session-input-error">Enter your email</span>}
                     <label>Password: </label>
                         {!passwordError && <input name="password" id="pwd-min" className={inputClass} type="password" value={password} onChange={handleInput} placeholder="At least 6 characters" />}
-                        {passwordError && <input name="password" id="pwd-min" className={invalidInput} type="password" value={password} onChange={handleInput} />}
+                        {passwordError && <input name="password" id="pwd-min" className={invalidInput} type="password" value={password} onChange={handleInput} autoFocus />}
                         {passwordError && <span className="session-input-error">Enter your password</span>}
                     <label>Re-Enter Password:</label>
                         {!rePasswordError && <input name="rePassword" className={inputClass} type="password" value={rePassword} onChange={handleInput} />}
-                        {rePasswordError && <input name="rePassword" className={invalidInput} type="password" value={rePassword} onChange={handleInput} />}
+                        {rePasswordError && <input name="rePassword" className={invalidInput} type="password" value={rePassword} onChange={handleInput} autoFocus />}
                         {rePasswordError && <span className="session-input-error">{rePasswordMessage}</span>}
 
                     <input className="session-login-button" type="submit" value="Create Account" />
                     <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
+
+                    <p className='session-form-note' >
+                        By continuing, you should agree to Paymazone's {noteLinkGit} and {noteLinkLinkedIn}
+                    </p>
+
                 </form>
                 <div className="session-breaker" >
                     <h5>Already have an account? ›</h5>
