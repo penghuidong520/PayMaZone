@@ -36,7 +36,7 @@ const Navigation = () => {
                     </div>
                     <input id="search-input" className="search-bar-component" type="text" name="search" />
                     <button id="search-submit" type="submit" value=""> 
-                    {/* <i className="fa-solid fa-magnifying-glass"></i> */}
+                    <i className="fa-solid fa-magnifying-glass fa-xl"></i>
                     </button>
 
                 </form>
