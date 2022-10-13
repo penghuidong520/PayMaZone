@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import logo from '../../images/logo_black_cropped.png';
+import { noteLinkGit, noteLinkLinkedIn } from './SessionFooter';
 
 
 const SignupForm = () => {
@@ -21,12 +22,6 @@ const SignupForm = () => {
     const invalidInput = 'session-input session-errors';
     const [rePasswordMessage, setRePasswordMessage] = useState('Type your password again');
     const [showError, setShowError] = useState(false);
-    
-    // Links for notice
-    const noteLinkGit = <Link className="footer-links" to="#" >Github</Link>
-    const noteLinkLinkedIn = <Link className="footer-links" to="#">Personal LinkedIn</Link>
-
-
 
     if (sessionUser) return <Redirect to="/" />;
     
@@ -127,7 +122,7 @@ const SignupForm = () => {
                     <button className="session-login-button" onClick={(handleDemoLogin)} >Demo Login</button>
 
                     <p className='session-form-note' >
-                        By continuing, you should agree to Paymazone's {noteLinkGit} and {noteLinkLinkedIn}
+                        By continuing, you should agree to PayMaZone's {noteLinkGit} and {noteLinkLinkedIn}
                     </p>
 
                 </form>

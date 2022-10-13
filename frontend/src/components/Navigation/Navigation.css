@@ -27,7 +27,7 @@
     width: 10vw;
     min-width: 100px;
     text-align: center;
-    position: static;
+    /* position: static; */
 }
 
 #logo-img-home {
@@ -158,8 +158,13 @@
 
 
 .nav-logout {
+    margin: 0;
+    padding: 0;
     background-color: transparent;
     border: none;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 550;
     color: white;
     cursor: pointer;
 }
