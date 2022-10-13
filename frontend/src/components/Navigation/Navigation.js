@@ -44,17 +44,21 @@ const Navigation = () => {
 
             <div className="user-nav" >
                 <div className="user-session nav-container" >
-                    <span id="welcome" >Hello {userName}</span>
-                    <div className="logins" >
-                        { !sessionUser && <NavLink className="create-session" to="/signup" >SignUp</NavLink>}
-                        { !sessionUser && <NavLink className="create-session" to="/login">LogIn</NavLink> }
-                        {sessionUser && <button className="nav-logout" type="url" onClick={(logoutClick)}>Log Out</button>}
+                    <div className="user-nav-container" >
+                        <span id="welcome" >Hello {userName}</span>
+                        <div className="logins" >
+                            { !sessionUser && <NavLink className="create-session" to="/signup" >SignUp</NavLink>}
+                            { !sessionUser && <NavLink className="create-session" to="/login">LogIn</NavLink> }
+                            {sessionUser && <button className="nav-logout" type="url" onClick={(logoutClick)}>Log Out</button>}
+                        </div>
                     </div>
                 </div>
 
                 <Link className="nav-user-orders nav-container" to="#">
+                    <div className="user-nav-container" >
                         <span id="nav-returns" >Returns</span>
                         <span id="nav-orders" > {'&'} Orders </span>
+                    </div>
                 </Link>
 
                 <div className="nav-user-cart">

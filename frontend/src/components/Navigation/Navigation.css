@@ -111,8 +111,9 @@
     align-items: center;
 }
 
+
 .user-session {
-    width: 40%;
+    width: 100px;
     min-width: 100px;
     font-size: 14px;
     background-color: transparent;
@@ -122,12 +123,20 @@
 .user-session:hover {
     border: 1px solid white;
     border-radius: 3px;
+    
+}
 
+.user-nav-container {
+    width: 80%;
+    /* min-width: 65px; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 }
 
 #welcome {
     color: white;
-    text-align: center;
+    /* text-align: center; */
     font-size: 11px;
 }
 
@@ -141,7 +150,6 @@
     text-decoration: none;
     font-weight: 550;
     font-size: 13px;
-    margin: 0 4px 0 4px;
 }
 
 .create-session:hover {
@@ -159,9 +167,9 @@
 .nav-user-orders {
     color: white;
     text-decoration: none;
-    width: 30%;
-    min-width: 60px;
-    margin: 2px;
+    align-items: center;
+    width: 80px;
+    min-width: 80px;
     /* Align to left for returns  &orders text */
 }
 
