@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, useRouteMatch} from 'react-router-dom';
 import { LoginPage, SessionPageFooter, SignupPage } from "./components/SessionFormPage";
 import Navigation from "./components/Navigation";
 import CategoryNav from './components/CategoryNav';
@@ -7,23 +7,28 @@ import ProductShow from './components/ProductShow';
 import ProductIndex from './components/ProductIndex';
 
 const App = () => {
+
+	const signup = useRouteMatch('/signup')
+	const login = useRouteMatch('/login')
+
 	return (
 		<div className="app-container">
 			{/* <h1>Hello from App</h1> */}
-			<Navigation />
-			<CategoryNav />
+			{ !signup && !login && <Navigation />}
+			{ !signup && !login && <CategoryNav />}
 			<Switch>
-				<Route path="/login">
+				<Route exact path="/login">
 					<LoginPage />
 					<SessionPageFooter />
 				</Route>
 
-				<Route path="/signup">
+				<Route exact path="/signup">
 					<SignupPage />
 					<SessionPageFooter />
 				</Route>
-				<Route path="/" component={ProductIndex} />
-				<Route path="/products/:productId" component={ProductShow} />
+				<Route exact path="/" />
+				<Route exact path="/products" component={ProductIndex} />
+				<Route exact path="/products/:productId" component={ProductShow} />
 
 			</Switch>
 		</div>

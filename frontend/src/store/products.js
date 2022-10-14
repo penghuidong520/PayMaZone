@@ -28,7 +28,7 @@ export const fetchProduct = (productId) => async dispatch => {
     if (response.ok) {
         let data = await response.json();
         // debugger
-        dispatch(receiveProduct(data.product));
+        dispatch(receiveProduct(data));
     }
 }
 
