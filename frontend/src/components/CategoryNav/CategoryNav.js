@@ -3,7 +3,7 @@ const CategoryNav = () => {
         <div className="nav-category" >
             <div className="nav-category-container">
                 <ul className="nav-category-ul">
-                    <li className="nav-category-li" ><i class="fa-solid fa-bars fa-lg"></i>
+                    <li className="nav-category-li" ><i className="fa-solid fa-bars fa-lg"></i>
                     <span>&nbsp; All</span>
                     </li>
                     <li className="nav-category-li" >Electronics</li>

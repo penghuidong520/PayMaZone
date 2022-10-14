@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 import { LoginPage, SessionPageFooter, SignupPage } from "./components/SessionFormPage";
 import Navigation from "./components/Navigation";
 import CategoryNav from './components/CategoryNav';
+import ProductShow from './components/ProductShow';
 
 const App = () => {
 	return (
@@ -20,6 +21,8 @@ const App = () => {
 					<SignupPage />
 					<SessionPageFooter />
 				</Route>
+
+				<Route path="/products/:productId" component={ProductShow} />
 
 			</Switch>
 		</div>
