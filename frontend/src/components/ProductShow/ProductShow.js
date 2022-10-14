@@ -11,12 +11,20 @@ const ProductShow = () => {
         dispatch(fetchProduct(productId));
     }, [dispatch, productId])
 
-    return (
-        <>
-            <h1>{ product && product.name }</h1>
-            <p>{ product && product.description }</p>
-        </>
-    )
+    if (product) {
+        return (
+            <>
+                <h1> { product.name }</h1>
+                <span>price: { product.price }</span>
+                <p>Description: { product.description }</p>
+            </>
+        )
+    } else {
+        return (
+            <></>
+        )
+    }
+
 }
 
 export default ProductShow

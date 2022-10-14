@@ -13,8 +13,7 @@ const receiveProduct = (product) => ({
 })
 
 export const getProduct = (productId) => ({products}) => (products ? products[productId] : null);
-export const getProducts = ({posts}) => (posts ? Object.values(posts) : []);
-
+export const getProducts = ({products}) => (products ? Object.values(products) : []);
 
 export const fetchProducts = () => async dispatch => {
     const response = await fetch("/api/products");

@@ -4,6 +4,7 @@ import { LoginPage, SessionPageFooter, SignupPage } from "./components/SessionFo
 import Navigation from "./components/Navigation";
 import CategoryNav from './components/CategoryNav';
 import ProductShow from './components/ProductShow';
+import ProductIndex from './components/ProductIndex';
 
 const App = () => {
 	return (
@@ -21,7 +22,7 @@ const App = () => {
 					<SignupPage />
 					<SessionPageFooter />
 				</Route>
-
+				<Route path="/" component={ProductIndex} />
 				<Route path="/products/:productId" component={ProductShow} />
 
 			</Switch>
