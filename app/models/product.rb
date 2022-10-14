@@ -14,4 +14,7 @@ class Product < ApplicationRecord
     validates :name, :price, :description, presence: true
 
     belongs_to :category
+
+    has_many_attached :photo
+
 end
