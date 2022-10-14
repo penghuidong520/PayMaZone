@@ -9,12 +9,12 @@ const ProductShow = () => {
     const product = useSelector(getProduct(productId));
     useEffect(()=>{
         dispatch(fetchProduct(productId));
-    }, [productId])
+    }, [dispatch, productId])
 
     return (
         <>
-            <h1>{ product.name }</h1>
-            <p>{ product.description }</p>
+            <h1>{ product && product.name }</h1>
+            <p>{ product && product.description }</p>
         </>
     )
 }
