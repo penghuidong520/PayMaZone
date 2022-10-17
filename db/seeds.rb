@@ -39,8 +39,8 @@ nintendo = Product.create(
 nintendo1 = File.open("app/assets/images/nintendo1.jpeg")
 nintendo2 = File.open("app/assets/images/nintendo2.jpeg")
 
-nindendo.photos.attach(io: nintendo1, filename: 'nentendo1.jpeg')
-nindendo.photos.attach(io: nintendo2, filename: 'nentendo2.jpeg')
+nintendo.photos.attach(io: nintendo1, filename: 'nentendo1.jpeg')
+nintendo.photos.attach(io: nintendo2, filename: 'nentendo2.jpeg')
 
 ##
 drone = Product.create(
@@ -78,7 +78,7 @@ alexa.photos.attach(io: alexa1, filename: "alexa.jpg")
 laundry = Product.create(
     name: "PODS Laundry Detergent Soap Pods, Spring Meadow, 61 count",
     price: 15.00,
-    description: "We have only quality products. High quality- save your time and your money. Ensure long-lasting and effective performance."
+    description: "We have only quality products. High quality- save your time and your money. Ensure long-lasting and effective performance.",
     category_id: 2
 )
 
@@ -99,7 +99,7 @@ sanitizer.photos.attach(io: sanitizer1, filename: "sanitizer.jpg")
 ##
 covidtest = Product.create(
     name: "Celltrion DiaTrust COVID-19 Ag Home Test, 2 Tests Per Pack, FDA EUA Authorized Multiple Target OTC Test, Result in 15 Minutes Without Sending to a Lab",
-    price: 19.99
+    price: 19.99,
     description: "SHELF-LIFE EXTENSION: Our tests sold from Amazon has 6 months longer shelf-life than the printed expiration date on the package. FDA granted 6 months shelf-life extension for the Celltrion DiaTrust COVID-19 Ag Home Test, which extended the shelf life from 12 months to 18 months as of May 20th, 2022. The affected lot numbers can be found on FDA’s website: https://www.fda.gov/media/159236/download",
     category_id: 2
 )
@@ -129,7 +129,7 @@ uno.photos.attach(io: uno1, filename: "uno.jpg")
 nomansky = Product.create(
     name: "No Man's Sky - Nintendo Switch",
     price: 59.99,
-    description: "Embark on an epic voyage, find your own destiny in this epic space adventure. Includes 6 years of updates"
+    description: "Embark on an epic voyage, find your own destiny in this epic space adventure. Includes 6 years of updates",
     category_id: 5
 )
 
