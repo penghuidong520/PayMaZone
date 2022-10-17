@@ -29,8 +29,10 @@
 
 .show-img {
     width: 100%;
+    max-width: 600px;
     height: auto;
-    max-height: 550px;
+    /* max-height: 550px; */
+
     /* border: 1px solid blue; */
 }
 
@@ -95,14 +97,13 @@
 .product-order-container {
     min-width: 245px;
     width: 250px;
-    max-height: fit-content;
+    max-height: 220px;
     border: 1px solid #d5d9d9;
     border-radius: 5px;
     flex: 0;
 }
 
 .product-order {
-    border: 1px solid #d5d9d9;
     border-radius: 5px;
     margin: 20px;
     /* border: 1px solid lightpink; */
@@ -153,5 +154,5 @@
 }
 
 #buy-now:hover {
-    background: #f0c14b;
+    background: #eb911c;
 }
