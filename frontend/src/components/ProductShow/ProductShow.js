@@ -13,8 +13,12 @@ const ProductShow = () => {
 
     let tens = '';
     let decimal = '';
+    let details = [];
     if (product) {
         [tens, decimal] = product.price.toString().split(".");
+        details = product.description.split(". ");
+        details = details.map(detail => <li key={detail} id="product-detail">{detail}</li>);
+        console.log(details);
     } else {
         tens = 'Undefined Price';
     }
@@ -35,12 +39,32 @@ const ProductShow = () => {
                             <span id="tens" >{tens}</span>
                             <span className="decimal" >{decimal}</span>
                         </div>
-                        <div id="show-detail" ></div>
-                        <span>Description: </span>
-                            <p>{ product.description }</p>
+                        <div id="show-detail" >
+                            <span id="show-description" >Description: </span>
+                            <ul id="show-detail-ul" >
+                                {details}
+                            </ul>
+                        </div>
                     </div>
-                    <div className="product-cart" >
+                    <div className="product-order-container" >
+                        <div className="product-order" >
+                            <div className="price-container" >
+                                <span className="decimal" >$</span>
+                                <span id="tens" >{tens}</span>
+                                <span className="decimal" >{decimal}</span>
+                            </div>
 
+                            <div className="product-aftersale" >
+                                <span className="order-free-stuff" >FREE Returns</span>
+                                <span className="order-free-stuff" >FREE delivery</span>
+                            </div>
+
+                            <div className="place-product" >
+                                <button id="add-to-cart" className="product-action">Add to Cart</button>
+                                <button id="buy-now" className="product-action" >Buy Now</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
