@@ -5,7 +5,9 @@ import ProductIndexItem from "./ProductIndexItem.js";
 const ProductIndex = () => {
     const dispatch = useDispatch();
     const products = useSelector(getProducts);
-    const productList = products.map(product =>  <ProductIndexItem product={product}/>)
+    const productList = products.map(product =>  
+        <ProductIndexItem product={product}/> 
+    )
     
     useEffect(()=>{
         dispatch(fetchProducts());

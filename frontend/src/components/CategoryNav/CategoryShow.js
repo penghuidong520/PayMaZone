@@ -13,6 +13,7 @@ const CategoryShow = ({category}) => {
         if (product.categoryId === parseInt(categoryId)) {
             return <ProductIndexItem product={product} />
         }
+        return null
     })
 
     useEffect(()=>{
@@ -21,7 +22,9 @@ const CategoryShow = ({category}) => {
 
     return (
         <>
-            {productList}
+            <ul>
+                { productList }
+            </ul>
         </>
     )
 
