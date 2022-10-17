@@ -5,7 +5,7 @@ import ProductIndexItem from "./ProductIndexItem.js";
 const ProductIndex = () => {
     const dispatch = useDispatch();
     const products = useSelector(getProducts);
-    const productList = products.map(product => <li key={product.id}> <ProductIndexItem product={product}/></li>)
+    const productList = products.map(product =>  <ProductIndexItem product={product}/>)
     
     useEffect(()=>{
         dispatch(fetchProducts());
@@ -13,7 +13,6 @@ const ProductIndex = () => {
 
     return (
         <>
-            <h1>SOIDHFL:KDJLFJDSL:KJF:LKDJS</h1>
             <ul>
                 {productList}
             </ul>

@@ -38,3 +38,8 @@
     border: 1px solid white;
     border-radius: 3px;
 }
+
+.nav-category-link {
+    color: white;
+    text-decoration: none;
+}

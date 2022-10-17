@@ -16,6 +16,7 @@ const ProductShow = () => {
             <>
                 <h1> { product.name }</h1>
                 <span>price: { product.price }</span>
+                {/* <img src={product.photourls[0]} alt=""/> */}
                 <p>Description: { product.description }</p>
             </>
         )

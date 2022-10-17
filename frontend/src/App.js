@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import CategoryNav from './components/CategoryNav';
 import ProductShow from './components/ProductShow';
 import ProductIndex from './components/ProductIndex';
+import CategoryShow from './components/CategoryNav/CategoryShow';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
 				<Route exact path="/" />
 				<Route exact path="/products" component={ProductIndex} />
 				<Route exact path="/products/:productId" component={ProductShow} />
+				<Route exact path="/category/:categoryId" component={CategoryShow} ></Route>
 
 			</Switch>
 		</div>

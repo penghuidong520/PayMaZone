@@ -12,6 +12,10 @@ const receiveCategory = (category) => ({
     category
 })
 
+export const getCategory = (categoryId) => ({categories}) => (categories ? categories[categoryId] : null);
+export const getCategories = ({categories}) => (categories ? Object.values(categories) : []);
+
+
 export const fetchCategories = () => async dispatch => {
     const response = await fetch("/api/categories");
     if (response.ok) {
