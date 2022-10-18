@@ -48,7 +48,7 @@ export const createCart = (cart) => async dispatch => {
     })
     if (response.ok) {
         let data = await response.json();
-        dispatch(receiveCart);
+        dispatch(receiveCart(data));
     }
 }
 
@@ -62,7 +62,7 @@ export const updateCart = (cart) => async dispatch => {
     })
     if (response.ok) {
         let data = await response.json();
-        dispatch(receiveCart);
+        dispatch(receiveCart(data));
     }
 }
 

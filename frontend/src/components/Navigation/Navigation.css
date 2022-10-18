@@ -152,7 +152,7 @@
     font-size: 13px;
 }
 
-.create-session:hover {
+.create-session:hover, .nav-logout:hover {
     color: gold;
 }
 

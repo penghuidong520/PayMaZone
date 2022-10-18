@@ -6,6 +6,7 @@ import CategoryNav from './components/CategoryNav';
 import ProductShow from './components/ProductShow';
 import ProductIndex from './components/ProductIndex';
 import CategoryShow from './components/CategoryNav/CategoryShow';
+import CartIndex from './components/CartIndex';
 
 const App = () => {
 
@@ -30,7 +31,10 @@ const App = () => {
 				<Route exact path="/" />
 				<Route exact path="/products" component={ProductIndex} />
 				<Route exact path="/products/:productId" component={ProductShow} />
+
 				<Route exact path="/category/:categoryId" component={CategoryShow} ></Route>
+
+				<Route exact path="/carts" component={CartIndex} />
 
 			</Switch>
 		</div>
