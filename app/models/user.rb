@@ -21,6 +21,12 @@ class User < ApplicationRecord
 	
 	before_validation :ensure_session_token
 	
+	has_one :cart
+
+	has_many :products,
+		foreign_key: :products_id,
+		class_name: :Cart
+
 	def self.find_by_credentials(credential, password)
 		# debugger
 		field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
