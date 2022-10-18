@@ -1,9 +1,9 @@
 @cart_items.each do |item|
-    json.set! product.id do
-        json.extract! product, :id, :name, :price, :description, :category_id
+    json.set! item.id do
+        json.extract! item, :id, :name, :price, :description, :category_id
 
-        if product.photos.attached?
-            json.photourls product.photos.map {|photo| photo.url}
+        if item.photos.attached?
+            json.photourls item.photos.map {|photo| photo.url}
         end
     end
 end

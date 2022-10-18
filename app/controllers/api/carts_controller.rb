@@ -1,30 +1,14 @@
 class Api::CartsController < ApplicationController
-    before_action :require_logged_in!
-
-    def edit
-        @cart = current_user.carts.find(params[:id])
-        render :edit
-    end
+    # before_action :require_logged_in!
 
     def update
 
         @cart_item = current_user.carts.find(params[:id])
         if @cart_item.update(cart_params)
-            render :edit
+            render :index
         else
             render json: { errors: @cart_item.errors.full_messages }, status: :unprocessable_entity
         end
-
-        # @cart = Cart.find(params[:id])
-        # if @cart.user_id == current_user.id
-        #     if @cart.update(cart_params)
-        #         render :index
-        #     else
-        #         render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
-        #     end
-        # else
-        #     render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
-        # end
     end
 
     def index

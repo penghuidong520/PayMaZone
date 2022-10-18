@@ -15,11 +15,10 @@ const CategoryShow = () => {
     const productList = products.map((product)=> {
         if (product.categoryId === parseInt(categoryId)) {
             has_item = true;
-            return <ProductIndexItem product={product} />
+            return <ProductIndexItem key={product.id} product={product} />
         }
         return null
     })
-
     useEffect(()=>{
         dispatch(fetchProducts());
     }, [dispatch, categoryId])

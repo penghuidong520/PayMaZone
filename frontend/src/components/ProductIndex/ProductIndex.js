@@ -7,7 +7,7 @@ const ProductIndex = () => {
     const products = useSelector(getProducts);
     
     const productList = products.map(product =>  
-        <ProductIndexItem product={product} />
+        <ProductIndexItem key={product.id} product={product} />
     )
     
     useEffect(()=>{
