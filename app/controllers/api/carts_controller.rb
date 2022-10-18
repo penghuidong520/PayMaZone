@@ -2,25 +2,33 @@ class Api::CartsController < ApplicationController
     before_action :require_logged_in!
 
     def edit
-        @cart = Cart.find(params[:id])
+        @cart = current_user.carts.find(params[:id])
         render :edit
     end
 
     def update
-        @cart = Cart.find(params[:id])
-        if @cart.user_id == current_user.id
-            if @cart.update(cart_params)
-                render :index
-            else
-                render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
-            end
+
+        @cart_item = current_user.carts.find(params[:id])
+        if @cart_item.update(cart_params)
+            render :edit
         else
-            render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @cart_item.errors.full_messages }, status: :unprocessable_entity
         end
+
+        # @cart = Cart.find(params[:id])
+        # if @cart.user_id == current_user.id
+        #     if @cart.update(cart_params)
+        #         render :index
+        #     else
+        #         render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
+        #     end
+        # else
+        #     render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
+        # end
     end
 
     def index
-        @carts = Cart.find_by(user_id: params[:user_id])
+        @cart_items = current_user.products
         render :index
     end
 
@@ -29,15 +37,18 @@ class Api::CartsController < ApplicationController
         @cart.user_id = current_user.id
 
         if @cart.save
+            render :index
         else
             render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
     def destroy
-        @goal = current_user.goals.find_by(id: params[:id])
-        if @goal && @goal.delete
-            redirect_to users_url
+        @cart = current_user.carts.find_by(id: params[:id])
+        if @cart && @cart.delete
+            render :index
+        else
+            render jason: { errors: ['Failed to Delete']}
         end
     end
 

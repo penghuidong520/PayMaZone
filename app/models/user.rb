@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
 	has_many :products,
 		through: :carts,
-		source: :products
+		source: :product
 
 	def self.find_by_credentials(credential, password)
 		# debugger

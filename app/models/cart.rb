@@ -13,6 +13,6 @@ class Cart < ApplicationRecord
     validates :user_id, :product_id, :quantity, presence: true
     validates :user_id, uniqueness: { scope: :product_id}
 
-    belongs_to :users
-    belongs_to :products
+    belongs_to :user
+    belongs_to :product
 end
