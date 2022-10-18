@@ -10,8 +10,9 @@
 #  updated_at  :datetime         not null
 #
 class Cart < ApplicationRecord
-    validates :user_id, :products_id, :quantity, presence: true
+    validates :user_id, :product_id, :quantity, presence: true
+    validates :user_id, uniqueness: { scope: :product_id}
 
-    belongs_to :user
+    belongs_to :users
     belongs_to :products
 end

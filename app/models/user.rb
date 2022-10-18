@@ -21,11 +21,11 @@ class User < ApplicationRecord
 	
 	before_validation :ensure_session_token
 	
-	has_one :cart
+	has_many :carts
 
 	has_many :products,
-		foreign_key: :products_id,
-		class_name: :Cart
+		through: :carts,
+		source: :products
 
 	def self.find_by_credentials(credential, password)
 		# debugger
