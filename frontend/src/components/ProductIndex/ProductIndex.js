@@ -5,8 +5,9 @@ import ProductIndexItem from "./ProductIndexItem.js";
 const ProductIndex = () => {
     const dispatch = useDispatch();
     const products = useSelector(getProducts);
+    
     const productList = products.map(product =>  
-        <ProductIndexItem product={product}/> 
+        <ProductIndexItem product={product} />
     )
     
     useEffect(()=>{
@@ -14,11 +15,14 @@ const ProductIndex = () => {
     }, [dispatch])
 
     return (
-        <>
-            <ul>
-                {productList}
-            </ul>
-        </>
+        <div className="category-show-wrapper">
+                <div className="category-show-container" >
+                    <h1 className="category-name">All Products</h1>
+                    <div className="category-products-container">
+                        { productList }
+                    </div>
+                </div>
+            </div>
     )
 
 }

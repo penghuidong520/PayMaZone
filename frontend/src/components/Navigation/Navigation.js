@@ -61,9 +61,10 @@ const Navigation = () => {
                     </div>
                 </Link>
 
-                <div className="nav-user-cart">
-
-                </div>
+                <Link className="nav-user-cart nav-container" to="#">
+                    <i className="fa-solid fa-cart-shopping fa-xl"></i>
+                    <span id="cart-items">0</span>
+                </Link>
             </div>
         </div>
     )

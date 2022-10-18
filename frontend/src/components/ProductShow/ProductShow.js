@@ -18,11 +18,9 @@ const ProductShow = () => {
         [tens, decimal] = product.price.toString().split(".");
         details = product.description.split(". ");
         details = details.map(detail => <li key={detail} id="product-detail">{detail}</li>);
-        console.log(details);
     } else {
         tens = 'Undefined Price';
     }
-
     if (product) {
         return (
             <div className="product-show-container" >
