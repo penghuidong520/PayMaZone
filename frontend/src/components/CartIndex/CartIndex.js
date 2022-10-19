@@ -21,16 +21,28 @@ const CartIndex = () => {
     if (!sessionUser) return <Redirect to="/login" />
     if (cartItems) {
         return (
-            <div>
-                {cartList}
-                <Link to="/products" > Continue Shopping </Link>
+            <div className="cart-index-container">
+                <div className="cart-list-container">
+                    <div className="cart-list-container-inner">
+                        <div className="cart-list-header">
+                            <h1 id="shopping-cart" >Shopping Cart</h1>
+                            <div id="shopping-cart-price" >
+                                <span>Price</span>
+                            </div>
+                        </div>
+                        {cartList}
+                        <Link to="/products" > Continue Shopping </Link>
+                    </div>
+                </div>
             </div>
         )
     } else {
         return (
-            <div>
-                <h1>Currently no Items In Your Cart</h1>
-                <Link to="/products">Find something in your intrerest</Link>
+            <div className="cart-index-container" >
+                <div className="cart-no-list-container" >
+                    <h1 className="cart-title" >Your PayMaZone Cart is empty</h1>
+                    <Link className="continue-shopping" to="/products">Find something in your intrerest</Link>
+                </div>
             </div>
         )
     }

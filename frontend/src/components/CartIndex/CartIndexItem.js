@@ -21,9 +21,13 @@ const CartIndexItem = ({cart}) => {
     if (product) {
         return (
             <div className="cart-product-container">
+                <div className="cart-img" >
+                    <div>
+                        <img className="cart-product-img" src={product.photourls[0]} alt="" />
+                    </div>
+                </div>
                 <h1>{product.name}</h1>
                 {/* <img src={product.photourls[0]} /> */}
-                <h1>{product.description}</h1>
                 <h1>{cart.quantity}</h1>
                 <button id="cart-remove" onClick={handleRemove} >Remove</button>
             </div>

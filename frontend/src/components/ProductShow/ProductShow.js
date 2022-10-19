@@ -44,12 +44,13 @@ const ProductShow = () => {
                 } else {
                     return true
                 }
-            }))
-            dispatch(createCart({
-                userId: sessionUser.id, 
-                productId: product.id, 
-                quantity: quantity})
-            );
+            })) {
+                dispatch(createCart({
+                    userId: sessionUser.id, 
+                    productId: product.id, 
+                    quantity: quantity})
+                );
+            }
         } else {
             history.push("/login");
         }
