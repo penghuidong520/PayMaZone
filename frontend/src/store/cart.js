@@ -67,7 +67,7 @@ export const updateCart = (cart) => async dispatch => {
 }
 
 export const deleteCart = (cartId) => async dispatch => {
-    const response = await fetch(`api/carts/${cartId}`, {
+    const response = await csrfFetch(`api/carts/${cartId}`, {
         method: 'DELETE'
     })
     if (response.ok) {
@@ -88,7 +88,7 @@ const cartReducer = (state = {}, action) => {
             nextState[action.cart.id] = action.cart;
             return nextState;
         case REMOVE_CART:
-            nextState[action.cartId] = null;
+            delete nextState[action.cartId];
             return nextState;
         case REMOVE_CURRENT_USER:
             return {};

@@ -20,7 +20,7 @@ const App = () => {
 	useEffect(() => {
 		// debugger;
 		if (currentUser.user) dispatch(fetchCarts());
-	}, [currentUser]);
+	}, [dispatch, currentUser]);
 
 	return (
 		<div className="app-container">

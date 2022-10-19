@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom"
-import { createCart } from "../../store/cart";
+import { useParams, useHistory } from "react-router-dom"
+import { createCart, updateCart } from "../../store/cart";
 import { fetchProduct, getProduct } from '../../store/products';
+import { getCarts } from "../../store/cart";
 
 const ProductShow = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const {productId} = useParams();
     const product = useSelector(getProduct(productId));
     const sessionUser = useSelector(state => state.session.user);
     const [quantity, setQuantity] = useState(1);
-    useEffect(()=>{
-        dispatch(fetchProduct(productId));
-    }, [dispatch, productId])
-
+    const carts = useSelector(getCarts);
+    
     let tens = '';
     let decimal = '';
     let details = [];
@@ -25,15 +25,35 @@ const ProductShow = () => {
         tens = 'Undefined Price';
     }
 
+    useEffect(()=>{
+        dispatch(fetchProduct(productId));
+    }, [dispatch, productId])
+    
     const addToCart = (e) => {
         e.preventDefault();
         if (sessionUser) {
-            dispatch(createCart({userId: sessionUser.id, productId: product.id, quantity: quantity}));
+            if (carts.every((cart)=> {
+                if (cart.productId === product.id) {
+                    dispatch(updateCart({
+                        id: cart.id,
+                        userId: sessionUser.id, 
+                        productId: product.id, 
+                        quantity: cart.quantity + parseInt(quantity)})
+                    )
+                    return false;
+                } else {
+                    return true
+                }
+            }))
+            dispatch(createCart({
+                userId: sessionUser.id, 
+                productId: product.id, 
+                quantity: quantity})
+            );
         } else {
-            return <Redirect to="/login" />
+            history.push("/login");
         }
     }
-
 
     if (product) {
         return (
@@ -74,15 +94,15 @@ const ProductShow = () => {
                             <div className="quantity-select">
                                 <span>Quantity: </span>
                                 <select onChange={e => setQuantity(e.target.value)} >
-                                    <option value="0">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
-                                    <option value="4">5</option>
-                                    <option value="5">6</option>
-                                    <option value="6">7</option>
-                                    <option value="7">8</option>
-                                    <option value="8">9</option>
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                    <option value={5}>5</option>
+                                    <option value={6}>6</option>
+                                    <option value={7}>7</option>
+                                    <option value={8}>8</option>
+                                    <option value={9}>9</option>
                                 </select>
                             </div>
 

@@ -2,15 +2,22 @@ import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import logo from "../../images/logo_white_cropped.png"
+import { getCarts } from "../../store/cart";
 
 const Navigation = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const carts = useSelector(getCarts);
     const userName = (sessionUser) ? sessionUser.username : 'Guest';
     const logoutClick = e => {
         e.preventDefault();
         dispatch(sessionActions.logout());
     }
+
+    let productsCount = 0;
+    carts.forEach((cart) => {
+        productsCount += cart.quantity;
+    })
 
     return (
         <div className="nav">
@@ -63,7 +70,7 @@ const Navigation = () => {
 
                 <Link className="nav-user-cart nav-container" to="/carts">
                     <i className="fa-solid fa-cart-shopping fa-xl"></i>
-                    <span id="cart-items">0</span>
+                    <span id="cart-items">{productsCount}</span>
                 </Link>
             </div>
         </div>

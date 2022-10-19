@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { fetchCarts } from "../../store/cart";
 import CartIndexItem from './CartIndexItem';
 import { Link } from "react-router-dom";
 
 
 
 const CartIndex = () => {
-    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const carts = useSelector(state=> state.carts);
+    const cartItems = Object.keys(carts).length;
+
     let cartList = [];
     if (sessionUser) {
-        if (carts) {
-            cartList = Object.values(carts)
-            .map(cart=> <CartIndexItem key={cart.id} cart={cart} />)
+        if (cartItems) {
+            cartList = Object.values(carts).map(cart=> <CartIndexItem key={cart} cart={cart} />)
         }
     }
-    
-    useEffect(()=>{
-        dispatch(fetchCarts());
-    }, [dispatch, sessionUser])
-    
+
     if (!sessionUser) return <Redirect to="/login" />
-    if (sessionUser.carts) {
+    if (cartItems) {
         return (
             <div>
                 {cartList}

@@ -4,11 +4,11 @@ class Api::CartsController < ApplicationController
 
     def update
 
-        @cart_item = current_user.carts.find(params[:id])
-        if @cart_item.update(cart_params)
+        @cart = current_user.carts.find(params[:id])
+        if @cart.update(cart_params)
             render :show
         else
-            render json: { errors: @cart_item.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: @cart.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
@@ -31,7 +31,6 @@ class Api::CartsController < ApplicationController
     def destroy
         @cart = current_user.carts.find_by(id: params[:id])
         if @cart && @cart.delete
-            render :show
         else
             render jason: { errors: ['Failed to Delete']}
         end
