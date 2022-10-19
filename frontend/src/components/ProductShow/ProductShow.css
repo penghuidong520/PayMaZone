@@ -20,21 +20,19 @@
     /* border: 1px solid black; */
     min-width: 400px;
     min-height: 350px;
-    /* max-height: 630px; */
     width: 100%;
     height: 100%;
-    /* display: flex;
-    justify-content: center; */
     flex: 1 1 40%;
 }
 
 .show-img {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
+    max-height: 500px;
     height: auto;
-    /* max-height: 80%; */
 
-    /* border: 1px solid blue; */
+    object-fit: contain;
+
 }
 
 /* Product Descriptions */
