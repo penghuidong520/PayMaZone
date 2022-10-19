@@ -1,8 +1,8 @@
-
+import csrfFetch from "./csrf";
+import { SET_CURRENT_USER, REMOVE_CURRENT_USER } from './session';
 const RECEIVE_CART = 'carts/RECEIVE_CART';
 const RECEIVE_CARTS = 'carts/RECEIVE_CARTS';
 const REMOVE_CART = 'carts/REMOVE_CART';
-const UPDATE_CART = 'carts/UPDATE_CART';
 
 const receiveCart = (cart) => ({
     type: RECEIVE_CART,
@@ -10,7 +10,7 @@ const receiveCart = (cart) => ({
 });
 
 const receiveCarts = (carts) => ({
-    type: RECEIVE_CART,
+    type: RECEIVE_CARTS,
     carts
 });
 
@@ -31,7 +31,7 @@ export const fetchCarts = () => async dispatch => {
 }
 
 export const fetchCart = (cartId) => async dispatch => {
-    const response = await fetch(`api/carts/${cartId}`);
+    const response = await fetch(`/api/carts/${cartId}`);
     if (response.ok) {
         let data = await response.json();
         dispatch(receiveCart(data));
@@ -39,7 +39,7 @@ export const fetchCart = (cartId) => async dispatch => {
 } 
 
 export const createCart = (cart) => async dispatch => {
-    const response = await fetch("api/carts", {
+    const response = await csrfFetch("/api/carts", {
         method: 'POST',
         body: JSON.stringify(cart),
         headers: {
@@ -53,7 +53,7 @@ export const createCart = (cart) => async dispatch => {
 }
 
 export const updateCart = (cart) => async dispatch => {
-    const response = await fetch(`api/carts/${cart.id}`, {
+    const response = await csrfFetch(`/api/carts/${cart.id}`, {
         method: "PATCH",
         body: JSON.stringify(cart),
         headers: {
@@ -79,14 +79,19 @@ const cartReducer = (state = {}, action) => {
     Object.freeze(state);
     const nextState = {...state};
     switch(action.type) {
+        case SET_CURRENT_USER:
+            if(!action.payload) return state;
+            return {...state, ...action.payload.carts};
         case RECEIVE_CARTS:
-            return {...state, ...action.categories};
+            return action.carts;
         case RECEIVE_CART:
             nextState[action.cart.id] = action.cart;
             return nextState;
         case REMOVE_CART:
             nextState[action.cartId] = null;
             return nextState;
+        case REMOVE_CURRENT_USER:
+            return {};
         default:
             return state;
     }

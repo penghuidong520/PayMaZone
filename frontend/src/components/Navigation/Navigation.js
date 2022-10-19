@@ -54,14 +54,14 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                <Link className="nav-user-orders nav-container" to="#">
+                {/* <Link className="nav-user-orders nav-container" to="#">
                     <div className="user-nav-container" >
                         <span id="nav-returns" >Returns</span>
                         <span id="nav-orders" > {'&'} Orders </span>
                     </div>
-                </Link>
+                </Link> */}
 
-                <Link className="nav-user-cart nav-container" to="#">
+                <Link className="nav-user-cart nav-container" to="/carts">
                     <i className="fa-solid fa-cart-shopping fa-xl"></i>
                     <span id="cart-items">0</span>
                 </Link>

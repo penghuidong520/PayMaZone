@@ -1,11 +1,11 @@
 import csrfFetch from "./csrf.js";
 
-const SET_CURRENT_USER = 'session/setCurrentUser';
-const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
+export const SET_CURRENT_USER = 'session/setCurrentUser';
+export const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
-const setCurrentUser = (user) => ({
+const setCurrentUser = (payload) => ({
     type: SET_CURRENT_USER,
-    payload: user
+    payload
 });
 
 const removeCurrentUser = () => ({
@@ -30,7 +30,7 @@ export const login = ({ credential, password }) => async dispatch => {
     });
     const data = await response.json();
     storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
+    dispatch(setCurrentUser(data));
 };
 
 export const restoreSession = () => async dispatch => {
@@ -38,7 +38,7 @@ export const restoreSession = () => async dispatch => {
     storeCSRFToken(response);
     const data = await response.json();
     storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
+    dispatch(setCurrentUser(data));
 };
 
 export const signup = (user) => async (dispatch) => {
@@ -53,7 +53,7 @@ export const signup = (user) => async (dispatch) => {
     });
     const data = await response.json();
     storeCurrentUser(data.user);
-    dispatch(setCurrentUser(data.user));
+    dispatch(setCurrentUser(data));
 };
 
 export const logout = () => async (dispatch) => {
@@ -71,7 +71,8 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CURRENT_USER:
-            return { ...state, user: action.payload };
+            if (!action.payload) return state;
+            return { ...state, user: action.payload.user };
         case REMOVE_CURRENT_USER:
             return { ...state, user: null };
         default:

@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
+import { Redirect, useParams } from "react-router-dom"
+import { createCart } from "../../store/cart";
 import { fetchProduct, getProduct } from '../../store/products';
 
 const ProductShow = () => {
     const dispatch = useDispatch();
     const {productId} = useParams();
     const product = useSelector(getProduct(productId));
+    const sessionUser = useSelector(state => state.session.user);
+    const [quantity, setQuantity] = useState(1);
     useEffect(()=>{
         dispatch(fetchProduct(productId));
     }, [dispatch, productId])
@@ -21,6 +24,17 @@ const ProductShow = () => {
     } else {
         tens = 'Undefined Price';
     }
+
+    const addToCart = (e) => {
+        e.preventDefault();
+        if (sessionUser) {
+            dispatch(createCart({userId: sessionUser.id, productId: product.id, quantity: quantity}));
+        } else {
+            return <Redirect to="/login" />
+        }
+    }
+
+
     if (product) {
         return (
             <div className="product-show-container" >
@@ -56,10 +70,25 @@ const ProductShow = () => {
                                 <span className="order-free-stuff" >FREE Returns</span>
                                 <span className="order-free-stuff" >FREE delivery</span>
                             </div>
+                            
+                            <div className="quantity-select">
+                                <span>Quantity: </span>
+                                <select onChange={e => setQuantity(e.target.value)} >
+                                    <option value="0">1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                    <option value="4">5</option>
+                                    <option value="5">6</option>
+                                    <option value="6">7</option>
+                                    <option value="7">8</option>
+                                    <option value="8">9</option>
+                                </select>
+                            </div>
 
                             <div className="place-product" >
-                                <button id="add-to-cart" className="product-action">Add to Cart</button>
-                                <button id="buy-now" className="product-action" >Buy Now</button>
+                                <button id="add-to-cart" className="product-action" onClick={addToCart}>Add to Cart</button>
+                                {/* <button id="buy-now" className="product-action" >Buy Now</button> */}
                             </div>
 
                         </div>

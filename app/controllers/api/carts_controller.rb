@@ -1,4 +1,5 @@
 class Api::CartsController < ApplicationController
+    wrap_parameters include: Cart.attribute_names + ["userId", "productId"]
     # before_action :require_logged_in!
 
     def update
