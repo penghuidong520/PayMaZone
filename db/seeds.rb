@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Cart.destroy_all
 User.destroy_all
 Product.destroy_all
 Category.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('carts')
 
 admin = User.create(username: 'Payton', email: 'payton@aa.io', password: 'password1')
 demo = User.create(username: 'demo', email: 'demo@aa.io', password: 'password')
