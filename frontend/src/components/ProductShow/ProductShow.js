@@ -61,7 +61,7 @@ const ProductShow = () => {
             history.push("/login");
         }
     }
-
+    console.log(product.photourls);
     if (product) {
         return (
             <div>

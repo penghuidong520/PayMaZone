@@ -7,6 +7,7 @@ import ProductShow from './components/ProductShow';
 import ProductIndex from './components/ProductIndex';
 import CategoryShow from './components/CategoryNav/CategoryShow';
 import CartIndex from './components/CartIndex';
+import HomePage from './components/HomePage';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchCarts } from './store/cart';
@@ -37,7 +38,7 @@ const App = () => {
 					<SignupPage />
 					<SessionPageFooter />
 				</Route>
-				<Route exact path="/" />
+				<Route exact path="/" component={HomePage} />
 				<Route exact path="/products" component={ProductIndex} />
 				<Route exact path="/products/:productId" component={ProductShow} />
 

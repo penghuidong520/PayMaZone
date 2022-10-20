@@ -107,6 +107,42 @@ covidtest = Product.create(
 covidtest1 = File.open("app/assets/images/covidtest.jpg")
 covidtest.photos.attach(io: covidtest1, filename: "covidtest.jpg")
 
+# sports
+
+basketball = Product.create(
+    name: "WILSON Evolution Game Basketball",
+    price: 75.00,
+    description: "When you focus on getting better, and not just on getting results, success takes care of itself. That is why the Wilson Evolution Game Ball is the preferred basketball in high schools across the country. THE INDOOR BALL: The Evolution is the indoor game basketball in America, on more courts than any other basketball. Signature EVO feel: the soft feel that the evolution basketball is famous for is due it’s cushion core carcass, making the ball softer to the touch and easier to grip around the rim. Grip & durability: the premium evo microfiber composite cover provides grip that players love and durability to last all season and beyond. Ultimate control: laid in composite channels create a consistent feel and texture over the entire surfACe of the basketball to provide unparalleled control. NFHS approved for play by the national federation of state high school associations (NFHS). Cover construction - micro-fiber composite leather. Intermediate size basketball: 28.5'.",
+    category_id: 3
+)
+
+basketball1 = File.open("app/assets/images/basketball1.jpg")
+basketball.photos.attach(io: basketball1, filename: "basketball1.jpg")
+
+##
+
+football = Product.create(
+    name: "WILSON GST Game Footballs",
+    price: 109.99,
+    description: "Wilson GST Leather Game Football - Official Size. MODERN DESIGN: A New visual design combines signature GST performance with a New-look for a New generation of talent. LIGHT LEATHER FORMULA: Wilson’s Light Leather Formula is the softest football leather on the market, with a unique feel that’s easier for your fingers to sink into for more control. HANDCRAFTED IN THE US: The same skilled craftspeople that make every NFL leather football also make every leather GST, resulting unmatched quality craftsmanship. Sewn-On Stripe: Patented sewn-on stripes are composite material instead of paint and provide 82% more grip to aid release for more accurate throws. Accurate Control Lacing: Patented Accurate Control Lacing (ACL) is pebbled instead of smooth and provides more grip in all conditions. NCAA and NFHS Approved.",
+    category_id: 3
+)
+
+football1 = File.open("app/assets/images/football1.jpg")
+football.photos.attach(io: football1, filename: "football1.jpg")
+
+##
+
+protein = Product.create(
+    name: "Organic Vegan Sport Protein Powder, Vanilla - Probiotics, BCAAs, 30g Plant Protein for Premium Post Workout Recovery - NSF Certified, Keto, Gluten & Dairy Free, Non GMO - Garden of Life - 19 Servings",
+    price: 54.95,
+    description: "Organic sport protein: Certified USDA organic, Non-GMO project verified, NSF certified for sport, informed choice for sport certified, vegan, gluten free, dairy free, soy free, no added sugars. Post workout recovery: Our Garden of Life Vegan Protein helps you refuel & repair muscles after a hard workout with 30 grams of complete protein and over 5 grams BCAA amino acids glutamine & glutamic acid. Recovery drinks: This sport protein powder promotes faster recovery with an organic high antioxidant blend of organic tart cherries, organic apples, organic turmeric, organic gogi berrie and organic blueberries. Immune system support: This BCAAs amino acid powder contains 2 billion CFU probiotic blend to keep your immune system strong during training. Certified clean: Breath easy knowing this vegan amino acid powder is clean and free of any banned substances.",
+    category_id: 3
+)
+
+protein1 = File.open("app/assets/images/protein1.jpg")
+protein.photos.attach(io: football1, filename: "protein1.jpg")
+
 # games
 
 dota = Product.create(name: 'Dota 2 Large Multiplayer 5 on 5, Intense PvP Online Game', price: 29.99, description: 'Dota 2 is an Action RTS game, developed by Valve Corporation. The title was formally announced on October 13, 2010; and was released as a Free to Play game on July 9th, 2013 for Windows, and July 18th, 2013 for Mac OS and Linux. It is the successor to the very popular Warcraft 3 mod, Defense of the Ancients, which was based on the Aeon of Strife map for StarCraft.', category_id: 5)
@@ -135,3 +171,4 @@ nomansky = Product.create(
 
 nomansky1 = File.open("app/assets/images/nomansky.jpg")
 nomansky.photos.attach(io: nomansky1, filename: "nomansky.jpg")
+
