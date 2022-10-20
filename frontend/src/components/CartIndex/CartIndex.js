@@ -14,7 +14,7 @@ const CartIndex = () => {
     let cartList = [];
     if (sessionUser) {
         if (cartItems) {
-            cartList = Object.values(carts).map(cart=> <CartIndexItem key={cart} cart={cart} />)
+            cartList = Object.values(carts).map(cart=> <CartIndexItem key={cart.id} cart={cart} />)
         }
     }
 
