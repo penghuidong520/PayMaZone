@@ -18,7 +18,7 @@ const ProductShow = () => {
     let decimal = '';
     let details = [];
     if (product) {
-        [tens, decimal] = product.price.toString().split(".");
+        [tens, decimal] = product.price.toFixed(2).toString().split(".");
         details = product.description.split(". ");
         details = details.map(detail => <li key={detail} id="product-detail">{detail}</li>);
     } else {
@@ -61,7 +61,6 @@ const ProductShow = () => {
             history.push("/login");
         }
     }
-    console.log(product.photourls);
     if (product) {
         return (
             <div>

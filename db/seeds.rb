@@ -141,7 +141,7 @@ protein = Product.create(
 )
 
 protein1 = File.open("app/assets/images/protein1.jpg")
-protein.photos.attach(io: football1, filename: "protein1.jpg")
+protein.photos.attach(io: protein1, filename: "protein1.jpg")
 
 # games
 
