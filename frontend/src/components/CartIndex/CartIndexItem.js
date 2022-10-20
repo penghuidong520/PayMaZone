@@ -3,24 +3,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProduct } from "../../store/products";
 import { getProduct } from "../../store/products";
-import { deleteCart } from "../../store/cart";
+import { deleteCart, updateCart } from "../../store/cart";
 
 const CartIndexItem = ({cart}) => {
     const dispatch = useDispatch();
     const productId = cart.productId;
-    const [quantity, setQuantity] = useState(1);
     const product = useSelector(getProduct(productId));
-
+    const [quantity, setQuantity] = useState(cart.quantity);
     const optionList = []
     for (let i = 1; i <= 10; i++) {
         optionList.push(
-            <option key={i} value={i}>{i}</option>
+            <option key={i} value={parseInt(i)}>{i}</option>
         )
     }
 
     useEffect(()=>{
         dispatch(fetchProduct(productId))
-    }, [dispatch, cart, productId])
+    }, [dispatch, productId])
+
+    useEffect(()=>{
+        dispatch(updateCart({...cart, quantity: quantity}));
+    }, [dispatch, quantity])
 
     const handleRemove = (e) => {
         e.preventDefault();
@@ -50,8 +53,9 @@ const CartIndexItem = ({cart}) => {
                     </div>
                     <div className="cart-product-body-actions">
                         <div className="cart-product-quantity body-action">
-                            {/* <div id="qty">Qty: {quantity}</div> */}
-                            <select onChange={e => setQuantity(e.target.value)} >
+                            <span>Quantity: &nbsp;</span>
+                            <select className="product-quantity" onChange={e=>{setQuantity(e.target.value)}} defaultValue={cart.quantity} >
+                                <option className="product-quantity" value="none" disabled hidden >{cart.quantity}</option>
                                 {optionList}
                             </select>
                         </div>

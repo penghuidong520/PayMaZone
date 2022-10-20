@@ -114,6 +114,10 @@
     flex-direction: column;
 }
 
+#product-show-quantity {
+    margin-bottom: 10px;
+}
+
 .order-free-stuff {
     margin-bottom: 20px;
     font-size: 14px;

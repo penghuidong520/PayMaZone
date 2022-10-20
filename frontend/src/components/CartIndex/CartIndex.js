@@ -4,17 +4,21 @@ import { Redirect } from "react-router-dom";
 import CartIndexItem from './CartIndexItem';
 import { Link } from "react-router-dom";
 
-
-
 const CartIndex = () => {
     const sessionUser = useSelector(state => state.session.user);
     const carts = useSelector(state=> state.carts);
     const cartItems = Object.keys(carts).length;
-
+    let total = 0;
+    let totalItems = 0;
     let cartList = [];
     if (sessionUser) {
         if (cartItems) {
-            cartList = Object.values(carts).map(cart=> <CartIndexItem key={cart.id} cart={cart} />)
+            cartList = Object.values(carts).map(cart=> {
+                console.log(cart);
+                total += (cart.price * cart.quantity);
+                totalItems += cart.quantity;
+                return <CartIndexItem key={cart.id} cart={cart} />
+            })
         }
     }
 
@@ -31,9 +35,30 @@ const CartIndex = () => {
                             </div>
                         </div>
                         {cartList}
-                        <Link to="/products" > Continue Shopping </Link>
+                        {/* <Link to="/products" > Continue Shopping </Link> */}
+                        <div className="total-price-container">
+                            <span>Subtotal ({totalItems} items): 
+                                <span className="total-price" > ${total.toFixed(2)} </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
+
+                <div className="cart-checkout-container" >
+                    <div className="total-price-container">
+                        <span>Subtotal ({totalItems} items): 
+                            <span className="total-price" > ${total.toFixed(2)} </span>
+                        </span>
+                    </div>
+                    <div className="cart-checkout-body">
+                        <button className="cart-checkout-button">
+                            <Link to="/products" className="checkout-button-link">
+                                Continue Shopping
+                            </Link>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         )
     } else {
