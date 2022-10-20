@@ -1,3 +1,23 @@
+/* Error Container */
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border: 5px solid black;
+}
+
+.error-container-inner {
+    border: 3px solid red;
+    min-height: 100px;
+    min-width: 900px;
+    width: 80%;
+    height: 80px;
+
+}
+
+/* Product Show Container */
 .product-show-container {
     /* border: 5px solid green; */
     margin-top: 30px;
