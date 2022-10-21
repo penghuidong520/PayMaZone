@@ -12,7 +12,7 @@ PayMaZone is an Amazon clone, where people can visit and buy items in their desi
 
 # Features
 
-- Category Show Page
+## Category Show Page
 Nav bar shows different categories users can go through and directs them to all products of that category
 
 ![PayMaZone Category Demo](./app/assets/recordings/paymazone-categories.gif)
@@ -31,7 +31,7 @@ useEffect(()=>{
 }, [dispatch])
 ```
 
-- Product Show Page
+## Product Show Page
 
 Click on any of the products picture would direct users to the product show page where users can add the products to cart with quantity selected, and can continuously add to cart unless the total number of the same product reaches max limit
 
@@ -72,7 +72,7 @@ const addToCart = (e) => {
 }
 ```
 
-- Cart Show Page
+## Cart Show Page
 
 Users after logged in can view their products added to cart by clicking on the top left cart icon and will be directed to their cart page. User can change the quantity of items added to the cart and will have a sub total displayed.
 
