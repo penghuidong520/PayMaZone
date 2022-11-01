@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchProduct } from '../../store/products';
+import { fetchProduct, getProduct } from '../../store/products';
 
 const ProductIndexItem = ({product}) => {
 
     const dispatch = useDispatch();
-
+    const prod = useSelector(getProduct(product.id));
     let tens = '';
     let decimal = '';
 
     if (product) {
-        [tens, decimal] = product.price.toString().split(".");
+        [tens, decimal] = prod.price.toString().split(".");
     }
     useEffect(()=>{
         dispatch(fetchProduct(product.id));
@@ -19,10 +19,10 @@ const ProductIndexItem = ({product}) => {
 
     return (
             <div className='category-list' >
-                <Link className='category-list-link' to={`/products/${product.id}`} >
-                    { product.photourls && <img id="category-show-img" src={product.photourls[0]} alt=""/>}
+                <Link className='category-list-link' to={`/products/${prod.id}`} >
+                    { prod.photourls && <img id="category-show-img" src={prod.photourls[0]} alt=""/>}
                 </Link>
-                <p className='category-product-name' >{product.name}</p>
+                <p className='category-product-name' >{prod.name}</p>
                 <div className='category-product-price'>
                     <span className="index-decimal" >$</span>
                     <span id="index-tens" >{tens}</span>
