@@ -1,49 +1,9 @@
 .home-container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.background {
-    width: 1500px;
-    height: 1000px;
     border: 1px solid black;
-    display: flex;
-    justify-content: center;
 }
 
-.four-box {
-    width: 1480px;
-    height: 587px;
-    margin-top: 795px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.box-1 {
-    width: 350px;
-    height: 100%;
-    border: 1px solid black;
-
-}
-
-.box-2 {
-    width: 350px;
-    height: 100%;
-    border: 1px solid black;
-
-}
-
-.box-3 {
-    width: 350px;
-    height: 100%;
-    border: 1px solid black;
-
-}
-
-.box-4 {
-    width: 350px;
-    height: 100%;
-    border: 1px solid black;
+.home-background-carousel {
+    max-width: 90%;
+    margin: 0 auto;
+    border: 1px solid green;
 }

@@ -38,7 +38,7 @@ const App = () => {
 					<SignupPage />
 					<SessionPageFooter />
 				</Route>
-				<Route exact path="/" component={ProductIndex} />
+				<Route exact path="/" component={HomePage} />
 				<Route exact path="/products" component={ProductIndex} />
 				<Route exact path="/products/:productId" component={ProductShow} />
 
