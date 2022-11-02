@@ -24,7 +24,6 @@ const ProductShow = () => {
     } else {
         tens = 'Undefined Price';
     }
-
     useEffect(()=>{
         dispatch(fetchProduct(productId));
     }, [dispatch, productId])

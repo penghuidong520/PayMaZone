@@ -9,27 +9,29 @@ const ProductIndexItem = ({product}) => {
     const prod = useSelector(getProduct(product.id));
     let tens = '';
     let decimal = '';
-
     if (product) {
-        [tens, decimal] = prod.price.toString().split(".");
+        [tens, decimal] = product.price.toString().split(".");
     }
     useEffect(()=>{
         dispatch(fetchProduct(product.id));
     }, [dispatch, product.id])
-
-    return (
-            <div className='category-list' >
-                <Link className='category-list-link' to={`/products/${prod.id}`} >
-                    { prod.photourls && <img id="category-show-img" src={prod.photourls[0]} alt=""/>}
-                </Link>
-                <p className='category-product-name' >{prod.name}</p>
-                <div className='category-product-price'>
-                    <span className="index-decimal" >$</span>
-                    <span id="index-tens" >{tens}</span>
-                    <span className="index-decimal" >{decimal}</span>
+    if (prod) {
+        return (
+                <div className='category-list' >
+                    <Link className='category-list-link' to={`/products/${prod.id}`} >
+                        { prod.photourls && <img id="category-show-img" src={prod.photourls[0]} alt=""/>}
+                    </Link>
+                    <p className='category-product-name' >{prod.name}</p>
+                    <div className='category-product-price'>
+                        <span className="index-decimal" >$</span>
+                        <span id="index-tens" >{tens}</span>
+                        <span className="index-decimal" >{decimal}</span>
+                    </div>
                 </div>
-            </div>
-    )
+        )
+    } else {
+        return (<></>);
+    }
 }
 
 export default ProductIndexItem;

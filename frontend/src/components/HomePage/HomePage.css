@@ -1,9 +1,26 @@
-.home-container {
+.carousel-container {
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.home-background-carousel {
-    max-width: 90%;
+.carousel-background-carousel {
+    min-width: 90%;
     margin: 0 auto;
     border: 1px solid green;
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    mask-image: linear-gradient(to bottom, #000 30%, transparent);
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchCategory, getCategory } from "../../store/category";
-import { fetchProducts, getProducts } from '../../store/products';
+// import { fetchProducts, getProducts } from '../../store/products';
 import ProductIndexItem from "../ProductIndex/ProductIndexItem";
 
 const CategoryShow = () => {
