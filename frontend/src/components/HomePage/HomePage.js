@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import alexa from '../../images/alexa-home.jpg';
+import fitness from '../../images/fitness.jpg';
+import Carousel from 'react-bootstrap/Carousel';
+import HomeCarousel from './HomeCarousel';
 
 const HomePage = () => {
 
@@ -8,23 +11,24 @@ const HomePage = () => {
     return (
         <div className="carousel-container" >
             <div className="carousel-background-carousel" >
-                <Link to="products/4" >
+                <HomeCarousel />
+                {/* <Link to="products/4" >
                     <img className='carousel-img' src={alexa} alt="#" />
-                </Link>
+                </Link> */}
             </div>
             <div className="features-container" >
-                <div className="feature" >
+                <Link className="feature" >
                     <img src="#" alt="#" />
-                </div>
-                <div className="feature" >
+                </Link>
+                <Link className="feature" >
                     <img src="#" alt="#" />
-                </div>
-                <div className="feature" >
+                </Link>
+                <Link className="feature" >
                     <img src="#" alt="#" />
-                </div>
-                <div className="feature" >
+                </Link>
+                <Link className="feature" >
                     <img src="#" alt="#" />
-                </div>
+                </Link>
             </div>
         </div>
     )
