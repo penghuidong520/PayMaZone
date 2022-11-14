@@ -18,3 +18,5 @@ const removeReview = (reviewId) => ({
     type: REMOVE_REVIEW,
     reviewId
 });
+
+export const getReviews = ({reviews}) => (reviews ? Object.values(reviews): []);
