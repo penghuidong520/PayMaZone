@@ -21,13 +21,17 @@ class User < ApplicationRecord
 	
 	before_validation :ensure_session_token
 	
+	has_many :reviews
+	has_many :products_reviewed,
+		through: :reviews,
+		source: :product
+
 	has_many :carts
 
 	has_many :products,
 		through: :carts,
 		source: :product
 
-	has_many :reviews
 
 	def self.find_by_credentials(credential, password)
 		# debugger

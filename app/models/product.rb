@@ -14,8 +14,17 @@ class Product < ApplicationRecord
     validates :name, :price, :description, presence: true
 
     belongs_to :category
-    has_many :carts
+
     has_many :reviews
+        # foreign_key: :product_id,
+        # class_name: :Review
+        
+    has_many :carts
+
+
+    has_many :commenter,
+        through: :reviews,
+        source: :commenter
 
     has_many_attached :photos
 
