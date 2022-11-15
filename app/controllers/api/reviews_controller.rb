@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-    before_action :require_logged_in! only: [:update, :create, :destroy]
+    before_action :require_logged_in!, only: [:update, :create, :destroy]
 
     def update 
         @review = Review.find(params[:id])
@@ -24,11 +24,11 @@ class Api::ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find(params[:id])
+        @review = Review.find_by(id: params[:id])
         if @review
             render :show
         else
-            render json: {{ errors: @review.errors.full_messages }, status: :unprocessable_entity}
+            render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
