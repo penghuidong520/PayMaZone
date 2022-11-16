@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom"
 import { createCart, updateCart } from "../../store/cart";
 import { fetchProduct, getProduct } from '../../store/products';
 import { getCarts } from "../../store/cart";
+import ReviewIndex from "../Reviews";
 
 const ProductShow = () => {
     const history = useHistory();
@@ -63,14 +64,14 @@ const ProductShow = () => {
     if (product) {
         return (
             <div>
-                {maxQuantity && 
+                {/* {maxQuantity && 
                 <div className="error-container" >
                     <div className="error-container-inner">
                         <span> DON"T DO IT</span>
                         <p>OH NO</p>
 
                     </div>
-                </div>}
+                </div>} */}
 
                 <div className="product-show-container" >
                     <div className="show-container" >
@@ -130,6 +131,7 @@ const ProductShow = () => {
                         </div>
                     </div>
                 </div>
+                <ReviewIndex reviews={product.reviews} />
             </div>
         )
     } else {
