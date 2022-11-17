@@ -1,6 +1,6 @@
 import RatingBar from "./RatingBar";
-import filledStar from '../../images/filled_star.png'
-import emptyStar from '../../images/empty_star.png'
+import filledStar from '../../images/filled_star.png';
+import emptyStar from '../../images/empty_star.png';
 import { Link } from "react-router-dom";
 import ReviewIndexItem from "./ReviewIndexItem";
 
