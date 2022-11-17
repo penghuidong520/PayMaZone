@@ -13,6 +13,7 @@ Category.destroy_all
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('carts')
+ApplicationRecord.connection.reset_pk_sequence!('reviews')
 
 admin = User.create(username: 'Payton', email: 'payton@aa.io', password: 'password1')
 demo = User.create(username: 'demo', email: 'demo@aa.io', password: 'password')

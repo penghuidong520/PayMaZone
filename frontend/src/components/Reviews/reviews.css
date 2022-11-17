@@ -7,6 +7,127 @@
     margin-left: 30px;
     margin-right: 30px;
     padding-top: 30px;
+    padding-bottom: 30px;
     
     justify-content: center;
+    border: 1px solid lightgray;
+    min-width: fit-content;
 }
+
+/* Left Container */
+
+.reviews-left-container {
+    width: 300px;
+}
+
+#customer-review-heading {
+    font-size: 24px;
+    font-weight: 550;
+}
+
+.average-rating {
+    display: flex;
+    align-items: center;
+    margin: 5px 2px;
+}
+
+.avg-stars {
+    height: 20px;
+    width: 20px;
+    margin: 0 2px;
+}
+
+.avg-rating {
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.total-reviews {
+    color: #565959;
+    font-size: 14px;
+}
+
+.rating-bar-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.rating-text {
+    font-size: 14px;
+    color: rgb(50, 113, 132)
+}
+
+.rating-row {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.rating-bar {
+    border-radius: 5px;
+    background-color: rgb(240, 242, 242);
+    height: 20px;
+    width: 180px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fill-percent {
+    border-radius: 5px;
+    height: 100%;
+    background: #fea41d;
+}
+
+.write-review-container {
+    padding-top: 10px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.write-review-text {
+    margin-bottom: 10px;
+}
+
+#review-h2 {
+    font-size: 18px;
+    font-weight: 550;
+    margin: 10px 0;
+}
+
+#review-span {
+    font-size: 14px;
+    color:rgb(15, 17, 17);
+    margin: 10px 0;
+}
+
+#write-review-link {
+    text-decoration: none;
+    /* margin-top: 10px;
+    text-decoration: none;
+
+    border: 1px solid rgb(232, 234, 234);
+    width: 300px;
+    height: auto; */
+}
+
+#write-review-button {
+    width: 300px;
+    height: 30px;
+    background: white;
+    border: 1px solid rgb(232, 234, 234);
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 #d5d9d9;
+}
+
+/* Middle Container */
+
+/* Right Container */

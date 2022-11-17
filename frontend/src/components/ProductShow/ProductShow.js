@@ -14,7 +14,7 @@ const ProductShow = () => {
     const sessionUser = useSelector(state => state.session.user);
     const [quantity, setQuantity] = useState(1);
     const carts = useSelector(getCarts);
-    const [maxQuantity, setMaxQuantity] = useState(false);
+    // const [maxQuantity, setMaxQuantity] = useState(false);
     let tens = '';
     let decimal = '';
     let details = [];
@@ -39,7 +39,7 @@ const ProductShow = () => {
                         alert("Provider limited purchasing amount no greater than 10 of the kind")
                         return false;
                     }
-                    setMaxQuantity(false);
+                    // setMaxQuantity(false);
                     dispatch(updateCart({
                         id: cart.id,
                         userId: sessionUser.id, 
