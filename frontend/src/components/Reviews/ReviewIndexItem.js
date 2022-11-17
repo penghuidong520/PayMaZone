@@ -10,7 +10,7 @@ const ReviewIndexItem = ({review}) => {
     return (
         <div className="user-review-container">
             <div className="review-user-header">
-                <img src={defaultProfile} alt="#" />
+                <img id="user-profile-pic" src={defaultProfile} alt="#" />
                 <span className='review-username' >{review.username}</span>
             </div>
             <div className='review-title'>
