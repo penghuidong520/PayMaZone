@@ -10,11 +10,12 @@
 #  product_id :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  username   :string           not null
 #
 class Review < ApplicationRecord
-    validates :title, :comment, :rating, presence: true 
+    validates :title, :comment, :rating, :username, presence: true 
     validates :user_id, :product_id, presence: true
-    validates :user_id, uniqueness: { scope: :product_id }
+    # validates :user_id, uniqueness: { scope: :product_id }
     belongs_to :product
         # foreign_key: :product_id,
         # class_name: :Product

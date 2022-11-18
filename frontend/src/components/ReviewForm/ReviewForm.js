@@ -5,33 +5,54 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { fetchProduct } from '../../store/products';
+import { fetchProduct, getProduct } from '../../store/products';
+import { createReview } from '../../store/review';
 
-const ReviewForm = ({location}) => {
+const ReviewForm = ({review}) => {
     const {productId} = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
-
-    let product;
-    if (!location.query) {
-        history.push(`/products/${productId}`);
-    } else {
-        product = location.query;
-    }
-    
+    const product = useSelector(getProduct(productId));
     const sessionUser = useSelector(state => state.session.user);
+    
     if (!sessionUser) history.push('./login');
+    // if (!product) {
+    //     history.push(`/products/${productId}`);
+    // }
 
-    const [stars, setStars] = useState(0);
-    const [title, setTitle] = useState('');
-    const [comment, setComment] = useState('');
-    const [publicName, setPublicName] = useState(sessionUser.username)
+    // initial values
+    let reviewStar, reviewTitle, reviewComment, reviewUsername;
+    if (review) {
+        reviewStar = review.rating;
+        reviewTitle = review.title;
+        reviewComment = review.comment;
+        reviewUsername = review.username;
+    } else {
+        reviewStar = 0;
+        reviewTitle = '';
+        reviewComment = '';
+        reviewUsername = sessionUser.username
+    }
+    const [stars, setStars] = useState(reviewStar);
+    const [title, setTitle] = useState(reviewTitle);
+    const [comment, setComment] = useState(reviewComment);
+    const [publicName, setPublicName] = useState(reviewUsername);
+    const [submitted, setSubmitted] = useState(false);
 
-    const [starErr, setStarErr] = useState(false);
-    const [titleErr, setTitleErr] = useState(false);
-    const [commentErr, setCommentErr] = useState(false);
-    const [nameErr, setNameErr] = useState(false);
+    useEffect(()=>{
+        dispatch(fetchProduct(productId));
+    }, [dispatch, productId])
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        setSubmitted(true);
+        if (stars && title && comment && publicName) {
+            if (!review) {
+                dispatch(createReview({title, comment, rating: stars, userId: sessionUser.id, productId: product.id, username: publicName}));
+            }
+            history.push(`/products/${productId}`);
+        }
+    }
 
     if (product) {
     return (
@@ -50,12 +71,12 @@ const ReviewForm = ({location}) => {
                     {[...Array(5)].map((start, idx)=>{
                         const ratingValue = idx + 1;
                         return (
-                            <img onClick={e => setStars(idx+1)} className="review-stars" src={ratingValue <= stars ? filledStar : emptyStar} key={idx} alt="#" />
+                            <img onClick={e => setStars(idx+1)} className="review-rating" src={ratingValue <= stars ? filledStar : emptyStar} key={idx} alt="#" />
                         )
                     })}
-                    {starErr && 
+                    {submitted && !stars && 
                     <div className='review-error-container'>
-                        <i class="fa-solid fa-exclamation fa-sm"></i>
+                        <i className="fa-solid fa-exclamation fa-sm"></i>
                         <span className='review-error-message'>
                             Please select a star rating
                         </span>
@@ -66,9 +87,9 @@ const ReviewForm = ({location}) => {
                     <h2 className='review-section-header'>Add a headline</h2>
                     <input className='review-headline' type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="What's most important to know?" />
 
-                    {titleErr && 
+                    {submitted && !title && 
                     <div className='review-error-container'>
-                        <i class="fa-solid fa-exclamation fa-sm"></i>
+                        <i className="fa-solid fa-exclamation fa-sm"></i>
                         <span className='review-error-message'>
                             Please enter your headline
                         </span>
@@ -84,9 +105,9 @@ const ReviewForm = ({location}) => {
                         placeholder="What did you like or dislike? What did you use product for?"
                     ></textarea>
 
-                    {commentErr && 
+                    {submitted && !comment && 
                     <div className='review-error-container'>
-                        <i class="fa-solid fa-exclamation fa-sm"></i>
+                        <i className="fa-solid fa-exclamation fa-sm"></i>
                         <span className='review-error-message'>
                             Please add a written review
                         </span>
@@ -103,10 +124,11 @@ const ReviewForm = ({location}) => {
                             onChange={e=>setPublicName(e.target.value)}
                         />
                     </div>
+                    <span id="info-note-2">You can always come back to this review and edit it</span>
                     
-                    {nameErr && 
+                    {submitted && !publicName && 
                     <div className='review-error-container'>
-                        <i class="fa-solid fa-exclamation fa-sm"></i>
+                        <i className="fa-solid fa-exclamation fa-sm"></i>
                         <span className='review-error-message'>
                             Please add a public name
                         </span>
@@ -115,7 +137,7 @@ const ReviewForm = ({location}) => {
                 </div>
                 
                 <div className='review-submit-container' >
-                    <input id="review-submit-button" type="submit" />
+                    <input id="review-submit-button" type="button" onClick={handleSubmit} value="Submit" />
                 </div>
             </div>
         </div>

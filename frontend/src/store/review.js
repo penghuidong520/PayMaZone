@@ -30,6 +30,7 @@ export const createReview = (review) => async dispatch => {
             'Content-Type': 'application/json'
         }
     })
+    
     if (res.ok) {
         const data = await res.json();
         dispatch(receiveReview(data));
@@ -37,7 +38,7 @@ export const createReview = (review) => async dispatch => {
 }
 
 export const fetchReview = (reviewId) => async dispatch => {
-    const res = await csrfFetch(`/api/products/${reviewId}`);
+    const res = await csrfFetch(`/api/reviews/${reviewId}`);
     if (res.ok) {
         const data = await res.json();
         dispatch(receiveReview(data));

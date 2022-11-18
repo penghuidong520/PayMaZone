@@ -138,6 +138,10 @@
     margin: 0 30px;
 }
 
+.user-review-container {
+    margin-bottom: 20px;
+}
+
 .review-user-header {
     display: flex;
     justify-content: flex-start;

@@ -1,9 +1,11 @@
 class Api::ReviewsController < ApplicationController
-    before_action :require_logged_in!, only: [:update, :create, :destroy]
+    # before_action :require_logged_in!, only: [:update, :create, :destroy]
+    wrap_parameters include: Review.attribute_names + ["userId", "productId"]
+
 
     def update 
         @review = Review.find(params[:id])
-        if @review.commenter_id == current_user.id
+        if @review.user_id == current_user.id
             if @review.update(cart_params)
                 render :show
             else
@@ -34,9 +36,8 @@ class Api::ReviewsController < ApplicationController
 
     def create
         @review = Review.new(review_params)
-        @review.commenter_id = current_user.id
-
-        if @review.save
+        @review.user_id = current_user.id
+        if @review.save!
             render :show
         else
             render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
@@ -55,7 +56,7 @@ class Api::ReviewsController < ApplicationController
 
     private
     def review_params
-        params.require(:review).permit(:title, :comment, :rating, :commenter_id, :product_id)
+        params.require(:review).permit(:title, :comment, :rating, :commenter_id, :product_id, :username)
     end
 
 end
