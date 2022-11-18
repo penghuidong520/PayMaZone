@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchProduct, getProduct } from '../../store/products';
 
 const ProductIndexItem = ({product}) => {
-
+    // const productId = useParams();
     const dispatch = useDispatch();
     const prod = useSelector(getProduct(product.id));
     let tens = '';

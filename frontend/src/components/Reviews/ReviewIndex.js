@@ -4,7 +4,7 @@ import emptyStar from '../../images/empty_star.png';
 import { Link } from "react-router-dom";
 import ReviewIndexItem from "./ReviewIndexItem";
 
-const ReviewIndex = ({reviews}) => {
+const ReviewIndex = ({reviews, product}) => {
     let totalRating = 0;
     reviews.forEach(review => {
         totalRating += review.rating;
@@ -14,7 +14,7 @@ const ReviewIndex = ({reviews}) => {
     if (reviews.length > 0) {
         avgRating = Math.floor(totalRating / reviews.length);
     }
-
+    // debugger
     const reviewList = reviews.map(review => (
         <ReviewIndexItem key={review.id} review={review} />
     ))
@@ -42,8 +42,11 @@ const ReviewIndex = ({reviews}) => {
                     <h2 id="review-h2">Review this product</h2>
                     <span id="review-span">Share your thoughts with other customers</span>
                 </div>
-                <Link id="write-review-link" to="/" > 
-                    <button id="write-review-button">Write a customer review</button>
+                <Link id="write-review-link" to={{
+                    pathname: `/${product.id}/review`,
+                    query: product
+                }} > 
+                    <button id="write-review-button" >Write a customer review</button>
                 </Link>
             </div>
         </div>

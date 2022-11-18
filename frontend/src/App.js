@@ -8,6 +8,7 @@ import ProductIndex from './components/ProductIndex';
 import CategoryShow from './components/CategoryNav/CategoryShow';
 import CartIndex from './components/CartIndex';
 import HomePage from './components/HomePage';
+import ReviewForm from './components/ReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchCarts } from './store/cart';
@@ -45,7 +46,7 @@ const App = () => {
 				<Route exact path="/category/:categoryId" component={CategoryShow} ></Route>
 
 				<Route exact path="/carts" component={CartIndex} />
-
+				<Route exact path="/:productId/review" component={ReviewForm} />
 			</Switch>
 		</div>
 	);

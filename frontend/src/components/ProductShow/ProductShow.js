@@ -131,7 +131,7 @@ const ProductShow = () => {
                         </div>
                     </div>
                 </div>
-                <ReviewIndex reviews={product.reviews} />
+                <ReviewIndex reviews={product.reviews} product={product} />
             </div>
         )
     } else {

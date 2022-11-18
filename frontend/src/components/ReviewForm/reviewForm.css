@@ -1,0 +1,68 @@
+.review-form-container {
+    width: 100%;
+    min-width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 750px;
+}
+
+.review-product {
+    margin-top: 40px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid lightgray;;
+
+}
+
+.review-h1 {
+    font-weight: 550;
+    font-size: 24px;
+}
+
+.review-product-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#review-product-img {
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    margin-right: 16px;
+}
+
+#review-product-name {
+    font-size: 16px;
+    font-family: "Amazon Ember",Arial,sans-serif;
+}
+
+.review-section-container {
+    margin-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid lightgray;
+}
+
+.review-section-header {
+    font-size: 18px;
+    font-weight: 550;
+    margin-bottom: 25px;
+}
+
+.review-stars {
+    height: 40px;
+    width: 40px;
+}
+
+.review-headline {
+    width: 100%;
+    height: 30px;
+    padding: 3px 7px;
+    border: 1px solid #888C8C;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgb(15 17 17 / 15%) inset;
+}
