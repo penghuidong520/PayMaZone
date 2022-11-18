@@ -59,10 +59,63 @@
 }
 
 .review-headline {
-    width: 100%;
+    width: calc(100% - 21px);
     height: 30px;
     padding: 3px 7px;
     border: 1px solid #888C8C;
     border-radius: 3px;
     box-shadow: 0 1px 2px rgb(15 17 17 / 15%) inset;
+}
+
+.comment-input {
+    width: calc(100% - 21px);
+    height: 130px;
+    padding: 3px 7px;
+    border-radius: 3px;
+}
+
+.user-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#user-profile-pic {
+    height: 56px;
+    width: 56px;
+}
+
+.review-submit-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#review-submit-button {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    background: rgb(249, 217, 76);
+    height: 30px;
+    width: 60px;
+    border: 1px solid rgb(249, 217, 76);
+    cursor: pointer;
+}
+
+#review-submit-button:hover {
+    background: rgb(240, 204, 68);
+}
+
+.review-error-container {
+    padding-top: 20px;
+}
+
+.fa-exclamation {
+    color: red;
+}
+
+.review-error-message{
+    margin-left: 10px;
+    font-size: 13px;
+    color: red;
+    font-weight: 550;
 }
