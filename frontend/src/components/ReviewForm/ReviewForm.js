@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchProduct, getProduct } from '../../store/products';
-import { createReview } from '../../store/review';
+import { createReview, fetchReview, getReview, updateReview } from '../../store/review';
 
-const ReviewForm = ({review}) => {
+const ReviewForm = () => {
+    const {reviewId} = useParams();
     const {productId} = useParams();
+    const review = useSelector(getReview(reviewId));
     const dispatch = useDispatch();
     const history = useHistory();
     const product = useSelector(getProduct(productId));
@@ -22,22 +24,30 @@ const ReviewForm = ({review}) => {
 
     // initial values
     let reviewStar, reviewTitle, reviewComment, reviewUsername;
-    if (review) {
-        reviewStar = review.rating;
-        reviewTitle = review.title;
-        reviewComment = review.comment;
-        reviewUsername = review.username;
-    } else {
-        reviewStar = 0;
-        reviewTitle = '';
-        reviewComment = '';
-        reviewUsername = sessionUser.username
-    }
-    const [stars, setStars] = useState(reviewStar);
-    const [title, setTitle] = useState(reviewTitle);
-    const [comment, setComment] = useState(reviewComment);
-    const [publicName, setPublicName] = useState(reviewUsername);
+    const [stars, setStars] = useState(review ? review.rating : 0);
+    const [title, setTitle] = useState(review ? review.title : '');
+    const [comment, setComment] = useState(review ? review.comment : '');
+    const [publicName, setPublicName] = useState(sessionUser.username);
     const [submitted, setSubmitted] = useState(false);
+    if (review && (!stars || !title || !comment)) {
+        setStars(review.rating);
+        setTitle(review.title);
+        setComment(review.comment);
+        // reviewStar = review.rating;
+        // reviewTitle = review.title;
+        // reviewComment = review.comment;
+        // reviewUsername = review.username;
+    }
+    //  else {
+    //     reviewStar = 0;
+    //     reviewTitle = '';
+    //     reviewComment = '';
+    //     reviewUsername = sessionUser.username
+    // }
+
+    useEffect(()=>{
+        dispatch(fetchReview(reviewId));
+    }, [dispatch, reviewId])
 
     useEffect(()=>{
         dispatch(fetchProduct(productId));
@@ -49,6 +59,8 @@ const ReviewForm = ({review}) => {
         if (stars && title && comment && publicName) {
             if (!review) {
                 dispatch(createReview({title, comment, rating: stars, userId: sessionUser.id, productId: product.id, username: publicName}));
+            } else {
+                dispatch(updateReview({ ...review, title, comment, rating: stars, username: publicName}))
             }
             history.push(`/products/${productId}`);
         }

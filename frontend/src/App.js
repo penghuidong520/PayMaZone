@@ -46,7 +46,8 @@ const App = () => {
 				<Route exact path="/category/:categoryId" component={CategoryShow} ></Route>
 
 				<Route exact path="/carts" component={CartIndex} />
-				<Route exact path="/:productId/review" component={ReviewForm} />
+				<Route exact path="/products/:productId/review" component={ReviewForm} />
+				<Route exact path="/products/:productId/review/:reviewId" component={ReviewForm} />
 			</Switch>
 		</div>
 	);

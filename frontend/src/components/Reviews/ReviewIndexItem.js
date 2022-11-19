@@ -1,11 +1,21 @@
 import defaultProfile from '../../images/default-profile.png';
 import filledStar from '../../images/filled_star.png';
 import emptyStar from '../../images/empty_star.png';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { deleteReview } from '../../store/review';
+import { fetchProduct } from '../../store/products';
 
 const ReviewIndexItem = ({review}) => {
+    const dispatch = useDispatch();
+    const {productId} = useParams();
     const sessionUser = useSelector(state => state.session.user);
+
+    const handleDeleteReview = e => {
+        e.preventDefault();
+        dispatch(deleteReview(review.id));
+        dispatch(fetchProduct(productId));
+    }
 
     return (
         <div className="user-review-container">
@@ -28,8 +38,10 @@ const ReviewIndexItem = ({review}) => {
             </div>
             { sessionUser.id === review.user_id && 
             <div className='review-edit'>
-                <button className='review-edit-action'>Edit Review</button>  
-                <button className='review-edit-action'>Delete Review</button>  
+                <Link to={`/products/${productId}/review/${review.id}`} >
+                    <button className='review-edit-action'>Edit Review</button>  
+                </Link>
+                <button onClick={handleDeleteReview} className='review-edit-action'>Delete Review</button>  
             </div>}
         </div>
     )

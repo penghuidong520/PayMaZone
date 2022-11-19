@@ -6,7 +6,7 @@ class Api::ReviewsController < ApplicationController
     def update 
         @review = Review.find(params[:id])
         if @review.user_id == current_user.id
-            if @review.update(cart_params)
+            if @review.update(review_params)
                 render :show
             else
                 render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity

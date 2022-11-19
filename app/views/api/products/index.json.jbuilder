@@ -3,7 +3,7 @@
         json.extract! product, :id, :name, :price, :description, :category_id
 
         json.category product.category.name
-
+        json.reviews product.reviews
         if product.photos.attached?
             json.photourls product.photos.map {|photo| photo.url}
         end

@@ -46,6 +46,7 @@ export const fetchReview = (reviewId) => async dispatch => {
 }
 
 export const updateReview = (review) => async dispatch => {
+
     const response = await csrfFetch(`/api/reviews/${review.id}`, {
         method: "PATCH",
         body: JSON.stringify(review),
@@ -60,7 +61,7 @@ export const updateReview = (review) => async dispatch => {
 }
 
 export const deleteReview = (reviewId) => async dispatch => {
-    const response = await csrfFetch(`api/reviews/${reviewId}`, {
+    const response = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE'
     })
     if (response.ok) {

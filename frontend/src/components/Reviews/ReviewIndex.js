@@ -43,7 +43,7 @@ const ReviewIndex = ({reviews, product}) => {
                     <span id="review-span">Share your thoughts with other customers</span>
                 </div>
                 <Link id="write-review-link" to={{
-                    pathname: `/${product.id}/review`,
+                    pathname: `/products/${product.id}/review`,
                     query: product
                 }} > 
                     <button id="write-review-button" >Write a customer review</button>
