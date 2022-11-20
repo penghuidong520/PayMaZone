@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     resources :products, only: [:show, :index]
     resources :carts, only: [:index, :create, :update, :destroy]
     resources :reviews, only: [:index, :show, :create, :update, :destroy]
+    get '/search/products/:term', to: "search#search_results"
   end
-
   
+  # get '/search/products/:term', action: :search_results, controller: 'products'
   get '*path', to: "static_pages#frontend_index"
 
 end
