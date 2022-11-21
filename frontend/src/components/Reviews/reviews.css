@@ -9,14 +9,15 @@
     padding-top: 30px;
     padding-bottom: 30px;
     
-    justify-content: center;
-    border: 1px solid lightgray;
+    justify-content: flex-start;
+    /* border: 1px solid lightgray; */
     min-width: fit-content;
 }
 
 /* Left Container */
 
 .reviews-left-container {
+    margin-left: 100px;
     width: 300px;
 }
 
@@ -135,7 +136,7 @@
 /* Middle Container */
 
 .reviews-middle-container {
-    margin: 0 30px;
+    margin: 0 100px;
 }
 
 .user-review-container {

@@ -3,8 +3,16 @@ import filledStar from '../../images/filled_star.png';
 import emptyStar from '../../images/empty_star.png';
 import { Link } from "react-router-dom";
 import ReviewIndexItem from "./ReviewIndexItem";
+import { useSelector } from "react-redux";
 
 const ReviewIndex = ({reviews, product}) => {
+    const sessionUser = useSelector(state => state.session.user);
+    let pathname;
+    if (sessionUser) {
+        pathname = `/products/${product.id}/review`
+    } else {
+        pathname = '/login'
+    }
     let totalRating = 0;
     reviews.forEach(review => {
         totalRating += review.rating;
@@ -42,10 +50,10 @@ const ReviewIndex = ({reviews, product}) => {
                     <h2 id="review-h2">Review this product</h2>
                     <span id="review-span">Share your thoughts with other customers</span>
                 </div>
-                <Link id="write-review-link" to={{
-                    pathname: `/products/${product.id}/review`,
-                    query: product
-                }} > 
+                <Link id="write-review-link" to={pathname
+                    // pathname: `/products/${product.id}/review`
+                    // query: product
+                } > 
                     <button id="write-review-button" >Write a customer review</button>
                 </Link>
             </div>

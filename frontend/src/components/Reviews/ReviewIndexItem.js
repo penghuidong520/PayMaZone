@@ -36,7 +36,7 @@ const ReviewIndexItem = ({review}) => {
             <div className='review-content' >
                 <p className='review-comment' >{review.comment}</p>
             </div>
-            { sessionUser.id === review.user_id && 
+            { sessionUser && sessionUser.id === review.user_id && 
             <div className='review-edit'>
                 <Link to={`/products/${productId}/review/${review.id}`} >
                     <button className='review-edit-action'>Edit Review</button>  
