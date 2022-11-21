@@ -27,7 +27,7 @@ const searchReducer = (state = {}, action) => {
     const nextState = {...state};
     switch(action.type) {
         case RECEIVE_SEARCHES:
-            return {...state, ...action.searches};
+            return  {...action.searches};
         case RECEIVE_SEARCH:
             nextState[action.search.id] = action.search;
             return nextState;

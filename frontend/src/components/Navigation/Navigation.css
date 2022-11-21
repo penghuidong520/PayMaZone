@@ -72,8 +72,9 @@
     outline: 3px solid rgb(241, 158, 56);
     /* border: 3px solid rgb(241, 158, 56); */
     border-radius: 5px;
-    background: paper;
 }
+
+
 
 #search-dropdown {
     display: flex;
