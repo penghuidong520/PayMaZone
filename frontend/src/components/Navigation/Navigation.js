@@ -33,13 +33,6 @@ const Navigation = () => {
                         <span id="search-dropdown-span" >
                             All
                         </span>
-                        {/* <div id="search-dropdown-content" >
-                            <ul>
-                                <li>PlaceHolding</li>
-                                <li>PlaceHolding</li>
-                                <li>PlaceHolding</li>
-                            </ul>
-                        </div> */}
                     </div>
                     <input id="search-input" className="search-bar-component" type="text" name="search" />
                     <button id="search-submit" type="submit" value=""> 
