@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import logo from "../../images/logo_white_cropped.png"
 import { getCarts } from "../../store/cart";
+import SearchModal from "./SearchModal";
+import Modal from '@mui/material/Modal';
+
+
 
 const Navigation = () => {
     const dispatch = useDispatch();
@@ -13,11 +18,23 @@ const Navigation = () => {
         e.preventDefault();
         dispatch(sessionActions.logout());
     }
+    const [open, setOpen] = useState(false);
 
     let productsCount = 0;
     carts.forEach((cart) => {
         productsCount += cart.quantity;
     })
+
+    const handleInput = e => {
+        setOpen(true);
+    }
+
+    const handleClose = e => {
+        setOpen(false);
+    }
+
+    //
+
 
     return (
         <div className="nav">
@@ -27,19 +44,51 @@ const Navigation = () => {
                 </Link>
             </div>
 
-            <div className="search-bar" >
-                <form className="search-bar-form">
-                    <div id="search-dropdown" >
-                        <span id="search-dropdown-span" >
-                            All
-                        </span>
-                    </div>
-                    <input id="search-input" className="search-bar-component" type="text" name="search" />
-                    <button id="search-submit" type="submit" value=""> 
-                    <i className="fa-solid fa-magnifying-glass fa-xl"></i>
-                    </button>
+            <div className="search-bar" >                    
+                    <form className="search-bar-form">
+                        <div id="search-dropdown" >
+                            <span id="search-dropdown-span" >
+                                All
+                            </span>
+                        </div>
+                        <input id="search-input" className="search-bar-component" type="text" name="search" onClick={handleInput}/>
+                        {open && <Modal
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            className="search-modal"
+                        >
+                            <input id="search-input" className="search-bar-component" type="text" name="search" onClick={handleInput}/>
+                        </Modal>}
+                        <button id="search-submit" type="submit" value=""> 
+                        <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+                        </button>
+                    </form>
 
-                </form>
+                    {/* {open && 
+                            <Modal
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description"
+                            className="search-modal"
+                            >
+                        <form className="search-bar-form">
+                            <div id="search-dropdown" >
+                                <span id="search-dropdown-span" >
+                                    All
+                                </span>
+                            </div>
+                            <input id="search-input" className="search-bar-component" type="text" name="search" onClick={handleInput} autoFocus/>
+                            <button id="search-submit" type="submit" value=""> 
+                                <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+                            </button>
+
+                        </form>
+                  </Modal>
+                  } */}
+
             </div>
 
             <div className="user-nav" >
