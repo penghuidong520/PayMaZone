@@ -118,11 +118,9 @@
 
 .search-item-container {
     background: white;
-    width: calc(100% + 7px);
+    width: calc(100%);
     /* position:absolute; */
-    /* margin-top: 3px; */
     padding: 3px 5px;
-    /* border-radius: 3px; */
 }
 
 .search-item-name {

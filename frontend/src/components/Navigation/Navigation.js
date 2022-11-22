@@ -56,6 +56,12 @@ const Navigation = () => {
             dispatch(fetchSearches(e.target.value));
         }
     }
+
+    const handleInputBlur = e => {
+        e.preventDefault();
+        setSearchInput(false);
+    }
+
     //
 
     return (
@@ -78,7 +84,7 @@ const Navigation = () => {
                             value={searchTerm}
                             onChange={handleChangeInput}
                             onFocus={e => setSearchInput(true)}
-                            onBlur={e => setSearchInput(false)} />
+                            onBlur={handleInputBlur} />
                             {searchInput && 
                             <div className="searches-container" >
                                 {searchList}
