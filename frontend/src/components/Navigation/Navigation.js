@@ -59,7 +59,9 @@ const Navigation = () => {
 
     const handleInputBlur = e => {
         e.preventDefault();
-        setSearchInput(false);
+        setTimeout(() => {
+            setSearchInput(false);
+        },100)
     }
 
     //
@@ -84,7 +86,8 @@ const Navigation = () => {
                             value={searchTerm}
                             onChange={handleChangeInput}
                             onFocus={e => setSearchInput(true)}
-                            onBlur={handleInputBlur} />
+                            onBlur={handleInputBlur} 
+                            autoComplete="off" />
                             {searchInput && 
                             <div className="searches-container" >
                                 {searchList}
