@@ -95,12 +95,53 @@
     width: 100%;
     height: 40px;
     border: none;
-    padding: 0 7px;
+    padding-left: 7px;
 }
 
 #search-input:focus {
     border: none;
     outline: none;
+}
+
+.search-input-container {
+    min-width: 200px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    position: relative;
+}
+
+.searches-container {
+    background: white;
+    margin-top: 3px;
+}
+
+.search-item-container {
+    background: white;
+    width: calc(100% + 7px);
+    /* position:absolute; */
+    /* margin-top: 3px; */
+    padding: 3px 5px;
+    /* border-radius: 3px; */
+}
+
+.search-item-name {
+    width: 100%; /* the element needs a fixed width (in px, em, %, etc) */
+    overflow: hidden; /* make sure it hides the content that overflows */
+    white-space: nowrap; /* don't break the line */
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.search-item-name:hover {
+    background: rgb(238, 238, 238);
+}
+
+#search-item-link {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    height: 18px;
 }
 
 #search-submit {
@@ -112,7 +153,6 @@
     border-radius: 0 5px 5px 0;
     border: none;  
     cursor: pointer;
-
 }
 
 .search-bar-component {

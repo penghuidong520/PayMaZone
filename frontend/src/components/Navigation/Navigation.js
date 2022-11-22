@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
@@ -6,7 +6,7 @@ import logo from "../../images/logo_white_cropped.png"
 import { getCarts } from "../../store/cart";
 import SearchModal from "./SearchModal";
 import Modal from '@mui/material/Modal';
-import { fetchSearches } from "../../store/search";
+import { fetchSearches, getSearches } from "../../store/search";
 
 
 
@@ -16,6 +16,21 @@ const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user);
     const carts = useSelector(getCarts);
     const userName = (sessionUser) ? sessionUser.username : 'Guest';
+    
+    const searches = useSelector(getSearches);
+    const searchList = searches.map(item => 
+            <div className="search-item-container" key={item.id} >
+                <div className="search-item-name" >
+                    <Link id="search-item-link" to={`/products/${item.id}`} >
+                        {item.name}
+                    </Link>
+                </div>
+            </div>        
+    )
+    // debugger
+
+    const [searchInput, setSearchInput] = useState(false);
+    // debugger
 
     const logoutClick = e => {
         e.preventDefault();
@@ -31,12 +46,17 @@ const Navigation = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const handleSearchSubmit = e => {
         e.preventDefault();
-        dispatch(fetchSearches(searchTerm));
+        // dispatch(fetchSearches(searchTerm));
         history.push(`/search/${searchTerm}`);
     }
 
+    const handleChangeInput = e => {
+        setSearchTerm(e.target.value)
+        if (e.target.value !== '') {
+            dispatch(fetchSearches(e.target.value));
+        }
+    }
     //
-
 
     return (
         <div className="nav">
@@ -53,9 +73,20 @@ const Navigation = () => {
                                 All
                             </span>
                         </div>
-                        <input id="search-input" className="search-bar-component" type="text" name="search" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}/>
+                        <div className="search-input-container search-bar-component">
+                            <input id="search-input" className="search-bar-component" type="text" name="search" 
+                            value={searchTerm}
+                            onChange={handleChangeInput}
+                            onFocus={e => setSearchInput(true)}
+                            onBlur={e => setSearchInput(false)} />
+                            {searchInput && 
+                            <div className="searches-container" >
+                                {searchList}
+                            </div>}
+                            
+                        </div>
                         <button id="search-submit" type="submit" value=""> 
-                        <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+                            <i className="fa-solid fa-magnifying-glass fa-xl"></i>
                         </button>
                     </form>
             </div>
