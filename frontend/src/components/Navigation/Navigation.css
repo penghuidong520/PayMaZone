@@ -114,13 +114,15 @@
 .searches-container {
     background: white;
     margin-top: 3px;
+    border: 1px solid #bbb;
+
 }
 
 .search-item-container {
     background: white;
     width: calc(100%);
-    /* position:absolute; */
     padding: 3px 5px;
+    
 }
 
 .search-item-name {

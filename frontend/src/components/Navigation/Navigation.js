@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import logo from "../../images/logo_white_cropped.png"
 import { getCarts } from "../../store/cart";
-import SearchModal from "./SearchModal";
-import Modal from '@mui/material/Modal';
 import { fetchSearches, getSearches } from "../../store/search";
 
 
@@ -27,10 +25,8 @@ const Navigation = () => {
                 </div>
             </div>        
     )
-    // debugger
 
     const [searchInput, setSearchInput] = useState(false);
-    // debugger
 
     const logoutClick = e => {
         e.preventDefault();
