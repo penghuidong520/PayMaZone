@@ -11,6 +11,7 @@ import HomePage from './components/HomePage';
 import ReviewForm from './components/ReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchResult from './components/Search';
+import Footer from './components/Footer';
 
 import { fetchCarts } from './store/cart';
 
@@ -40,7 +41,9 @@ const App = () => {
 					<SignupPage />
 					<SessionPageFooter />
 				</Route>
-				<Route exact path="/" component={HomePage} />
+				<Route exact path="/">
+					<HomePage />
+				</Route>
 				<Route exact path="/products" component={ProductIndex} />
 				<Route exact path="/products/:productId" component={ProductShow} />
 
@@ -51,6 +54,8 @@ const App = () => {
 				<Route exact path="/products/:productId/review/:reviewId" component={ReviewForm} />
 				<Route exact path="/search/:searchTerm" component={SearchResult} />
 			</Switch>
+			{ !signup && !login && <Footer />}
+
 		</div>
 	);
 }
