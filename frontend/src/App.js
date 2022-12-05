@@ -12,6 +12,7 @@ import ReviewForm from './components/ReviewForm';
 import { useDispatch, useSelector } from 'react-redux';
 import SearchResult from './components/Search';
 import Footer from './components/Footer';
+import Checkout from './components/Checkout';
 
 import { fetchCarts } from './store/cart';
 
@@ -53,6 +54,7 @@ const App = () => {
 				<Route exact path="/products/:productId/review" component={ReviewForm} />
 				<Route exact path="/products/:productId/review/:reviewId" component={ReviewForm} />
 				<Route exact path="/search/:searchTerm" component={SearchResult} />
+				<Route exact path="/checkout" component={Checkout}/>
 			</Switch>
 			{ !signup && !login && <Footer />}
 

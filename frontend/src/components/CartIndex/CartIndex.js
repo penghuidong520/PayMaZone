@@ -56,6 +56,11 @@ const CartIndex = () => {
                                 Continue Shopping
                             </Link>
                         </button>
+                        <button className="cart-checkout-button">
+                            <Link to="/checkout" className="checkout-button-link">
+                                Checkout
+                            </Link>
+                        </button>
                     </div>
                 </div>
 
