@@ -1,6 +1,7 @@
 .category-show-wrapper {
     display: flex;
     justify-content: center;
+    min-height: 70vh;
 }
 
 .category-show-container {

@@ -1,6 +1,7 @@
 .cart-index-container {
     background: rgb(234, 234, 237);
     display: flex;
+    min-height: 70vh;
 }
 
 /* container with items */

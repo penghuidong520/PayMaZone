@@ -1,11 +1,12 @@
 .footer-container {
     width: 100%;
     height: 180px;
-    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgb(37, 47, 61);
+    bottom: 0;
+    /* position: absolute; */
 }
 
 .icons-container {
