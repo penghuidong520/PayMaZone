@@ -1,5 +1,20 @@
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { deleteCart, getCarts } from "../../store/cart";
+
 
 const Checkout = () => {
+    const dispatch = useDispatch();
+
+    const cartItems = useSelector(getCarts);
+    // debugger
+    if (cartItems) {
+        cartItems.forEach(cartItem => {
+            dispatch(deleteCart(cartItem.id))
+        })
+    }
+    // cartItems.forEach()
+
     return (
         <div className="checkout-container">
             <div className="checkout-inner-container" >
@@ -13,8 +28,9 @@ const Checkout = () => {
                 <span className="checkout-span checkout-portfolio" >Checkout &nbsp;
                     <a href="https://penghuidong520.github.io/PortfolioPage/" target="_blank" id="checkout-portfolio-link" >My Portfolio</a> 
                 </span>
-
             </div>
+            <Link className="checkout-continue-shopping" to="/products">Continue browsing</Link>
+
         </div>
     )
 }

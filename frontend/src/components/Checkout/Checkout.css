@@ -6,15 +6,17 @@
     min-height: 65vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .checkout-inner-container {
-    margin: auto;
-    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     min-width: fit-content;
+    
 }
 
 .checkout-header {
@@ -43,4 +45,14 @@
 
 #checkout-portfolio-link:hover {
     color: cornflowerblue;
+}
+
+.checkout-continue-shopping {
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(53, 143, 158)
+}
+
+.checkout-continue-shopping:hover {
+    color: rgb(200, 80, 39);
 }
