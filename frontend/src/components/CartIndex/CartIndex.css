@@ -10,6 +10,7 @@
     width: 90%;
     min-width: 700px;
     background: rgb(255, 255, 255);
+    border-radius: 5px;
 }
 
 .cart-checkout-container {
@@ -21,6 +22,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .cart-checkout-body {
@@ -38,6 +40,7 @@
     border-radius: 10px;
     font-size: 13px;
     background: rgb(249, 217, 76);
+    cursor: pointer;
 }
 
 .cart-checkout-button:hover {
@@ -47,6 +50,8 @@
 .checkout-button-link {
     text-decoration: none;
     color: black;
+    width: 100%;
+    margin: auto;
 }
 
 .cart-list-container-inner {

@@ -51,16 +51,16 @@ const CartIndex = () => {
                         </span>
                     </div>
                     <div className="cart-checkout-body">
-                        <button className="cart-checkout-button">
                             <Link to="/products" className="checkout-button-link">
-                                Continue Shopping
-                            </Link>
-                        </button>
                         <button className="cart-checkout-button">
-                            <Link to="/checkout" className="checkout-button-link">
-                                Checkout
-                            </Link>
+                                Continue Shopping
                         </button>
+                            </Link>
+                            <Link to="/checkout" className="checkout-button-link">
+                        <button className="cart-checkout-button">
+                                Checkout
+                        </button>
+                            </Link>
                     </div>
                 </div>
 
