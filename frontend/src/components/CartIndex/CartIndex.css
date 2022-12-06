@@ -6,7 +6,8 @@
 
 /* container with items */
 .cart-list-container {
-    margin: 30px auto 10px;
+    margin: 30px 10px;
+    /* margin: 30px; */
     width: 90%;
     min-width: 700px;
     background: rgb(255, 255, 255);
