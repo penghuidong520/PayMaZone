@@ -3,6 +3,7 @@
     /* height: 60px; */
     height: 8vh;
     /* width: 100%; */
+    min-width: 800px;
     display: flex;
     align-items: center;
 }
@@ -123,8 +124,7 @@
 .search-item-container {
     background: white;
     width: calc(100%);
-    padding: 3px 5px;
-    
+    padding: 3px 5px;    
 }
 
 .search-item-name {

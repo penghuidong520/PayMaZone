@@ -1,9 +1,9 @@
 .checkout-container {
-    margin: 30px auto;
+    margin: 30px;
     background: rgb(234, 234, 237);
     /* width: 90%; */
     min-width: 700px;
-    min-height: 65vh;
+    min-height: calc(77vh - 60px);
     display: flex;
     flex-direction: column;
     /* justify-content: center; */

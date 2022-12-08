@@ -31,7 +31,7 @@ const HomePage = () => {
                 </Link>
                 <Link to="category/5" className="feature" >
                     <h2 className='feature-category' >Popular PC Games</h2>
-                    <img className='feature-img' src={gaming} alt="#" />
+                        <img className='feature-img' src={gaming} alt="#" />
                 </Link>
             </div>
         </div>
