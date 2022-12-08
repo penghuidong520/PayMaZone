@@ -1,7 +1,7 @@
 .nav {
     background-color: #131921;
-    height: 60px;
-    /* height: 7vh; */
+    /* height: 60px; */
+    height: 8vh;
     /* width: 100%; */
     display: flex;
     align-items: center;
@@ -32,8 +32,9 @@
 }
 
 #logo-img-home {
-    width: 100px;
-    height: 40px;
+    max-width: 8vw;
+    width: 100%;
+    height: auto;
 }
 
 .search-bar {
