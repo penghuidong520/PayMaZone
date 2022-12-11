@@ -1,8 +1,9 @@
 .result-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     min-width: 750px;
+    min-height: 77vh;
 }
 
 /* Result List */
@@ -79,6 +80,7 @@
 
 .no-result-container {
     margin-top: 20px;
+    /* height: 100%; */
 }
 
 .no-result-h1 {

@@ -1,3 +1,7 @@
+.product-show-outer-container {
+    min-height: 77vh;
+}
+
 /* Error Container */
 
 .error-container {

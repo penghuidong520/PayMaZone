@@ -54,6 +54,7 @@ const App = () => {
 				<Route exact path="/products/:productId/review" component={ReviewForm} />
 				<Route exact path="/products/:productId/review/:reviewId" component={ReviewForm} />
 				<Route exact path="/search/:searchTerm" component={SearchResult} />
+				<Route exact path="/search" component={SearchResult} />
 				<Route exact path="/checkout" component={Checkout}/>
 			</Switch>
 			{ !signup && !login && <Footer />}

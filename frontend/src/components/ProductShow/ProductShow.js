@@ -63,7 +63,7 @@ const ProductShow = () => {
     }
     if (product) {
         return (
-            <div>
+            <div className="product-show-outer-container">
                 {/* {maxQuantity && 
                 <div className="error-container" >
                     <div className="error-container-inner">

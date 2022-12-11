@@ -18,6 +18,9 @@ const HomePage = () => {
                 {/* <HomeCarousel /> */}
                 <Link to="products/4" >
                     <img className='carousel-img' src={alexa} alt="#" />
+                    {/* <div className='carousel-fade'>
+                        
+                    </div> */}
                 </Link>
             </div>
             <div className="features-container" >

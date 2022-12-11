@@ -11,7 +11,6 @@ const SearchResult = () => {
     const term = searchTerm;
     const results = useSelector(getSearches);
     const resultList = results.map(product => <SearchResultItem key={product.id} product={product} />)
-
     useEffect(()=>{
         dispatch(fetchSearches(term));
     }, [dispatch, term])
