@@ -4,9 +4,12 @@ import emptyStar from '../../images/empty_star.png';
 import { Link } from "react-router-dom";
 import ReviewIndexItem from "./ReviewIndexItem";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const ReviewIndex = ({reviews, product}) => {
     const sessionUser = useSelector(state => state.session.user);
+    const [commented, setCommented] = useState(false);
     let pathname;
     if (sessionUser) {
         pathname = `/products/${product.id}/review`
@@ -27,6 +30,14 @@ const ReviewIndex = ({reviews, product}) => {
         <ReviewIndexItem key={review.id} review={review} />
     ))
 
+    useEffect(()=>{
+        reviews.forEach(review => {
+            if (review.user_id === sessionUser.id) {
+                setCommented(true);
+            }
+        })
+    }, [reviews])
+
     return (
     <div className="product-review-container">
         <div className="reviews-left-container">
@@ -45,18 +56,15 @@ const ReviewIndex = ({reviews, product}) => {
             <span className="total-reviews">{reviews.length} total ratings</span>
             <RatingBar reviews={reviews} />
 
-            <div className="write-review-container">
+            {!commented && <div className="write-review-container">
                 <div className="write-review-text">
                     <h2 id="review-h2">Review this product</h2>
                     <span id="review-span">Share your thoughts with other customers</span>
                 </div>
-                <Link id="write-review-link" to={pathname
-                    // pathname: `/products/${product.id}/review`
-                    // query: product
-                } > 
+                <Link id="write-review-link" to={pathname} > 
                     <button id="write-review-button" >Write a customer review</button>
                 </Link>
-            </div>
+            </div>}
         </div>
 
         <div className="reviews-middle-container">
