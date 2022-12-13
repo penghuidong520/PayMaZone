@@ -32,3 +32,5 @@
 /.byebug_history
 
 /public
+
+/app/assets/images/*

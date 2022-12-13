@@ -25,7 +25,7 @@ const HomePage = () => {
             </div>
             <div className="features-container" >
                 <Link to="category/3" className="feature" >
-                    <h2 className='feature-category' >Outdoor Entertainment</h2>
+                    <h2 className='feature-category' >Sports & Exercise</h2>
                     <img className='feature-img' src={basketball} alt="#" />
                 </Link>
                 <Link to="category/2" className="feature" >
