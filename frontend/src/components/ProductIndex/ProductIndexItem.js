@@ -18,10 +18,16 @@ const ProductIndexItem = ({product}) => {
     if (prod) {
         return (
                 <div className='category-list' >
-                    <Link className='category-list-link' to={`/products/${prod.id}`} >
-                        { prod.photourls && <img id="category-show-img" src={prod.photourls[0]} alt=""/>}
+                    <div className='category-item-product-container'>
+                        <Link className='category-list-link' to={`/products/${prod.id}`} >
+                            { prod.photourls && <img id="category-show-img" src={prod.photourls[0]} alt=""/>}
+                        </Link>
+                    </div>
+                    <Link id="category-product-item-link" to={`/products/${prod.id}`} >
+                        <p className='category-product-name' >
+                            {prod.name}
+                        </p>
                     </Link>
-                    <p className='category-product-name' >{prod.name}</p>
                     <div className='category-product-price'>
                         <span className="index-decimal" >$</span>
                         <span id="index-tens" >{tens}</span>
