@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Review.destroy_all
 Cart.destroy_all
 User.destroy_all
 Product.destroy_all
@@ -25,7 +26,7 @@ health = Category.create(name: 'Health & Household') # 2
 sports = Category.create(name: 'Sports') # 3
 pet = Category.create(name: 'Pet Supplies') # 4
 games = Category.create(name: 'Games') # 5
-books = Category.create(name: 'Books') # 6
+# books = Category.create(name: 'Books') # 6
 
 ApplicationRecord.connection.reset_pk_sequence!('products')
 
@@ -84,7 +85,7 @@ vr = Product.create(
     category_id: 1
 )
 
-vr1 = File.open("/app/assets/images/vr.jpg")
+vr1 = File.open("app/assets/images/vr.jpg")
 vr.photos.attach(io: vr1, filename: "vr.jpg")
 
 ## 6
@@ -95,7 +96,7 @@ camera = Product.create(
     category_id: 1
 )
 
-camera1 = File.open("/app/assets/images/camera.jpg")
+camera1 = File.open("app/assets/images/camera.jpg")
 camera.photos.attach(io: camera1, filename: "camera.jpg")
 
 ## 7
@@ -106,7 +107,7 @@ headset = Product.create(
     category_id: 1
 )
 
-headset1 = File.open("/app/assets/images/headset.jpg")
+headset1 = File.open("app/assets/images/headset.jpg")
 headset.photos.attach(io: headset1, filename: "headset.jpg")
 
 ## 8
@@ -117,7 +118,7 @@ speaker = Product.create(
     category_id: 1
 )
 
-speaker1 = File.open("/app/assets/images/speaker.jpg")
+speaker1 = File.open("app/assets/images/speaker.jpg")
 speaker.photos.attach(io: speaker1, filename: "speaker.jpg")
 
 # health & household
@@ -163,7 +164,7 @@ olay = Product.create(
     category_id: 2
 )
 
-olay1 = File.open("/app/assets/images/olay_health.jpg")
+olay1 = File.open("app/assets/images/olay_health.jpg")
 olay.photos.attach(io: olay1, filename: "olay_health.jpg")
 
 ## 5
@@ -174,7 +175,7 @@ shaver = Product.create(
     category_id: 2
 )
 
-shaver1 = File.open("/app/assets/images/shaver.jpg")
+shaver1 = File.open("app/assets/images/shaver.jpg")
 shaver.photos.attach(io: shaver1, filename: "shaver.jpg")
 
 ## 6
@@ -185,7 +186,7 @@ supplement = Product.create(
     category_id: 2
 )
 
-supplement1 = File.open("/app/assets/images/supplement_health.jpg")
+supplement1 = File.open("app/assets/images/supplement_health.jpg")
 supplement.photos.attach(io: supplement1, filename: "supplement_health.jpg")
 
 ## 7
@@ -196,18 +197,18 @@ massage = Product.create(
     category_id: 2
 )
 
-massage1 = File.open("/app/assets/images/massager_health.jpg")
+massage1 = File.open("app/assets/images/massager_health.jpg")
 massage.photos.attach(io: massage1, filename: "massager_health.jpg")
 
 ## 8
 firstaid = Product.create(
     name: "200-Piece Professional First Aid Kit for Home, Car or Work : Plus Emergency Medical Supplies for Camping, Hunting, Outdoor Hiking Survival",
-    price: 14.99
-    description: "200-PIECE FIRST AID: Keep your family safe indoors & outdoors with premium First Aid supplies. COMPACT, LIGHT AND PORTABLE: Rugged kit fits into backpack or car glovebox, weighs only 16 oz. UPGRADED GEAR FOR 2021: Includes Fire Starter Rod, Wire Saw, Fishing Line, & Mylar Blanket. ALL PURPOSE: Recommended for home, car, boat, camping, kitchen, sports and weather emergencies. QUALITY ASSURANCE: Swiss Safe Guarantees customer satisfaction."
+    price: 14.99,
+    description: "200-PIECE FIRST AID: Keep your family safe indoors & outdoors with premium First Aid supplies. COMPACT, LIGHT AND PORTABLE: Rugged kit fits into backpack or car glovebox, weighs only 16 oz. UPGRADED GEAR FOR 2021: Includes Fire Starter Rod, Wire Saw, Fishing Line, & Mylar Blanket. ALL PURPOSE: Recommended for home, car, boat, camping, kitchen, sports and weather emergencies. QUALITY ASSURANCE: Swiss Safe Guarantees customer satisfaction.",
     category_id: 2
 )
 
-firstaid1 = File.open("/app/assets/images/firstaid_health.jpg")
+firstaid1 = File.open("app/assets/images/firstaid_health.jpg")
 firstaid.photos.attach(io: firstaid1, filename: "firstaid_health.jpg")
 
 # sports
@@ -247,24 +248,24 @@ protein.photos.attach(io: protein1, filename: "protein1.jpg")
 
 ## 4
 punchbag = Product.create(
-    name: "Marwan Sports 3 in 1 Punching Bag for Kids|63 Inch Freestanding Punching Bag Set incl Double Volume Air Pump & Boxing Gloves|Gifts for 3-12 Year Old|Kids Punching Bag with Stand"
-    price: 42.99
+    name: "Marwan Sports 3 in 1 Punching Bag for Kids|63 Inch Freestanding Punching Bag Set incl Double Volume Air Pump & Boxing Gloves|Gifts for 3-12 Year Old|Kids Punching Bag with Stand",
+    price: 42.99,
     description: "【Fun & Healthy Exercise 】Are you looking to minimise the time children spend sitting down watching TV, playing video games? Try Our USA tested Punching bag set for kids. This inflatable kids boxing bag is a fun and enjoyable sports activity to exercise daily that helps release stress & depression and built self confidence. 【Inflate in Less than 60 Seconds】Double Quick Volume Air Pump makes inflating fast and simple just under 1 minute. Double Action hand pump can inflate on both the up and down stroke, mainly used to inflate airbeds, boats, pools, and many other inflatable items at home in half the time. Designed to inflates 0r Deflates when needed. 【Top Quality Leather Gloves】 High Quality Leather Gloves with Double Padded foam will prevent from any skin or hand injury during practicing Karate, Boxing, Taekwondo or MMA. Breathable and easy to put On/Off. 【The Gift That Never Leaks or Wears Out】 Birthdays, Christmas – this punching bag set is perfect for kids toys gifts for all ages and occasions! Whether you’re looking for 4 year old boy gifts, girls toys, or toys for 7 year old boys, this SUPER STRONG boxing bag set will not Wears out as it is fighter’s tested! This kit is designed for kids aged 3 to 10yrs. 【Cannot Beat Quality & After-Sales Service】Top quality guarantee! No exchange, no return, a new pair of Ninja Punching bag with stand send to you! Buying from us means quick response and caring customer service! No exchange, no quality worried！we will send you a new one if there is an issue with your product for quality reason.",
     category_id: 3
 )
 
-punchbag1 = File.open("/app/assets/images/punchbag_sport.jpg")
+punchbag1 = File.open("app/assets/images/punchbag_sport.jpg")
 punchbag.photos.attach(io: punchbag1, filename: "punchbag_sport.jpg")
 
 ## 5
 hoverboard = Product.create(
     name: "SISIGAD Hoverboard for Kids Ages 6-12, with Built-in Bluetooth Speaker and 6.5`` Colorful Lights Wheels, Safety Certified Self Balancing Scooter Gift for Kids",
-    price: 129.99
+    price: 129.99,
     description: "▶▶HOVERBOARD WITH BLUETOOTH AND LED LIGHTS - Built-in wireless speaker can be easily connected to devices in second, just enjoy your favorite music or books without wearing headphones.Double row cool LED lights,switch freely to present you an amazing lighting when riding, can also illuminate the road at night. ▶▶UNIQUE DESIGN - The hoverboard is up to 6.21mph; Powered by 350W dual motors, ensure go longer with one charge; Solid 6.5 inch tires,aluminum hub hoverboard.The hover board electric can load riders up to 44-200 lbs,charge time is 2-4 hours for full charge. ▶▶QUALITY ASSURANCE- All SISIGAD hoverboards have passed strict electrical test and meet many standards to ensure safety.Shipping from USA, 90 days return service, any issue just feel free to contact us. ▶▶SMART SELF BALANCE SYSTERM - Equipped with professional gyroscopes, acceleration sensors and motherboard, moving controlled by your body balance, and makes it easier than ever for beginners to learn to ride a hoverboard. It's flexible to go forward & backward, turn around, and maintain balance, give you a safety,smooth and stable riding experience. ▶▶PERFECT GIFT - Specially designed for beginners, amateurs, office workers, dog and cat walkers, free your feet - new way for transportation! So have fun with your family and friends!This hoverboard for kids ages 6-12.",
     category_id: 3
 )
 
-hoverboard1 = File.open("/app/assets/images/hoverboard.jpg")
+hoverboard1 = File.open("app/assets/images/hoverboard.jpg")
 hoverboard.photos.attach(io: hoverboard1, filename: "hoverboard.jpg")
 
 ## 6
@@ -275,29 +276,29 @@ skii = Product.create(
     category_id: 3
 )
 
-skii1 = File.open("/app/assets/images/skii_sport.jpg")
+skii1 = File.open("app/assets/images/skii_sport.jpg")
 skii.photos.attach(io: skii1, filename: "skii_sport.jpg")
 
 ## 7
 hoop = Product.create(
     name: "Portable Basketball Hoop with LED Lights, Basketball System 4.76-10ft/ 8-10ft Height Adjustment for Youth Adults, Waterproof, Super Bright to Play at Night Outdoor,Gift for Kids",
     price: 279.00,
-    description: "【Portable & Easy to Assemble】 basketball system (net weight:66.1lbs) includes two front portable wheels that allow you to easily move the basketball system to anywhere you want. Either indoor or outdoor, as long as you tilt the basketball hoop 40 degrees to the ground, you'll be able to move the basketball goal with minimal effort. For two people assembly, setting up the basketball system takes approximately 35 minutes. 【Adjustable Height】 Basketball Hoop height can be adjusted from 8 ft to 10 ft, Only adjust the pull rod you can reach any height you want in an easy way(no need of any tools)..The adjustable basketball hoop outdoor can fit diverse needs from different age groups, who are able to enjoy basketball no matter your body shape or sizes. 【High-strength PE Extra-Large Base】With triangle support bar design of the extra-large base, the basketball hoop is very sturdy and durable. Pour water (120lbs) or sand (180lbs) into the bottom,In addition, the counterweight box can hold more than 55lbs of sand, to further stabilize the basketball goal. What's more, Stable baffle can better control the ball. 【Durable & Sturdy】The basketball hoop & goal has edge protection design backboard(Backboard Dimensions:43.3"x29.6") and shock-absorbing bumper. What's more, the basketball hoop has multiple screws to fix the backboard and rust-proof main shaft, to ensure the basketball goal more durable and sturdy when using indoor or outdoor.",
+    description: "【Portable & Easy to Assemble】 basketball system (net weight:66.1lbs) includes two front portable wheels that allow you to easily move the basketball system to anywhere you want. Either indoor or outdoor, as long as you tilt the basketball hoop 40 degrees to the ground, you'll be able to move the basketball goal with minimal effort. For two people assembly, setting up the basketball system takes approximately 35 minutes. 【Adjustable Height】 Basketball Hoop height can be adjusted from 8 ft to 10 ft, Only adjust the pull rod you can reach any height you want in an easy way(no need of any tools)..The adjustable basketball hoop outdoor can fit diverse needs from different age groups, who are able to enjoy basketball no matter your body shape or sizes. 【High-strength PE Extra-Large Base】With triangle support bar design of the extra-large base, the basketball hoop is very sturdy and durable. Pour water (120lbs) or sand (180lbs) into the bottom,In addition, the counterweight box can hold more than 55lbs of sand, to further stabilize the basketball goal. What's more, Stable baffle can better control the ball. 【Durable & Sturdy】The basketball hoop & goal has edge protection design backboard(Backboard Dimensions:43.3``x29.6``) and shock-absorbing bumper. What's more, the basketball hoop has multiple screws to fix the backboard and rust-proof main shaft, to ensure the basketball goal more durable and sturdy when using indoor or outdoor.",
     category_id: 3
 )
 
-hoop1 = File.open("/app/assets/images/hoop_sport.jpg")
+hoop1 = File.open("app/assets/images/hoop_sport.jpg")
 hoop.photos.attach(io: hoop1, filename: "hoop_sport.jpg")
 
 ## 8
 roller = Product.create(
     name: "EnterSports Ab Rollers Wheel Kit, Exercise Wheel Core Strength Training Abdominal Roller Set with Push Up Bars, Resistance Bands, Knee Mat Home Gym Fitness Equipment for Abs Workout",
     price: 29.97,
-    description: "DURABLE&SILENCE - This ab rollers is made of high-strength stainless steel shaft which can support 600 lbs, 3.2” width roller with the non-slip design let you roll across any surface without wobbling. The handle is covered by foam padding prevent hands from slipping during intense workouts. EASY TO ASSEMBLE - It takes less one minute to assemble the wheel roller, it is easy to pack the exercise wheel to your gym bag, backpack or luggage, enjoy workout anywhere you want. WORKOUT YOUR WHOLE BODY - Entersports roller wheel is designed as your personal fitness trainer. It works various muscles targeting your abs, hip flexors, shoulders, and back, burning your calories to shape a better figure. PACKAGE INCLUDED - Entersports ab wheel comes with all the accessories you need. 2 resistance bands, 2 knee pads, 2 Push Up Bars Handles Grips and 1 exercise guide post. The resistance bands use with the roller or handles grips can increase the difficulty of training, suitable for beginners to professional person."
+    description: "DURABLE&SILENCE - This ab rollers is made of high-strength stainless steel shaft which can support 600 lbs, 3.2” width roller with the non-slip design let you roll across any surface without wobbling. The handle is covered by foam padding prevent hands from slipping during intense workouts. EASY TO ASSEMBLE - It takes less one minute to assemble the wheel roller, it is easy to pack the exercise wheel to your gym bag, backpack or luggage, enjoy workout anywhere you want. WORKOUT YOUR WHOLE BODY - Entersports roller wheel is designed as your personal fitness trainer. It works various muscles targeting your abs, hip flexors, shoulders, and back, burning your calories to shape a better figure. PACKAGE INCLUDED - Entersports ab wheel comes with all the accessories you need. 2 resistance bands, 2 knee pads, 2 Push Up Bars Handles Grips and 1 exercise guide post. The resistance bands use with the roller or handles grips can increase the difficulty of training, suitable for beginners to professional person.",
     category_id: 3
 )
 
-roller1 = File.open("/app/assets/images/roller_sport.jpg")
+roller1 = File.open("app/assets/images/roller_sport.jpg")
 roller.photos.attach(io: roller1, filename: "roller_sport.jpg")
 
 # pet
@@ -311,7 +312,7 @@ treat = Product.create(
     category_id: 4
 )
 
-treat1 = File.open("/app/assets/images/pet_treat.jpg")
+treat1 = File.open("app/assets/images/pet_treat.jpg")
 treat.photos.attach(io: treat1, filename: "pet_treat.jpg")
 
 ## 2
@@ -322,7 +323,7 @@ pet_bed = Product.create(
     category_id: 4
 )
 
-pet_bed1 = File.open("/app/assets/images/pet_bed.jpg")
+pet_bed1 = File.open("app/assets/images/pet_bed.jpg")
 pet_bed.photos.attach(io: pet_bed1, filename: "pet_bed.jpg")
 
 ## 3
@@ -333,7 +334,7 @@ collar = Product.create(
     category_id: 4
 )
 
-collar1 = File.open("/app/assets/images/pet_collar.jpg")
+collar1 = File.open("app/assets/images/pet_collar.jpg")
 collar.photos.attach(io: collar1, filename: "pet_collar.jpg")
 
 ## 4
@@ -344,18 +345,18 @@ toy = Product.create(
     category_id: 4
 )
 
-toy1 = File.open("/app/assets/images/pet_toy.jpg")
+toy1 = File.open("app/assets/images/pet_toy.jpg")
 toy.photos.attach(io: toy1, filename: "pet_toy.jpg")
 
 ## 5
 cage = Product.create(
     name: "REPTI ZOO Reptile Glass Terrarium, 18`` x 18`` x 24`` Front Opening Terrarium with Double Hinge Door & Top Screen Ventilation, 30 Gallon Tank Large Reptile Terrarium (Knock-Down)",
-    price: 109.99
+    price: 109.99,
     description: "Raised bottom frame in order to fit a substrate heater; And waterproof bottom can hold water for some amphibian pets. Separately front-openning doors make you feed your pet easily and prevent escape. 24 Inch tall terrarium is suitable for reptiles amphibians such as lizard, geckos and so on. Installation manual included, install it or knock down it only in 5 minutes.",
     category_id: 4
 )
 
-cage1 = File.open("/app/assets/images/pet_cage.jpg")
+cage1 = File.open("app/assets/images/pet_cage.jpg")
 cage.photos.attach(io: cage1, filename: "pet_cage.jpg")
 
 ## 6
@@ -366,7 +367,7 @@ groom = Product.create(
     category_id: 4
 )
 
-groom1 = File.open("/app/assets/images/pet_gromming.jpg")
+groom1 = File.open("app/assets/images/pet_gromming.jpg")
 groom.photos.attach(io: groom1, filename: "pet_gromming.jpg")
 
 # games
@@ -374,8 +375,8 @@ groom.photos.attach(io: groom1, filename: "pet_gromming.jpg")
 ## 1
 dota = Product.create(name: 'Dota 2 Large Multiplayer 5 on 5, Intense PvP Online Game', price: 29.99, description: 'Dota 2 is an Action RTS game, developed by Valve Corporation. The title was formally announced on October 13, 2010; and was released as a Free to Play game on July 9th, 2013 for Windows, and July 18th, 2013 for Mac OS and Linux. It is the successor to the very popular Warcraft 3 mod, Defense of the Ancients, which was based on the Aeon of Strife map for StarCraft.', category_id: 5)
 
-dota1 = File.open("app/assets/images/dota.jpg")
-dota.photos.attach(io: dota1, filename: "dota.jpg")
+dota1 = File.open("app/assets/images/dota2.jpg")
+dota.photos.attach(io: dota1, filename: "dota2.jpg")
 
 ## 2
 uno = Product.create(
@@ -407,7 +408,7 @@ lol = Product.create(
     category_id: 5
 )
 
-lol1 = File.open("/app/assets/images/lol.jpg")
+lol1 = File.open("app/assets/images/lol.jpg")
 lol.photos.attach(io: lol1, filename: "lol.jpg")
 
 ## 5
@@ -418,18 +419,18 @@ wow = Product.create(
     category_id: 5
 )
 
-wow1 = File.open("/app/assets/images/wow.jpg")
+wow1 = File.open("app/assets/images/wow.jpg")
 wow.photos.attach(io: wow1, filename: "wow.jpg")
 
 ## 6
 csgo = Product.create(
     name: "Counter Strike: Global Offensive",
     price: 14.99,
-    description: "Counter-Strike: Global Offensive (CS:GO) is a 2012 multiplayer tactical first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for OS X, PlayStation 3, Windows, and Xbox 360 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions. The game pits two teams, Terrorists and Counter-Terrorists, against each other in different objective-based game modes. The most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured. There are nine official game modes, all of which have distinct characteristics specific to that mode. The game also has matchmaking support that allows players to play on dedicated Valve servers, in addition to community-hosted servers with custom maps and game modes. A battle-royale game-mode, "Danger Zone", was introduced in late 2018.",
+    description: "Counter-Strike: Global Offensive (CS:GO) is a 2012 multiplayer tactical first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for OS X, PlayStation 3, Windows, and Xbox 360 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions. The game pits two teams, Terrorists and Counter-Terrorists, against each other in different objective-based game modes. The most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured. There are nine official game modes, all of which have distinct characteristics specific to that mode. The game also has matchmaking support that allows players to play on dedicated Valve servers, in addition to community-hosted servers with custom maps and game modes. A battle-royale game-mode, Danger Zone, was introduced in late 2018.",
     category_id: 5
 )
 
-csgo1 = File.open("/app/assets/images/csgo.jpg")
+csgo1 = File.open("app/assets/images/csgo.jpg")
 csgo.photos.attach(io: csgo1, filename: "csgo.jpg")
 
 ## 7
@@ -440,8 +441,19 @@ mh = Product.create(
     category_id: 5
 )
 
-mh1 = File.open("/app/assets/images/mh.jpg")
+mh1 = File.open("app/assets/images/mh.jpg")
 mh.photos.attach(io: mh1, filename: "mh.jpg")
+
+## 8
+ark = Product.create(
+    name: "Ark: Survival Evolved",
+    price: 59.99,
+    description: "Ark: Survival Evolved (stylized as ARK) is a 2017 action-adventure survival video game developed by Studio Wildcard. In the game, players must survive being stranded on one of several maps filled with roaming dinosaurs, fictional fantasy monsters, and other prehistoric animals, natural hazards, and potentially hostile human players. The game is played from either a third-person or first-person perspective and its open world is navigated by foot or by riding a prehistoric animal. Players can use firearms and improvised weapons to defend against hostile humans and creatures, with the ability to build bases as a defense on the ground and on some creatures. The game has both single-player and multiplayer options. Multiplayer allows the option to form tribes of Players in a server. The max number of tribe mates varies from each server. In this mode, all tamed dinosaurs and building structures are usually shared between the members. There is a PvE mode where players cannot fight each other unless a specific war even agreed upon by both parties is triggered.",
+    category_id: 5
+)
+
+ark1 = File.open("app/assets/images/ark.jpg")
+ark.photos.attach(io: ark1, filename: "ark.jpg")
 
 # Books
 
