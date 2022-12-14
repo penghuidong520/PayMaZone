@@ -16,14 +16,21 @@ const Navigation = () => {
     const userName = (sessionUser) ? sessionUser.username : 'Guest';
     
     const searches = useSelector(getSearches);
-    const searchList = searches.map(item => 
-            <div className="search-item-container" key={item.id} >
-                <div className="search-item-name" >
-                    <Link id="search-item-link" to={`/products/${item.id}`} >
-                        {item.name}
-                    </Link>
-                </div>
-            </div>        
+    const searchList = searches.map((item, idx) => {
+        if (idx > 9) {
+            return (<></>)
+        } else {
+            return (
+                <div className="search-item-container" key={item.id} >
+                    <div className="search-item-name" >
+                        <Link id="search-item-link" to={`/products/${item.id}`} >
+                            {item.name}
+                        </Link>
+                    </div>
+               </div>        
+            )   
+        }
+    }
     )
 
     const [searchInput, setSearchInput] = useState(false);
@@ -43,6 +50,11 @@ const Navigation = () => {
     const handleSearchSubmit = e => {
         e.preventDefault();
         // dispatch(fetchSearches(searchTerm));
+        history.push(`/search/${searchTerm}`);
+    }
+
+    const handleMore = e => {
+        e.preventDefault();
         history.push(`/search/${searchTerm}`);
     }
 
@@ -88,7 +100,7 @@ const Navigation = () => {
                             <div className="searches-container" >
                                 {searchList.length > 0 && searchList}
                                 {searchList.length > 9 &&
-                                    <div className="search-more-items">
+                                    <div className="search-more-items" onClick={handleMore}>
                                         More...
                                     </div>
                                 }

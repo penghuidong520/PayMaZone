@@ -14,15 +14,13 @@ const HomePage = () => {
 
     return (
         <div className="carousel-container" >
+            <Link to="products/4" >
             <div className="carousel-background-carousel" >
                 {/* <HomeCarousel /> */}
-                <Link to="products/4" >
-                    <img className='carousel-img' src={alexa} alt="#" />
-                    {/* <div className='carousel-fade'>
-                        
-                    </div> */}
-                </Link>
+                    {/* <img className='carousel-img' src={alexa} alt="#" /> */}
+                    {/* <div className='carousel-fade'></div> */}
             </div>
+            </Link>
             <div className="features-container" >
                 <Link to="category/3" className="feature" >
                     <h2 className='feature-category' >Sports & Exercise</h2>
