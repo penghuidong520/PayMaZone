@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchProduct, getProduct } from '../../store/products';
+import filledStar from '../../images/filled_star.png';
+import emptyStar from '../../images/empty_star.png';
 
 const ProductIndexItem = ({product}) => {
     // const productId = useParams();
@@ -12,6 +14,19 @@ const ProductIndexItem = ({product}) => {
     if (product) {
         [tens, decimal] = product.price.toString().split(".");
     }
+
+    // reviews
+    const reviews = product.reviews;
+    let totalRating = 0;
+    reviews.forEach(review => {
+        totalRating += review.rating;
+    })
+
+    let avgRating = 0;
+    if (reviews.length > 0) {
+        avgRating = Math.floor(totalRating / reviews.length);
+    }
+
     useEffect(()=>{
         dispatch(fetchProduct(product.id));
     }, [dispatch, product.id])
@@ -33,6 +48,15 @@ const ProductIndexItem = ({product}) => {
                         <span id="index-tens" >{tens}</span>
                         <span className="index-decimal" >{decimal}</span>
                     </div>
+                    <div className='result-product-reviews' >
+                    {[...Array(5)].map((start, idx)=>{
+                        const ratingValue = idx + 1;
+                        return (
+                            <img className="avg-stars result-stars" src={ratingValue <= avgRating ? filledStar : emptyStar} key={idx} alt="#" />
+                        )
+                    })}
+                    <span className='result-product-total-reviews' >{product.reviews.length}</span>
+                </div>
                 </div>
         )
     } else {

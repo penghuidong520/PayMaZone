@@ -16,8 +16,15 @@ ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('carts')
 ApplicationRecord.connection.reset_pk_sequence!('reviews')
 
-admin = User.create(username: 'Payton', email: 'payton@aa.io', password: 'password1')
+payton = User.create(username: 'Payton', email: 'payton@aa.io', password: 'password1')
 demo = User.create(username: 'demo', email: 'demo@aa.io', password: 'password')
+josh = User.create(username: 'josh', email: 'josh@aa.io', password: 'password')
+mary = User.create(username: 'mary', email: 'mary@aa.io', password: 'password')
+key = User.create(username: 'key', email: 'key@aa.io', password: 'password')
+marina = User.create(username: 'marina', email: 'marina@aa.io', password: 'password')
+nate = User.create(username: 'nate', email: 'nate@aa.io', password: 'password')
+jelly = User.create(username: 'jelly', email: 'jelly@aa.io', password: 'password')
+nathan = User.create(username: 'josh', email: 'josh@aa.io', password: 'password')
 
 ApplicationRecord.connection.reset_pk_sequence!('categories')
 
@@ -455,6 +462,11 @@ ark = Product.create(
 ark1 = File.open("app/assets/images/ark.jpg")
 ark.photos.attach(io: ark1, filename: "ark.jpg")
 
-# Books
+## Reviews
 
-## 1
+#nintendo
+Review.create(title: 'It is addicting', comment: 'I can even play video games when I... use your imagination', rating: 5, user_id: 1, product_id: 1, username: "Payton")
+Review.create(title: 'best console game', comment: 'very fluid gameplay and usable on TVs', rating: 5, user_id: 3, product_id: 1, username: "josh")
+Review.create(title: 'great quality', comment: "quality is too good that when I stepped on it and it broke my foot :')", rating: 3, user_id: 4, product_id: 1, username: "mary")
+
+# Dota
