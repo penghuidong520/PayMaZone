@@ -16,9 +16,12 @@ const ProductIndexItem = ({product}) => {
     }
 
     // reviews
-    const reviews = prod.reviews;
+    let reviews = [];
     let totalRating = 0;
     let avgRating = 0;
+    if (prod) {
+        reviews = prod.reviews;
+    }
     // debugger
     if (reviews) {
         reviews.forEach(review => {
