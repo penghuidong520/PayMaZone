@@ -16,16 +16,19 @@ const ProductIndexItem = ({product}) => {
     }
 
     // reviews
-    const reviews = product.reviews;
+    const reviews = prod.reviews;
     let totalRating = 0;
-    reviews.forEach(review => {
-        totalRating += review.rating;
-    })
-
     let avgRating = 0;
-    if (reviews.length > 0) {
-        avgRating = Math.floor(totalRating / reviews.length);
+    // debugger
+    if (reviews) {
+        reviews.forEach(review => {
+            totalRating += review.rating;
+        })
+        if (reviews.length > 0) {
+            avgRating = Math.floor(totalRating / reviews.length);
+        }
     }
+
 
     useEffect(()=>{
         dispatch(fetchProduct(product.id));
@@ -55,7 +58,7 @@ const ProductIndexItem = ({product}) => {
                             <img className="avg-stars result-stars" src={ratingValue <= avgRating ? filledStar : emptyStar} key={idx} alt="#" />
                         )
                     })}
-                    <span className='result-product-total-reviews' >{product.reviews.length}</span>
+                    <span className='result-product-total-reviews' >{prod.reviews.length}</span>
                 </div>
                 </div>
         )

@@ -13,6 +13,7 @@ const CategoryShow = () => {
     const products = category?.categoryProducts
     // console.log(products);
     let has_item = false;
+    // debugger
     const productList = products?.map((product)=> {
         has_item = true;
         return <ProductIndexItem key={product.id} product={product} />

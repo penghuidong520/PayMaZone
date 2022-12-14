@@ -32,7 +32,7 @@ const ReviewIndex = ({reviews, product}) => {
 
     useEffect(()=>{
         reviews.forEach(review => {
-            if (review.user_id === sessionUser.id) {
+            if (sessionUser && review.user_id === sessionUser.id) {
                 setCommented(true);
             }
         })
