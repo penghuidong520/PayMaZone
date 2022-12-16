@@ -25,6 +25,7 @@
 
 .logo {
     margin-left: 10px;
+    margin-top: 10px;
     background-color: transparent;
     width: 10vw;
     min-width: 100px;
@@ -33,8 +34,9 @@
 }
 
 #logo-img-home {
+    width: 80%;
     max-width: 8vw;
-    width: 100%;
+    min-width: 100px;
     height: auto;
 }
 
@@ -227,6 +229,7 @@
 
 .create-session {
     color: white;
+    margin: 5px 0;
     text-decoration: none;
     font-weight: 550;
     font-size: 1rem;
@@ -238,7 +241,7 @@
 
 
 .nav-logout {
-    margin: 0;
+    margin: 5px 0;
     padding: 0;
     background-color: transparent;
     border: none;

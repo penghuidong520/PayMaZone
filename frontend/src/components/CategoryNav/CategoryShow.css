@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     min-height: 77vh;
+    background-color: #e9e8e8ce;
+
 }
 
 .category-show-container {
@@ -31,8 +33,10 @@
     min-width: 250px;
     margin: 5px;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgb(25, 13, 13);
-    background-color: #f8f8f8;
+    box-shadow: 3px 2px 2px #b1b1b1ce;
+    /* border-bottom: 1px solid rgb(25, 13, 13); */
+    /* background-color: #f8f8f8; */
+    background-color: white;
 }
 
 .category-item-product-container {
@@ -74,8 +78,9 @@
 }
 
 .category-product-price {
-    margin: auto;
+    /* margin: auto; */
     /* width: 100%; */
+    margin: 5px 0;
     min-width: fit-content;
     display: flex;
 }
