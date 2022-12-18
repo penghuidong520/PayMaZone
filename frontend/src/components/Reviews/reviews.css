@@ -137,6 +137,7 @@
 
 .reviews-middle-container {
     /* margin: 0 10vw; */
+    width: 30vw;
 }
 
 .user-review-container {
@@ -192,7 +193,7 @@
 
 .review-edit {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .review-edit-action {
@@ -201,6 +202,7 @@
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 #d5d9d9;
+    margin-right: 1vh;
 }
 
 .review-edit-action:hover {
@@ -208,3 +210,6 @@
 }
 
 /* Right Container */
+.reviews-right-container {
+    /* width: 20vw; */
+}
