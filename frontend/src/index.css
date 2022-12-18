@@ -33,6 +33,9 @@ body {
 	line-height: 1;
 	font-family: "Amazon Ember",Arial,sans-serif;
 }
+html * {
+	font-family: "Amazon Ember",Arial,sans-serif;
+}
 ol, ul {
 	list-style: none;
 }

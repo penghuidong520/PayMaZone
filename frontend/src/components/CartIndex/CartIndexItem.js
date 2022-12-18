@@ -39,7 +39,7 @@ const CartIndexItem = ({cart}) => {
                     </Link>
                 </div>
                 <div className="cart-product-body">
-                    <h1>{product.name}</h1>
+                    <h1 className="cart-product-name">{product.name}</h1>
                     <div className="cart-product-body-info" >
                         <div className="cart-product-body-free">
                             <p className="order-free-stuff">FREE Shipping</p>
