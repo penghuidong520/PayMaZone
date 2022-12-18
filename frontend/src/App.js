@@ -44,6 +44,7 @@ const App = () => {
 				</Route>
 				<Route exact path="/">
 					<HomePage />
+					{ !signup && !login && <Footer />}
 				</Route>
 				<Route exact path="/products" component={ProductIndex} />
 				<Route exact path="/products/:productId" component={ProductShow} />
@@ -57,7 +58,6 @@ const App = () => {
 				<Route exact path="/search" component={SearchResult} />
 				<Route exact path="/checkout" component={Checkout}/>
 			</Switch>
-			{ !signup && !login && <Footer />}
 
 		</div>
 	);
