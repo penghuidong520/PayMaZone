@@ -66,6 +66,11 @@ const ReviewForm = () => {
         }
     }
 
+    const handleCancel = e => {
+        e.preventDefault();
+        history.goBack(1);
+    }
+
     if (product) {
     return (
         <div className="review-form-container">
@@ -149,6 +154,7 @@ const ReviewForm = () => {
                 </div>
                 
                 <div className='review-submit-container' >
+                    <button id="review-cancel-button" onClick={handleCancel}>Cancel</button>
                     <input id="review-submit-button" type="button" onClick={handleSubmit} value="Submit" />
                 </div>
             </div>
