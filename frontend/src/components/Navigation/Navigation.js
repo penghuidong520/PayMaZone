@@ -76,11 +76,11 @@ const Navigation = () => {
 
     return (
         <div className="nav">
-            <div className="logo nav-container" >
                 <Link id="logo-link" to='/' >
+            <div className="logo nav-container" >
                     <img id='logo-img-home' src={logo} alt="logo" />
-                </Link>
             </div>
+                </Link>
 
             <div className="search-bar" >                    
                     <form className="search-bar-form" onSubmit={handleSearchSubmit} >

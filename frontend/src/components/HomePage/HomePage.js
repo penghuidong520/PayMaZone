@@ -17,11 +17,11 @@ const HomePage = () => {
     return (
         <div className="carousel-container" >
             <Link to="products/4" >
-            <div className="carousel-background-carousel" >
-                {/* <HomeCarousel /> */}
-                    {/* <img className='carousel-img' src={alexa} alt="#" /> */}
-                    {/* <div className='carousel-fade'></div> */}
-            </div>
+                <div className="carousel-background-carousel" >
+                    {/* <HomeCarousel /> */}
+                        {/* <img className='carousel-img' src={alexa} alt="#" /> */}
+                        {/* <div className='carousel-fade'></div> */}
+                </div>
             </Link>
             <div className="features-container" >
                 <Link to="category/3" className="feature" >
@@ -36,18 +36,19 @@ const HomePage = () => {
                     <h2 className='feature-category' >Popular PC Games</h2>
                         <img className='feature-img' src={gaming} alt="#" />
                 </Link>
-            </div>
-            <div className='features-container-2'>
-                <Link to="category/1" className="feature row-2" >
+                <Link to="category/1" className="feature" >
                     <h2 className='feature-category' >Explore new Technologies</h2>
                     <img className='feature-img' src={vr} alt="#" />
                 </Link>
-                <Link to="category/4" className="feature row-2" >
+                <Link to="category/4" className="feature" >
                     <h2 className='feature-category' >Pet goods</h2>
                     <img className='feature-img' src={collar} alt="#" />
                 </Link>
             </div>
+            {/* <div className='features-container-2'>
+            </div> */}
         </div>
+        
     )
 }
 

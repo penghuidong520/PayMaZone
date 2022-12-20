@@ -29,6 +29,16 @@
 
 .nav-category-li {
     color: white;
+}
+
+.nav-category-link:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.nav-category-link {
+    text-decoration: none;
+    color: white;
     display: flex;
     align-items: center;
     text-align: center;
@@ -37,12 +47,6 @@
     min-width: fit-content;
 }
 
-.nav-category-li:hover {
-    border: 1px solid white;
-    border-radius: 3px;
-}
-
-.nav-category-link {
-    color: white;
-    text-decoration: none;
+@media only screen and (max-width: 600px) {
+    
 }

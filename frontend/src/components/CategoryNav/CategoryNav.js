@@ -8,11 +8,13 @@ const CategoryNav = () => {
 
     const dispatch = useDispatch();
     const categories = useSelector(getCategories);
-    const categoryList = categories.map(category => <li className="nav-category-li" key={category.id}>
+    const categoryList = categories.map(category => 
         <Link className="nav-category-link" to={`/category/${category.id}`} >
-             {category.name}
+            <li className="nav-category-li" key={category.id}>
+                {category.name}
+            </li>
         </Link> 
-    </li>)
+    )
 
     useEffect(()=>{
         dispatch(fetchCategories());
@@ -22,12 +24,12 @@ const CategoryNav = () => {
         <div className="nav-category" >
             <div className="nav-category-container">
                 <ul className="nav-category-ul">
-                    <li className="nav-category-li" >
-                        <Link className="nav-category-link" to="/products">
+                    <Link className="nav-category-link" to="/products">
+                        <li className="nav-category-li" >
                             <i className="fa-solid fa-bars fa-lg"></i>
                             <span>&nbsp; All</span>
-                        </Link>
-                    </li>
+                        </li>
+                    </Link>
                     {categoryList}
                 </ul>
             </div>
