@@ -3,7 +3,8 @@
     background: rgb(234, 234, 237);
     /* width: 90%; */
     min-width: 700px;
-    min-height: calc(77vh - 60px);
+    min-height: 77vh;
+    /* height: 77vh; */
     display: flex;
     flex-direction: column;
     /* justify-content: center; */

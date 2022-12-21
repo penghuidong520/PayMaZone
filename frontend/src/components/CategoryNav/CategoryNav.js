@@ -9,8 +9,8 @@ const CategoryNav = () => {
     const dispatch = useDispatch();
     const categories = useSelector(getCategories);
     const categoryList = categories.map(category => 
-        <Link className="nav-category-link" to={`/category/${category.id}`} >
-            <li className="nav-category-li" key={category.id}>
+        <Link className="nav-category-link" to={`/category/${category.id}`} key={category.id}>
+            <li className="nav-category-li" >
                 {category.name}
             </li>
         </Link> 
