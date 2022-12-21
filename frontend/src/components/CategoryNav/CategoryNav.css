@@ -1,7 +1,7 @@
 .nav-category {
     /* height: 40px; */
     height: 5vh;
-    min-width: 800px;
+    min-width: 300px;
     border: 1px solid transparent;
     display: block;
     background: #222f3e;
@@ -47,6 +47,8 @@
     min-width: fit-content;
 }
 
-@media only screen and (max-width: 600px) {
-    
+@media (max-width: 600px) {
+    .nav-category-ul {
+        font-size: 2vw;
+    }
 }

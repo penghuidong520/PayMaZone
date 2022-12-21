@@ -108,7 +108,7 @@ const Navigation = () => {
                             
                         </div>
                         <button id="search-submit" type="submit" value=""> 
-                            <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+                            <i className="fa-solid fa-magnifying-glass mag-glass-icon"></i>
                         </button>
                     </form>
             </div>

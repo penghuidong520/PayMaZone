@@ -171,6 +171,11 @@
     border-radius: 0 5px 5px 0;
     border: none;  
     cursor: pointer;
+    padding: 0;
+}
+
+.mag-glass-icon {
+    font-size: 1.5rem;
 }
 
 .search-bar-component {
@@ -278,6 +283,9 @@
 }
 
 @media (max-width: 600px) {
+    .mag-glass-icon {
+        font-size: 5vw;
+    }
     #search-dropdown-span {
         font-size: 2vw;
     }
