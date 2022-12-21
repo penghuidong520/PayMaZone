@@ -222,7 +222,7 @@
 #welcome {
     color: white;
     /* text-align: center; */
-    font-size: 1vw;
+    /* font-size: 1vw; */
     margin: 0 auto;
 }
 
@@ -238,7 +238,7 @@
     margin: 5px 0;
     text-decoration: none;
     font-weight: 550;
-    font-size: 1vw;
+    /* font-size: 1vw; */
 }
 
 .create-session:hover, .nav-logout:hover {
@@ -306,6 +306,11 @@
     #search-dropdown-span {
         font-size: 2vw;
     }
+
+    .user-session {
+        font-size: 1vw;
+    }
+
     #cart-items {
         margin-left: 2px;
         font-size: 2vw;
