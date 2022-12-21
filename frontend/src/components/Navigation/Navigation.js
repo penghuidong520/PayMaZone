@@ -76,11 +76,11 @@ const Navigation = () => {
 
     return (
         <div className="nav">
-                <Link id="logo-link" to='/' >
-            <div className="logo nav-container" >
-                    <img id='logo-img-home' src={logo} alt="logo" />
-            </div>
-                </Link>
+            <Link id="logo-link" to='/' >
+                <div className="logo nav-container" >
+                        <img id='logo-img-home' src={logo} alt="logo" />
+                </div>
+            </Link>
 
             <div className="search-bar" >                    
                     <form className="search-bar-form" onSubmit={handleSearchSubmit} >
@@ -126,15 +126,8 @@ const Navigation = () => {
                     </div>
                 </div>
 
-                {/* <Link className="nav-user-orders nav-container" to="#">
-                    <div className="user-nav-container" >
-                        <span id="nav-returns" >Returns</span>
-                        <span id="nav-orders" > {'&'} Orders </span>
-                    </div>
-                </Link> */}
-
                 <Link className="nav-user-cart nav-container" to="/carts">
-                    <i className="fa-solid fa-cart-shopping fa-xl"></i>
+                    <i className="fa-solid fa-cart-shopping cart-icon"></i>
                     <span id="cart-items">{productsCount}</span>
                 </Link>
             </div>

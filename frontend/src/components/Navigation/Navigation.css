@@ -3,7 +3,7 @@
     /* height: 60px; */
     height: 8vh;
     /* width: 100%; */
-    min-width: 800px;
+    min-width: 320px;
     display: flex;
     align-items: center;
 }
@@ -28,7 +28,7 @@
     margin-top: 10px;
     background-color: transparent;
     width: 10vw;
-    min-width: 100px;
+    min-width: 30px;
     text-align: center;
     /* position: static; */
 }
@@ -36,14 +36,14 @@
 #logo-img-home {
     width: 80%;
     max-width: 8vw;
-    min-width: 100px;
+    min-width: 30px;
     height: auto;
 }
 
 .search-bar {
     background-color: transparent;
     width: 70vw;    
-    min-width: 300px;
+    min-width: 210px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -76,7 +76,7 @@
     position: relative;
     border-right: 1px solid #cdcdcd;
     border-radius: 5px 0px 0px 5px;
-    width: 5vh;
+    width: 30px;
     background-color: #f3f3f3;
     height: 5vh;
     cursor: pointer;
@@ -96,7 +96,7 @@
 }
 
 #search-input {
-    min-width: 200px;
+    /* min-width: 200px; */
     width: 100%;
     height: 100%;
     border: none;
@@ -109,8 +109,8 @@
 }
 
 .search-input-container {
-    min-width: 200px;
-    width: 100%;
+    /* min-width: 200px; */
+    width: calc(100% - 30px);
     height: 5vh;
     border: none;
     position: relative;
@@ -167,7 +167,7 @@
     height: 5vh;
     color: rgb(49, 49, 49);
     background-color: #febd69;
-    width: 5vh;
+    width: 40px;
     border-radius: 0 5px 5px 0;
     border: none;  
     cursor: pointer;
@@ -182,7 +182,7 @@
 
 .user-nav {
     width: 20vw;
-    min-width: 200px;
+    min-width: 60px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -192,8 +192,8 @@
 
 .user-session {
     /* width: 100px; */
-    min-width: 120px;
-    font-size: 14px;
+    min-width: 30px;
+    font-size: calc(1rem - 2px);
     background-color: transparent;
     
 }
@@ -216,7 +216,7 @@
 #welcome {
     color: white;
     /* text-align: center; */
-    font-size: calc(1rem - 2px);
+    font-size: 1vw;
     margin: 0 auto;
 }
 
@@ -232,7 +232,7 @@
     margin: 5px 0;
     text-decoration: none;
     font-weight: 550;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 
 .create-session:hover, .nav-logout:hover {
@@ -252,29 +252,6 @@
     cursor: pointer;
 }
 
-.nav-user-orders {
-    color: white;
-    text-decoration: none;
-    align-items: center;
-    width: 80px;
-    min-width: 80px;
-    /* Align to left for returns  &orders text */
-}
-
-.nav-user-orders:hover {
-    border: 1px solid white;
-    border-radius: 3px;
-}
-
-#nav-returns {
-    font-size: 11px;
-}
-
-#nav-orders {
-    font-size: 14px;
-    font-weight: 550;
-}
-
 .nav-user-cart {
     display: flex;
     width: 60px;
@@ -285,7 +262,7 @@
 }
 
 #cart-items {
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-left: 10px;
     color: #febd69;
     font-weight: 550;
@@ -294,4 +271,18 @@
 .nav-user-cart:hover {
     border: 1px solid white;
     border-radius: 3px;
+}
+
+.cart-icon {
+    font-size: 2vw;
+}
+
+@media (max-width: 600px) {
+    #search-dropdown-span {
+        font-size: 2vw;
+    }
+    #cart-items {
+        margin-left: 2px;
+        font-size: 2vw;
+    }
 }
