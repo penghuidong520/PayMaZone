@@ -76,9 +76,9 @@ const ReviewIndex = ({reviews, product}) => {
             }
         </div>
 
-        <div className="reviews-right-container">
+        {/* <div className="reviews-right-container">
             
-        </div>
+        </div> */}
     </div>
     )
 }
