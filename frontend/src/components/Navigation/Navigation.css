@@ -283,6 +283,22 @@
 }
 
 @media (max-width: 600px) {
+    .nav {
+        height: 5vh;
+    }
+
+    #search-dropdown {
+        height: 70%;
+    }
+
+    .search-input-container {
+        height: 70%;
+    }
+
+    #search-submit {
+        height: 70%;
+    }
+
     .mag-glass-icon {
         font-size: 5vw;
     }
