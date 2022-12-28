@@ -9,7 +9,7 @@
     padding-top: 30px;
     padding-bottom: 30px;
     
-    justify-content: center;
+    justify-content: space-evenly;
     /* border: 1px solid lightgray; */
     min-width: fit-content;
     flex-wrap: wrap;
