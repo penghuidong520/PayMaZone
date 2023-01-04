@@ -5,7 +5,10 @@ import basketball from '../../images/basketball1.jpg';
 import sanitizing from '../../images/sanitizer.jpg';
 import gaming from '../../images/dota.jpg';
 import vr from '../../images/vr.jpg';
-import collar from '../../images/pet_collar.jpg'
+import collar from '../../images/pet_collar.jpg';
+import nintendo from '../../images/nintendo1.jpeg';
+import dota2 from '../../images/dota2.jpg';
+import hoverboard from '../../images/hoverboard.jpg';
 
 import Carousel from 'react-bootstrap/Carousel';
 import HomeCarousel from './HomeCarousel';
@@ -95,17 +98,30 @@ const HomePage = () => {
                     <h2 className='feature-category' >Explore new Technologies</h2>
                     <img className='feature-img' src={vr} alt="#" />
                 </Link>
+                <div id="feature-divider" />
                 <Link to="category/4" className="feature" >
                     <h2 className='feature-category' >Pet goods</h2>
                     <img className='feature-img' src={collar} alt="#" />
                 </Link>
-            </div>
+                <Link to="products/1" className="feature" >
+                    <h2 className='feature-category' >Most Reviewed</h2>
+                    <img className='feature-img' src={nintendo} alt="#" />
+                </Link>
+                <Link to="products/31" className="feature" >
+                    <h2 className='feature-category' >Featured in Games</h2>
+                    <img className='feature-img' src={dota2} alt="#" />
+                </Link>
+                <Link to="products/21" className="feature" >
+                    <h2 className='feature-category' >People Also Like</h2>
+                    <img className='feature-img' src={hoverboard} alt="#" />
+                </Link>
             {recommendProducts && <div className='recommend-list-container'>
                 <span id="recommendations">Recommendations</span>
                 <div className='recommend-list-inner' >
                     {recommendList}
                 </div>
             </div>}
+            </div>
         </div>
         
     )

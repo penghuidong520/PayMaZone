@@ -11,7 +11,7 @@
 
 .carousel-background-carousel {
     min-width: 320px;
-    width: 90vw;
+    width: 87vw;
     height: 0;
     margin: 0 auto;
     padding-top: 40%;
@@ -28,40 +28,40 @@
 
 .features-container {
     position: relative;
-    /* min-width: 600px; */
     width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 7%;
     margin-top: -20%;
 }
 
 .feature {
     text-decoration: none;
-    width: 20%;
+    width: 21%;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
     border-radius: 8px;
     background-color: white;
-    padding:0 5px;
+    /* padding:0 5px; */
     margin-bottom: 10px;
-    transition: transform 1s;
+    /* transition: transform 1s; */
 }
-
+/* 
 .feature:hover {
     transform: scale(1.05);
-}
+} */
 
 
 
 .feature-category {
     color: black;
     font-weight: 550;
-    font-size: 22px;
+    font-size: 21px;
     width: 100%;
     min-height: fit-content;
+    margin-top: 10px;
+    padding-left: 10px;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -78,10 +78,17 @@
     max-height: 90%;
 }
 
+#feature-divider {
+    margin-top: 2vh;
+    width: 100%;
+    height: 1px;
+    /* position: relative; */
+}
+
 /*  */
 
 .recommend-list-container {
-    width: 90%;
+    width: 91.5%;
     margin-top: 2vh;
     padding: 2vh 1vw;
     border: 1px solid lightgray;
@@ -92,7 +99,7 @@
 
 #recommendations {
     font-weight: 550;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .recommend-list-inner {
@@ -111,10 +118,15 @@
     justify-content: center;
 
 }
-
-
+/* 
+position: relative;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: -20%; */
 @media (max-width: 600px) {
-    .features-container {
+    /* .features-container {
         all: initial;
         width: 90%;
         display: flex;
@@ -122,12 +134,12 @@
         justify-content: space-evenly;
         margin-top: -20%;
 
-    }
+    } */
     .feature {
         /* all: initial; */
         /* flex: 1 1 27%; */
         margin: 5px;
-        width: 26%;
+        width: 20%;
     }
     .feature-category {
         /* all: initial; */
