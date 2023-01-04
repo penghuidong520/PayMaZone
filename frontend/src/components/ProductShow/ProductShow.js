@@ -118,6 +118,32 @@ const ProductShow = () => {
                                     {/* <button id="buy-now" className="product-action" >Buy Now</button> */}
                                 </div>
 
+                                <div className="product-section">
+                                    
+                                    <i className="fa-solid fa-lock fa-sm"></i>
+                                    <span id="product-order-hover" className="product-transaction">Secure transaction</span>
+                                </div>
+
+                                <div className="product-delivery">
+                                    <div className="product-delivery-span">
+                                        <span className="product-from">Ships from</span>
+                                        <span className="product-source">Paymazone.com</span>
+                                    </div>
+                                    <div className="product-delivery-span">
+                                        <span className="product-from">Sold by</span>
+                                        <span className="product-source">Paymazone.com</span>
+                                    </div>
+                                </div>
+
+                                <div className="product-return-container">
+                                    <span className="product-return">Return policy: &nbsp;</span>
+                                    <span id="product-order-hover" className="product-return-policy">Elgible for Return, Refund or Replacement within 30 days of receipt</span>
+                                </div>
+                                <div className="product-return-container">
+                                    <span className="product-return">Support: &nbsp;</span>
+                                    <span id="product-order-hover" className="product-return-policy">Free Paymazone product support included</span>
+                                </div>
+
                             </div>
                         </div>
                     </div>

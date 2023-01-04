@@ -59,10 +59,10 @@ const Navigation = () => {
     }
 
     const handleChangeInput = e => {
+        e.preventDefault();
         setSearchTerm(e.target.value)
-        if (e.target.value !== '') {
-            dispatch(fetchSearches(e.target.value));
-        }
+        console.log(e.target.value === '');
+        dispatch(fetchSearches(e.target.value));
     }
 
     const handleInputBlur = e => {
